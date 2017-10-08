@@ -8,7 +8,7 @@ namespace PracticeConsole
 {
     class Else_If
     {
-        static void Main(string[] args)
+        static void Main67(string[] args)
         {
             int value = 99;
             if (value == 5)

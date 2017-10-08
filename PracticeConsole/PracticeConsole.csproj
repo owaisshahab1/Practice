@@ -51,7 +51,6 @@
     <Compile Include="BaseClase.cs" />
     <Compile Include="BubbleSort.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
     <Compile Include="Delegate_Uses.cs" />
     <Compile Include="Else_If.cs" />
     <Compile Include="OOP_Fundamentals.cs" />

@@ -14,20 +14,20 @@ namespace PracticeConsole
 
     static class Home { }
 
-  public  class A
-    {
+  public class A
+    {      
         #region
         #endregion
 
         #region Fields
-        public static string public_Static_Str_A = "";
-        public string public_Str_A = "";
+        public static string public_Static_Str_A = "public_Static_Str_A";
+        public string public_Str_A = "public_Str_A";
 
-        protected static string protected_Static_Str_A = "";
-        protected string protected_Str_A = "";
+        protected static string protected_Static_Str_A = "protected_Static_Str_A";
+        protected string protected_Str_A = "protected_Str_A";
         
-        private static string private_Static_Str_A = "";
-        private string private_Str_A = "";
+        private static string private_Static_Str_A = "private_Static_Str_A";
+        private string private_Str_A = "private_Str_A ";
         #endregion
 
         #region Properties
@@ -105,8 +105,10 @@ namespace PracticeConsole
         #endregion
 
         #region Constructor
-        static A()
-        { Console.WriteLine("Static Constructor A"); }
+
+        // Static Constructor calls only one time when object Creation 
+        //static A()
+        //{ Console.WriteLine("Static Constructor A"); }
         public A()
         { Console.WriteLine("Public Constructor A"); }
         protected A(string str)        // can not create constructor with same parameter
@@ -129,6 +131,21 @@ namespace PracticeConsole
         protected void protected_functionA() { }
         private void private_functionA() { }
 
+
+        #region Override Methods
+
+        public virtual void public_ClassName()
+        {
+            Console.WriteLine("public_ClassName_A()");
+        }
+
+        /* // Abstract Method
+        // Partial / Abstract / Extern keywords use for only declare method and not define it's body 
+        // Abstract method has only declaration and not implementation in abstract class
+
+        // public abstract void public_ClassName_A();
+        */
+
         #endregion
 
         static void Main6(string[] args)
@@ -137,19 +154,19 @@ namespace PracticeConsole
         }
 
     }
-
+    #endregion
 
     public class B : A
     {
         #region Fields
-        public static string public_Static_Str_B = "";
-        public string public_Str_B = "";
+        public static string public_Static_Str_B = "public_Static_Str_B";
+        public string public_Str_B = "public_Str_B";
 
-        protected static string protected_Static_Str_B = "";
-        protected string protected_Str_B = "";
+        protected static string protected_Static_Str_B = "protected_Static_Str_B";
+        protected string protected_Str_B = "protected_Str_B";
 
-        private static string private_Static_Str_B = "";
-        private string private_Str_B = "";
+        private static string private_Static_Str_B = "private_Static_Str_B";
+        private string private_Str_B = "private_Str_B";
         #endregion
 
         #region Properties
@@ -228,11 +245,11 @@ namespace PracticeConsole
 
         #region Constructor
 
-        static B()
-        { Console.WriteLine("Static Constructor B"); }
+        //static B()
+        //{ Console.WriteLine("Static Constructor B"); }
 
         public B()
-        { Console.WriteLine("Public Constructor B");  }
+        { Console.WriteLine("Public Constructor B"); }
 
         protected B(string str)     
         { Console.WriteLine("Protected Constructor B"); }
@@ -252,6 +269,15 @@ namespace PracticeConsole
         protected void protected_functionB() { }
         private void private_functionB() { }
 
+        #region Override Methods
+
+        public override void public_ClassName()
+        {
+            Console.WriteLine("public_ClassName_B()");
+        }
+
+        #endregion
+
         #endregion
 
     }
@@ -260,14 +286,14 @@ namespace PracticeConsole
     {
         #region Fields
 
-        public static string public_Static_Str_C = "";
-        public string public_Str_C = "";
+        public static string public_Static_Str_C = "public_Static_Str_C";
+        public string public_Str_C = "public_Str_C";
 
-        protected static string protected_Static_Str_C = "";
-        protected string protected_Str_C = "";
+        protected static string protected_Static_Str_C = "protected_Static_Str_C";
+        protected string protected_Str_C = "protected_Str_C";
 
-        private static string private_Static_Str_C = "";
-        private string private_Str_C = "";
+        private static string private_Static_Str_C = "private_Static_Str_C";
+        private string private_Str_C = "private_Str_C";
         
         #endregion
 
@@ -348,8 +374,8 @@ namespace PracticeConsole
 
         #region Constructor
 
-        static C()
-        { Console.WriteLine("Static Constructor C"); }
+        //static C()
+        //{ Console.WriteLine("Static Constructor C"); }
 
         public C()
         { Console.WriteLine("Public Constructor C"); }
@@ -375,6 +401,15 @@ namespace PracticeConsole
         protected void protected_functionC() { }
         private void private_functionC() { }
 
+        #region Override Methods
+
+        public override void public_ClassName()
+        {
+            Console.WriteLine("public_ClassName_C()");
+        }
+
+        #endregion
+
         #endregion
 
         static void Main2(string[] args)
@@ -396,20 +431,20 @@ namespace PracticeConsole
 
     }
 
-    public class D 
+    public class D : C
     {
         #region Fields
 
         private C myVar;
 
-        public static string public_Static_Str_D = "";
-        public string public_Str_D = "";
+        public static string public_Static_Str_D = "public_Static_Str_D";
+        public string public_Str_D = "public_Str_D";
+        
+        protected static string protected_Static_Str_D = "protected_Static_Str_D";
+        protected string protected_Str_D = "protected_Str_D";
 
-        protected static string protected_Static_Str_D = "";
-        protected string protected_Str_D = "";
-
-        private static string private_Static_Str_D = "";
-        private string private_Str_D = "";
+        private static string private_Static_Str_D = "private_Static_Str_D";
+        private string private_Str_D = "private_Str_D";
         #endregion
 
         #region Properties
@@ -495,13 +530,13 @@ namespace PracticeConsole
 
         #region Constructor
 
-        static D()
-        { Console.WriteLine("Static Constructor D"); }
+        //static D()
+        //{ Console.WriteLine("Static Constructor D"); }
 
         public D()
         {
             Console.WriteLine("Public Constructor D");
-            myVar = new C();
+            //myVar = new C();
         }
 
         protected D(string str)
@@ -531,16 +566,27 @@ namespace PracticeConsole
         protected void protected_functionD() { }
         private void private_functionD() { }
 
+        #region Override Methods
+
+        public override void public_ClassName()
+        {
+            Console.WriteLine("public_ClassName_D()");
+        }
+
         #endregion
 
-        static void Main1(string[] args)
+        #endregion
+
+        static void Main(string[] args)
         {
-            D dd = new D();
 
-            dd.public_functionD();
+          //  dd = new D(7);
 
-           
-            
+
+            //dd.public_functionD();
+
+            //dd.public_ClassName();
+            Console.ReadLine();
             
 
             
