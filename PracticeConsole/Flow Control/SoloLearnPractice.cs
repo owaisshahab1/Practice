@@ -10,18 +10,51 @@ namespace PracticeConsole.Flow_Control
     class SoloLearnPractice
     {
 
-        struct Struct
-        {
-            public int x;
-        }
-        static void Main2 ()
-        {
-            Struct s1 = new Struct ();
-            Struct s2 = s1;
-            s2.x = 20;
-            Console.WriteLine (s1.x + s2.x);
-            Console.ReadLine ();
-        }
+        //static void Main(string[] args)
+        //{
+        //    float a = 2.4f;
+        //    float b = 7.4f;
+        //    float function = (a * b) / a;
+        //    b = function;
+        //    if (a <= b)
+        //    {
+        //        Console.Write("Value: {0}",function);
+        //    }
+        //    else
+        //    {
+        //        Console.Write("Value : {0}",b);
+        //    }
+        //    Console.ReadLine();
+        //}
+
+
+        //static int Func( ref int x)
+        //{
+        //    x += 4;
+        //    return x + 2;
+        //}
+
+        //static void Main()
+        //{
+        //    int x = 3;
+        //    int y = Func(ref x);
+        //    Console.Write(x);
+        //    Console.ReadLine();
+        //}
+
+
+        //struct Struct
+        //{
+        //    public int x;
+        //}
+        //static void Main2 ()
+        //{
+        //    Struct s1 = new Struct ();
+        //    Struct s2 = s1;
+        //    s2.x = 20;
+        //    Console.WriteLine (s1.x + s2.x);
+        //    Console.ReadLine ();
+        //}
 
 
 

@@ -53,6 +53,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Delegate_Uses.cs" />
     <Compile Include="Else_If.cs" />
+    <Compile Include="InterfaceA.cs" />
     <Compile Include="OOP_Fundamentals.cs" />
     <Compile Include="DataStructure_SoloLearn.cs" />
     <Compile Include="Flow Control\Typeof_GetType_Is.cs" />

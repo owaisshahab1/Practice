@@ -10,6 +10,21 @@ namespace PracticeConsole.OOP_Concepts
     {
 
 
+
+
+
+        //static void Mainqw(string[] args)
+        //{
+        //    string str = "owais,shahab,khan";
+        //    string[] str1 = str.Split(',');
+        //    foreach (string item in str1)
+        //    {
+        //        Console.WriteLine(item);
+        //    }
+        //    Console.ReadLine();
+        //}
+
+
         //class Animal {
         //    public int Legs { get; set; }
         //    public Animal() { Legs = 4; }
