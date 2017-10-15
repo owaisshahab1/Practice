@@ -12,6 +12,70 @@ namespace PracticeConsole.Flow_Control
 
         //static void Main(string[] args)
         //{
+        //    int[] a = { 5, 6, 10 };
+        //    int n = a.Max() + a.Sum() % 10;
+        //    Console.WriteLine(n);
+        //    Console.ReadLine();
+        //}
+
+
+        //static void Main(string[] args)
+        //{
+        //    int[] a = { 1, 0, 5, 2, 8 };
+        //    int b = 8;
+        //    bool k = true;
+        //    foreach (int t in a)
+        //    {
+        //        k = k && t<b;
+        //    }
+        //    Console.WriteLine(k);
+        //    Console.ReadLine();
+        //}
+
+
+
+        //static void Main(string[] args)
+        //{
+        //    var x = 2 / 0.0;
+        //    Console.WriteLine(x);
+        //    Console.ReadLine();
+        //}
+
+
+
+        //static void Main45(string[] args)
+        //{
+        //    string s = "";
+        //    char[] arr = new char[] { 'x', 'y', 'z', 'e', 'd' };
+        //    foreach (char c in arr)
+        //    {
+        //        if (c <= 'x')
+        //        {
+        //            s += c;
+        //        }
+        //    }
+        //    Console.WriteLine(s);
+        //    Console.ReadLine();
+        //}
+
+
+
+        //static void Main(string[] args)
+        //{
+        //    string str = "0123456";
+        //    Console.WriteLine(str.Substring(3));
+        //    Console.ReadLine();
+        //}
+
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine(Math.Round(Math.PI,1));
+        //    Console.ReadLine();
+        //}
+
+
+        //static void Main(string[] args)
+        //{
         //    float a = 2.4f;
         //    float b = 7.4f;
         //    float function = (a * b) / a;
@@ -981,21 +1045,17 @@ namespace PracticeConsole.Flow_Control
 
         //class Data<T>
         //{
-        //    public Data (T data)
+        //    public Data(T data)
         //    {
-        //        return  data = data;
+        //       this.data = data;
         //    }
         //    T data;
         //}
 
-
-        //        class dataplus<T>:Data<T>
-        //    {
-        //    public dataplus(T data) : base (data)
-        //    {
-
-        //    }
-        //    }
+        //class dataplus<T> : Data<T>
+        //{
+        //    public dataplus(T data) : base(data) { }
+        //}
 
 
 
@@ -1330,15 +1390,10 @@ namespace PracticeConsole.Flow_Control
         //}
 
 
-
-
-
-
-
         // very spagatic code -- difficult to understand for the first time     
         //static void Print(string s)
         //{
-        //    if(s.Length <= 1)
+        //    if (s.Length <= 1)
         //    {
         //        Console.Write(s);
         //    }
@@ -1503,8 +1558,8 @@ namespace PracticeConsole.Flow_Control
         //    Concat("n");
         //    Concat("f");
         //    Console.Write(str);
-        //    Console.ReadKey();    
-        //}
+        //    Console.ReadKey();
+        //    }
 
 
 

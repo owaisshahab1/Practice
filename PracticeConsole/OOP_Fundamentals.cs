@@ -577,8 +577,9 @@ namespace PracticeConsole
 
         #endregion
 
-        static void Main(string[] args)
+        static void Main123(string[] args)
         {
+
 
           //  dd = new D(7);
 
