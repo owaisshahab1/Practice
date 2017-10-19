@@ -19,7 +19,7 @@ namespace PracticeConsole
             amount = Convert.ToInt32 (Console.ReadLine ());
 
             for (i = 0; i < amount; i++)
-                Console.Write (num);
+            Console.Write (num);
             Console.WriteLine ();
             Console.WriteLine ();
             Console.WriteLine ();

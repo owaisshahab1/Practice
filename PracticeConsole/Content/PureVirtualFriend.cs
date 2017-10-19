@@ -9,7 +9,7 @@ namespace PracticeConsole
     class PureVirtualFriend
     {
         
-        // we use abstract method in C#
+        // we use virtual method in C#
 
         // pure virtual function use in C++
     }

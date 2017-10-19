@@ -38,7 +38,7 @@ namespace PracticeConsole
             public void DrivedFunction ()
             { }
         }
-        static void MainMethod (string[] args)
+        static void Main101 (string[] args)
         {
 
             //Use Base class reference

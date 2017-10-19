@@ -9,8 +9,9 @@ namespace PracticeConsole.Flow_Control
     class IndexerExample
     {
            
-      private string[] namelist = new string[size];
+     
         static public int size = 10;
+        private string[] namelist = new string[size];
         public IndexerExample () // constructor
         {
             for (int i = 0; i < size; i++)

@@ -19,345 +19,338 @@ namespace PracticeConsole.Flow_Control
         //}
 
 
-        //static void Main(string[] args)
+        static void Main1 (string[] args)
+        {
+            int[] a = { 1, 0, 5, 2, 8 };
+            int b = 8;
+            bool k = true;
+            foreach (int t in a)
+            {
+                k = k && t < b;
+            }
+            Console.WriteLine (k);
+            Console.ReadLine ();
+        }
+
+
+
+        static void Main2 (string[] args)
+        {
+            var x = 2 / 0.0;
+            Console.WriteLine (x);
+            Console.ReadLine ();
+        }
+
+
+
+        static void Main3 (string[] args)
+        {
+            string s = "";
+            char[] arr = new char[] { 'x', 'y', 'z', 'e', 'd' };
+            foreach (char c in arr)
+            {
+                if (c <= 'x')
+                {
+                    s += c;
+                }
+            }
+            Console.WriteLine (s);
+            Console.ReadLine ();
+        }
+
+
+
+        static void Main4 (string[] args)
+        {
+            string str = "0123456";
+            Console.WriteLine (str.Substring (3));
+            Console.ReadLine ();
+        }
+
+        static void Main6 (string[] args)
+        {
+            Console.WriteLine (Math.Round (Math.PI, 1));
+            Console.ReadLine ();
+        }
+
+
+        static void Main7 (string[] args)
+        {
+            float a = 2.4f;
+            float b = 7.4f;
+            float function = (a * b) / a;
+            b = function;
+            if (a <= b)
+            {
+                Console.Write ("Value: {0}", function);
+            }
+            else
+            {
+                Console.Write ("Value : {0}", b);
+            }
+            Console.ReadLine ();
+        }
+
+
+        static int Func (ref int x)
+        {
+            x += 4;
+            return x + 2;
+        }
+
+        static void Main8 ()
+        {
+            int x = 3;
+            int y = Func (ref x);
+            Console.Write (x);
+            Console.ReadLine ();
+        }
+
+
+        struct Struct
+        {
+            public int x;
+        }
+        static void Main9 ()
+        {
+            Struct s1 = new Struct ();
+            Struct s2 = s1;
+            s2.x = 20;
+            Console.WriteLine (s1.x + s2.x);
+            Console.ReadLine ();
+        }
+
+
+
+
+        static void Main10 ()
+        {
+            int x = 1;
+            int[,] m = new[,]
+            {
+                {2,1,3 },
+                {2,5,4 },
+                {4,3,5 }
+            };
+
+            for (int i = 0; i <= 2; i++)
+            {
+                x *= m[i, 2 - i];
+
+            }
+            Console.WriteLine (x);
+            Console.ReadLine ();
+        }
+
+
+        static void Main11 ()
+        {
+            int x = 1;
+            int[] arr = { 9, 4, 5 };
+            foreach (int i in arr)
+            {
+                if (i % 2 == 0)
+                {
+                    x /= i;
+                }
+                else
+                {
+                    x *= i;
+
+                }
+            };
+            Console.WriteLine (x);
+            Console.ReadLine ();
+        }
+
+        static void Main12 (string[] args)
+        {
+            int a = 12;
+            string b = "12";
+            if (a != Int32.Parse (b))
+            {
+                Console.WriteLine (b);
+            }
+            else
+            {
+                Console.WriteLine ((a % (a - 6)) + 1);
+            }
+            Console.ReadKey ();
+        }
+
+        public static double x = 3;
+        public void Func (double d)
+        {
+            x *= d;
+
+        }
+        public static void Func (float f)
+        {
+            x += f;
+
+        }
+    static void Main13 (string[] args)
+    {
+        SoloLearnPractice.Func (1);
+        SoloLearnPractice o = new SoloLearnPractice ();
+        o.Func (2.0);
+        Console.Write (SoloLearnPractice.x);
+        Console.ReadLine ();
+    }
+
+        static void Main14 (string[] args)
+        {
+            int n;
+            string str = "2017";
+            n = Convert.ToInt32 (Console.ReadLine ());
+            Console.Write ("The result is " + n);
+            Console.ReadLine ();
+        }
+        static void Main15 (string[] args)
+        {
+            string one = "sololearn";
+            string two = one;
+            string three = one.Remove (2);
+            string four = two.Substring (4);
+            Console.Write (three + four);
+            Console.ReadLine ();
+        }
+
+        static void Main16 (string[] args)
+        {
+            Exception ex = new Exception ();
+            try {  }
+            catch { Console.Write ("42"); }
+        }
+
+        static List<int> list;
+        public void Add (int num)
+        {
+            list = new List<int> ();
+            list.Add (num);
+
+        }
+
+        public void DisplaySum ()
+        {
+            Console.Write (list.Sum ());
+        }
+        static void Main17 (string[] args)
+        {
+            SoloLearnPractice s = new SoloLearnPractice ();
+            //list = new List<int>();
+            s.Add (3);
+            s.Add (2);
+            s.Add (3);
+            s.DisplaySum ();
+            Console.ReadLine ();
+        }
+
+        static void Main18 (string[] args)
+        {
+            double d = 4.49 * 2;
+            double c = Math.Ceiling (d);
+            double r = Math.Round (d);
+            double f = Math.Floor (d);
+            Console.WriteLine (c + r + f);
+            Console.ReadLine ();
+        }
+
+        static void Main19 (string[] args)
+        {
+            int x = 5;
+            int y = 2;
+            int z = x % y;
+            y = z / x;
+            Console.WriteLine (y);
+            Console.ReadLine ();
+        }
+
+
+
+
+
+
+
+
+        static void Main20 (string[] args)
+        {
+            int myVariable = 0;
+            if (myVariable > 0)
+            {
+                Console.Write (8);
+            }
+            else if (myVariable < 0)
+            {
+                Console.Write (6);
+            }
+            else
+            {
+                Console.WriteLine (2);
+            }
+            Console.ReadLine ();
+        }
+
+        static void Main21 (string[] args)
+        {
+            var a = 2;
+            var b = "1";
+            var c = 0;
+            var d = int.Parse (a + b + c) / 21;
+            Console.Write (d);
+            Console.ReadLine ();
+        }
+
+        static int i = 5;
+        static void Func (int i)
+        { i = 10; }
+        static void Main22 (string[] args)
+        {
+            Console.Write (i);
+            Console.ReadLine ();
+
+        }
+
+        static void Main24 (string[] args)
+        {
+            int a = b++;
+            int b = 4;
+            Console.WriteLine (a);
+            Console.ReadLine ();
+        }
+
+        static void Main25 (string[] args)
+        {
+            var a = 5;
+            int b = 7;
+            var c = "38";
+            var d = int.Parse ("42");
+        }
+
+        static void Main26 (string[] args)
+        {
+            Console.Write ("0" + "0");
+            Console.ReadLine ();
+        }
+
+        static void Main27 (string[] args)
+        {
+            Console.WriteLine (" \"test\" ");
+            Console.ReadLine ();
+        }
+
+        //STATIC VOID MAIN(STRING[] ARGS)
         //{
-        //    int[] a = { 1, 0, 5, 2, 8 };
-        //    int b = 8;
-        //    bool k = true;
-        //    foreach (int t in a)
+        //    INT I;
+        //    FOR (I = 0; I <= 5; I++)
         //    {
-        //        k = k && t<b;
-        //    }
-        //    Console.WriteLine(k);
-        //    Console.ReadLine();
-        //}
-
-
-
-        //static void Main(string[] args)
-        //{
-        //    var x = 2 / 0.0;
-        //    Console.WriteLine(x);
-        //    Console.ReadLine();
-        //}
-
-
-
-        //static void Main45(string[] args)
-        //{
-        //    string s = "";
-        //    char[] arr = new char[] { 'x', 'y', 'z', 'e', 'd' };
-        //    foreach (char c in arr)
-        //    {
-        //        if (c <= 'x')
+        //        IF (I == 4)
         //        {
-        //            s += c;
+        //            BREAK;
         //        }
         //    }
-        //    Console.WriteLine(s);
-        //    Console.ReadLine();
-        //}
-
-
-
-        //static void Main(string[] args)
-        //{
-        //    string str = "0123456";
-        //    Console.WriteLine(str.Substring(3));
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine(Math.Round(Math.PI,1));
-        //    Console.ReadLine();
-        //}
-
-
-        //static void Main(string[] args)
-        //{
-        //    float a = 2.4f;
-        //    float b = 7.4f;
-        //    float function = (a * b) / a;
-        //    b = function;
-        //    if (a <= b)
-        //    {
-        //        Console.Write("Value: {0}",function);
-        //    }
-        //    else
-        //    {
-        //        Console.Write("Value : {0}",b);
-        //    }
-        //    Console.ReadLine();
-        //}
-
-
-        //static int Func( ref int x)
-        //{
-        //    x += 4;
-        //    return x + 2;
-        //}
-
-        //static void Main()
-        //{
-        //    int x = 3;
-        //    int y = Func(ref x);
-        //    Console.Write(x);
-        //    Console.ReadLine();
-        //}
-
-
-        //struct Struct
-        //{
-        //    public int x;
-        //}
-        //static void Main2 ()
-        //{
-        //    Struct s1 = new Struct ();
-        //    Struct s2 = s1;
-        //    s2.x = 20;
-        //    Console.WriteLine (s1.x + s2.x);
-        //    Console.ReadLine ();
-        //}
-
-
-
-
-        //    static void Main ()
-        //    {
-
-
-        //        int x = 1;
-        //        int[,] m = new[,]
-        //        {
-        //        {2,1,3 },
-        //        {2,5,4 },
-        //        {4,3,5 }
-        //    };
-
-        //        for (int i = 0; i <= 2; i++)
-        //        {
-        //            x *= m[i, 2 - i];
-
-        //        }
-
-        //Console.WriteLine(x);
-        //        Console.ReadLine();
-        //    }
-
-
-        //static void Main()
-        //{
-
-        //    int x = 1;
-        //    int[] arr = { 9, 4, 5 };
-        //    foreach (int i in arr)
-        //    {
-        //        if (i % 2 == 0)
-        //        {
-        //            x /= i;
-        //        }
-        //        else
-        //        {
-        //            x *= i;
-
-        //        }
-        //    };
-        //    Console.WriteLine(x);
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    int a = 12;
-        //    string b = "12";
-        //    if (a != Int32.Parse(b))
-        //    {
-        //        Console.WriteLine(b);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine((a % (a - 6)) + 1);
-        //    }
-        //    Console.ReadKey();
-        //}
-
-        //    public static double x = 3;
-        //    public void Func(double d)
-        //    {
-        //        x *= d;
-
-        //    }
-        //    public static void Func(float f)
-        //    {
-        //        x += f;
-
-        //    }
-        //    static void Main(string[] args)
-        //    {
-        //        SoloLearnPractice.Func(1);
-        //        SoloLearnPractice o = new SoloLearnPractice();
-        //        o.Func(2.0);
-        //        Console.Write(SoloLearnPractice.x);
-        //        Console.ReadLine();
-
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    int n;
-        //    string str = "2017";
-        //    n = Convert.ToInt32(Console.ReadLine());
-        //    Console.Write("The result is " + n);
-        //    Console.ReadLine();
-        //}
-        //static void Main(string[] args)
-        //{
-        //    string one = "sololearn";
-        //    string two = one;
-        //    string three = one.Remove(2);
-        //    string four = two.Substring(4);
-        //    Console.Write(three + four);
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    Exception ex = new Exception();
-        //    try {   ex; }
-        //    catch{ Console.Write("42"); }
-        //}
-
-        //static List<int> list;
-        //public void Add(int num)
-        //{
-        //    list = new List<int>();
-        //    list.Add(num);
-
-        //}
-
-        //public void DisplaySum()
-        //{
-        //    Console.Write(list.Sum());
-        //}
-        //static void Main(string[] args)
-        //{
-        //    SoloLearnPractice s = new SoloLearnPractice();
-        //    //list = new List<int>();
-        //    s.Add(3);
-        //    s.Add(2);
-        //    s.Add(3);
-        //    s.DisplaySum();
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    double d = 4.49 * 2;
-        //    double c = Math.Ceiling(d);
-        //    double r = Math.Round(d);
-        //    double f = Math.Floor(d);
-        //    Console.WriteLine(c+r+f);
-        //    Console.ReadLine( );
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    int x = 5;
-        //    int y = 2;
-        //    int z = x % y;
-        //    y = z / x;
-        //    Console.WriteLine(y);
-        //    Console.ReadLine();
-        //}
-
-
-
-
-
-
-
-
-        //static void Main(string[] args)
-        //{
-        //    int myVariable = 0;
-        //    if (myVariable > 0)
-        //    {
-        //        Console.Write(8);
-        //    }
-        //    else if (myVariable < 0)
-        //    {
-        //        Console.Write(6);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine(2);
-        //    }
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    var a = 2;
-        //    var b = "1";
-        //    var c = 0;
-        //    var d = int.Parse(a + b + c) / 21;
-        //    Console.Write(d);
-        //    Console.ReadLine();
-        //}
-
-        //static int i = 5;
-        //static void Func(int i)
-        //{ i = 10; }
-        //static void Main(string[] args)
-        //{
-        //    Console.Write(i);
-        //    Console.ReadLine();
-
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    int a = b++;
-        //    int b = 4;
-        //    Console.WriteLine(a);
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    var a = 5;
-        //    int b = 7;
-        //    var c = "38";
-        //    var d = int.Parse("42");
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    Console.Write( "0" + "0");
-        //    Console.ReadLine();
-        //}
-
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine(" \"test\" ");
-        //    Console.ReadLine();
-        //}
-
-
-
-        //static void Main(string[] args)
-        //{
-        //    int i;
-        //    for (i = 0; i <= 5; i++)
-        //    {
-        //        if (i == 4)
-        //        {
-        //            break;
-        //        }
-        //    }
-        //    Console.Write(i);
-        //    Console.ReadLine();
+        //    CONSOLE.WRITE(I);
+        //    CONSOLE.READLINE();
         //}
 
         //class Person

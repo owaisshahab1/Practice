@@ -20,7 +20,7 @@ namespace PracticeConsole
         };
 
 
-        static void MainMethod()
+        static void Main105()
         {
 
             System.Console.WriteLine("enter number");

@@ -20,7 +20,7 @@ namespace PracticeConsole
 
    class different
     {
-        static void MainM()
+        static void Main103()
         {
             //  ClassWithStaticConstructor obj1 = new ClassWithStaticConstructor ();
             ClassWithStaticConstructor.a = 2;

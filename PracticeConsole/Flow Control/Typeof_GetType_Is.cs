@@ -12,25 +12,25 @@ namespace PracticeConsole.Flow_Control
 {
     class Typeof_GetType_Is
     {
-        //class Animal { }
+        class Animal { }
 
-        //class Dog : Animal { }
+        class Dog : Animal { }
 
-        //                        // in arguments we always pass reference class not object class
-        //static void PrintTypes(Animal animal_obj) // animal_object is just a name actually dog object is passing
-        //{
-        //    Console.WriteLine(animal_obj.GetType() == typeof(Animal)); // false
-             
-        //    Console.WriteLine(animal_obj is Animal); // belongs to     // true 
+        // in arguments we always pass reference class not object class
+        static void PrintTypes (Animal animal_obj) // animal_object is just a name actually dog object is passing
+        {
+            Console.WriteLine (animal_obj.GetType () == typeof (Animal)); // false
 
-        //    Console.WriteLine(animal_obj.GetType() == typeof(Dog));    // true
-        //}
-        //static void Main(string[] args)
-        //{
-        //    Animal dog_obj = new Dog();
-        //    PrintTypes(dog_obj);
-        //    Console.ReadKey();
-        //}
+            Console.WriteLine (animal_obj is Animal); // belongs to     // true 
+
+            Console.WriteLine (animal_obj.GetType () == typeof (Dog));    // true
+        }
+        static void Main100 (string[] args)
+        {
+            Animal dog_obj = new Dog ();
+            PrintTypes (dog_obj);
+            Console.ReadKey ();
+        }
 
 
 

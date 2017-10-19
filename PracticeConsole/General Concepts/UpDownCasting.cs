@@ -23,7 +23,6 @@ namespace PracticeConsole
             // making derived class object with base class reference is known as up-casting.
 
             Child childObj3 = (Child)childObj2; // Down Casting is Explicit
-            // False- making base class object to derived class object is known as Down-casting
             // True- making derived class object with using derived class object with base class reference is known as Down-Casting
 
         }

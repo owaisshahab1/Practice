@@ -19,7 +19,7 @@ namespace PracticeConsole.Flow_Control
             Console.WriteLine (" Value of num3: {0}", num3);
             num3 = num2 ?? 5.34;
             Console.WriteLine (" Value of num3: {0}", num3);
-             Console.WriteLine ("\a"); // sound generate
+            Console.WriteLine ("\a");      // sound generate
             Console.ReadLine ();
         }
 

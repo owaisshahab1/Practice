@@ -148,6 +148,7 @@
     <Compile Include="Logic Building\TablePrinting.cs" />
     <Compile Include="Content\TestClassForInternal.cs" />
     <Compile Include="Logic Building\UntilZero.cs" />
+    <Compile Include="Task1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
