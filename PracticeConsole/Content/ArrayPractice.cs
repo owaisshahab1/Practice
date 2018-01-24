@@ -48,7 +48,7 @@ namespace PracticeConsole
             Console.ReadLine ();
         }
 
-        private static void Main (string[] args)
+        private static void Main400 (string[] args)
         {
             char[] letter = new char[26]
             {

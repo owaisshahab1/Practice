@@ -313,9 +313,9 @@ namespace PracticeConsole.Flow_Control
 
         static void Main24 (string[] args)
         {
-            int a = b++;
-            int b = 4;
-            Console.WriteLine (a);
+           // int a = b++;
+           // int b = 4;
+           // Console.WriteLine (a);
             Console.ReadLine ();
         }
 

@@ -40,6 +40,9 @@
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,9 +54,15 @@
     <Compile Include="BaseClase.cs" />
     <Compile Include="BubbleSort.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="Delegate_Uses.cs" />
     <Compile Include="Else_If.cs" />
+    <Compile Include="Flow Control\Experiments.cs" />
+    <Compile Include="Flow Control\Practice.cs" />
+    <Compile Include="ImageResizeTest.cs" />
+    <Compile Include="ImageResizeTest2.cs" />
     <Compile Include="InterfaceA.cs" />
+    <Compile Include="Keywords\StringCalculator.cs" />
     <Compile Include="OOP_Fundamentals.cs" />
     <Compile Include="DataStructure_SoloLearn.cs" />
     <Compile Include="Flow Control\Typeof_GetType_Is.cs" />
@@ -121,7 +130,6 @@
     <Compile Include="Logic Building\Multiples3and5.cs" />
     <Compile Include="Flow Control\NumberAmount.cs" />
     <Compile Include="Flow Control\OddNumbersDescending.cs" />
-    <Compile Include="General Concepts\OverloadingWithReturnType.cs" />
     <Compile Include="Logic Building\ParamidWithAlphabats.cs" />
     <Compile Include="OOP Concepts\AbstractExample.cs" />
     <Compile Include="Content\ArrayPractice.cs" />
@@ -129,6 +137,7 @@
     <Compile Include="Logic Building\RepeatUntilZero2.cs" />
     <Compile Include="Logic Building\StarPattern.cs" />
     <Compile Include="OOP Concepts\OOP_SoloLearn.cs" />
+    <Compile Include="PowerShell.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Keywords\RefKeyword.cs" />
@@ -148,7 +157,10 @@
     <Compile Include="Logic Building\TablePrinting.cs" />
     <Compile Include="Content\TestClassForInternal.cs" />
     <Compile Include="Logic Building\UntilZero.cs" />
+    <Compile Include="RegexClass.cs" />
     <Compile Include="Task1.cs" />
+    <Compile Include="WriteDataInFile.cs" />
+    <Compile Include="WriteTextOnImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
