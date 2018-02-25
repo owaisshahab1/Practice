@@ -9,8 +9,127 @@ namespace PracticeConsole.OOP_Concepts
     class OOP_SoloLearn
     {
 
+        //static void Main(string[] args)
+        //{
+        //    int num = 12;
+        //    Resb(ref num);
+        //    Console.Write(num +"#");
+        //    Console.ReadLine();
+        //}
+        //static void Resb(ref int num)
+        //{
+        //    num *= 10;
+        //    Console.Write(num);
+        //}
+
+        //static void Main(string[] args)
+        //{
+        //    Console.Write(5/2 + 2.5 + "\n");
+        //    Console.WriteLine(5.0/2 + 2.5);
+        //    Console.ReadLine();
+
+        //}
 
 
+        //static void Main(string[] args)
+        //{
+        //    string s = "";
+        //    char[] arr = new char[] { 'x', 'y', 'z', 'e', 'd' };
+        //    foreach (char c in arr)
+        //    {
+        //        if (c <= 'x')
+        //         s += c;
+        //    }
+        //    Console.Write(s);
+        //}
+
+
+
+
+        //static void Main(string[] args)
+        //{
+        //    int x = 6;
+        //    x = sum(x);
+        //    Console.WriteLine(x);
+        //}
+        
+        //static int sum(int x)
+        //{
+        //    if (x != 0)
+        //    {
+        //        return x + sum(x - 1);
+        //    }
+        //    else
+        //    {
+        //        return x;
+        //    }
+        //}
+
+
+
+
+        //static void Main(string[] args)
+        //{
+        //    var a ;
+        //    a = 1;
+        //    Console.Write(a);
+        //}
+
+
+        //static void Main(string[] args)
+        //{
+        //    int a = default(int);
+        //    Console.WriteLine(a);
+        //    Console.ReadLine();
+        //}
+
+
+        //static void Main(string[] args)
+        //{
+        //    int x = 6;
+        //    int y = 4;
+        //    if (x * x + y * y > 50)
+        //    {
+        //        x %= y;
+        //    }
+        //    else
+        //    {
+        //        x *= y;
+        //    }
+        //    Console.WriteLine(x);
+        //    Console.ReadLine();
+        //}
+
+
+
+        //static void Main(string[] args)
+        //{
+        //    double d = 3.5;
+        //    int i = Convert.ToInt32(d);
+        //    Console.WriteLine(i+d);
+        //    Console.ReadLine();
+        //}
+
+
+
+
+
+        //public class test
+        //{
+        //    public int a = 5;
+        //    public test()
+        //    {
+        //        int a = 3;
+        //        a++;
+        //    }
+        //}
+
+        //static void Main(string[] args)
+        //{
+        //    test t = new test();
+        //    Console.WriteLine(t.a);
+        //    Console.ReadLine();
+        //}
 
 
         //static void Mainqw(string[] args)

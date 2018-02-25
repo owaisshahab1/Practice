@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <style>
+        table{
+            font-family: Arial,sans-serif;
+            border-collapse:collapse;
+            width: 100px;
+        }
+
+        td,th{
+            border: 1px,solid thick;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){
+            background-color: #0094ff;
+        }
+    </style>
+
+    <table id="myTable">
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr id="firstRow">
+            <td>owais</td>
+            <td>waqas</td>
+            <td>pakistan</td>
+        </tr>
+        <tr>
+            <td>Saif</td>
+            <td>Hassan</td>
+            <td>Australia</td>
+        </tr>
+        <tr>
+            <td>Ali</td>
+            <td>Saad</td>
+            <td>Saudia</td>
+        </tr>
+        <tr>
+            <td>Ahad</td>
+            <td>kafeel</td>
+            <td>USA</td>
+        </tr>
+    </table>
+
+    <button onclick="myFirstFunction()">Button</button>
+    <script>
+        function myFirstFunction() {
+            var x = document.getElementById("myTable");
+            x.insertRow(0);
+        }
+
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@ namespace PracticeConsole
 {
     class WriteDataInFile
     {
-        static void Main ()
+        static void Main1123 ()
         {
 
 
