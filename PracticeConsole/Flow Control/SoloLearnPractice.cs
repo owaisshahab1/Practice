@@ -9,6 +9,14 @@ namespace PracticeConsole.Flow_Control
 {
     class SoloLearnPractice
     {
+        static void Main44 (string[] args)
+        {
+            Func<int, int> badfact = null;
+            badfact = n => n <= 1 ? 1 : n * badfact (--n - 1);
+            Console.WriteLine (badfact (5));
+            Console.ReadLine ();
+        }
+       
 
         //static void Main(string[] args)
         //{
