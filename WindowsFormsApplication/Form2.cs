@@ -35,7 +35,7 @@ namespace WindowsFormsApplication
                     }
                 }
 
-                pictureBox1.Image = bitmap;
+                //pictureBox1.Image = bitmap;
                 //bitmap.Save (imageFilePath);
                 var ms = new MemoryStream ();
                 bitmap.Save (ms,System.Drawing.Imaging.ImageFormat.Jpeg);

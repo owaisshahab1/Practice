@@ -376,5 +376,133 @@ namespace PracticeConsole
             Console.ReadKey ();
         }
         */
+
+        /*   // write a program that reads from the console number N and print the sum of the first N
+        // members of the Fibonacci sequence: 0,1,2,3,5,8,13,21,34,55,89,144,233,377,..
+
+        static void Main (string[] args)
+        {
+            int N = 0;
+            int[] array = new int[1000];
+            array[0] = 0;
+            array[1] = 1;
+             
+            Console.WriteLine ("enter Number N");
+            N = Convert.ToInt32 (Console.ReadLine ());
+
+            for (int i = 1; i < N; i++)
+            {
+                array[i+1] = array[i-1] + array[i];
+            }
+
+            for (int j = 0; j < N; j++)
+            {
+                Console.Write (array[j] + " ");
+            }
+
+            Console.ReadLine ();
+        }
+        */
+
+        /*   // write a program that calculates N!/K! for given N and K ( 1<K<N )
+
+        static void Main (string[] args)
+        {
+            int[] arrayN = new int[100];
+            int[] arrayK = new int[100];
+            int resultN = 0;
+            int resultK = 0;
+
+            Console.WriteLine ("Enter N and K respectively");
+
+            int N = Convert.ToInt32 (Console.ReadLine ());
+            int K = Convert.ToInt32 (Console.ReadLine ());
+
+            for (int i = 1; i <= N; i++)
+            {
+                arrayN[i] = i;
+            }
+
+            for (int j = 1; j <= K; j++)
+            {
+                arrayK[j] = j;
+            }
+
+            for (int k = N; k > 1; k--)
+            {
+                arrayN[k - 1] = arrayN[k] * arrayN[k - 1];
+                resultN = arrayN[k - 1];
+            }
+
+            for (int l = K; l > 1; l--)
+            {
+                arrayK[l - 1] = arrayK[l] * arrayK[l - 1];
+                resultK = arrayK[l - 1];
+            }
+
+            Console.WriteLine (resultN/resultK);
+
+            Console.ReadKey ();
+        }
+        */
+
+        /*     // write a program that calculates N!*K!/(N-K)! for given N and K ( 1<K<N).
+
+        static void Main (string[] args)
+        {
+            int resultN = 0, resultK = 0, resultNK = 0;
+            int[] arrayN = new int[100];
+            int[] arrayK = new int[100];
+            int[] arrayNK = new int[100];
+
+            Console.WriteLine ("Enter Value of N and K respectively");
+
+            int N = Convert.ToInt32 (Console.ReadLine ());
+            int K = Convert.ToInt32 (Console.ReadLine ());
+
+            for (int i = 0; i <= N; i++)
+            {
+                arrayN[i] = i;
+            }
+
+            for (int j = 0; j <= K; j++)
+            {
+                arrayK[j] = j;
+            }
+
+            for (int n = 0; n <= (N-K); n++)
+            {
+                arrayNK[n] = n;
+            }
+
+            for (int l = N; l >= 2; l--)
+            {
+                arrayN[l - 1] = arrayN[l] * arrayN[l-1];
+                resultN = arrayN[l - 1];
+            }
+
+            for (int m = K; m >= 2; m--)
+            {
+                arrayK[m - 1] = arrayK[m] * arrayK[m - 1];
+                resultK = arrayK[m - 1];
+            }
+
+            for (int o = (N-K); o >= 2; o--)
+            {
+                arrayNK[o - 1] = arrayNK[o] * arrayNK[o - 1];
+                resultNK = arrayNK[o - 1];
+            }
+
+            Console.WriteLine ("N = " + resultN);
+            Console.WriteLine ("K = " + resultK);
+            Console.WriteLine ("NK = " + resultNK + Environment.NewLine);
+
+            Console.WriteLine ("N!*K!/(N-K)! = " + (resultN*resultK)/resultNK);
+            Console.ReadLine ();
+        }
+        */
+
+
+
     }
 }
