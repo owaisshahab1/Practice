@@ -174,7 +174,6 @@ namespace PracticeConsole
 
         */
 
-
         /*    // pattern 2
         static void Main (string[] args)
         {
@@ -191,6 +190,191 @@ namespace PracticeConsole
         }
         */
 
-          
+        /*   // pattern 3
+        static void Main (string[] args)
+        {
+            int length = 5;
+
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write (j);
+                }
+
+                Console.WriteLine ();  
+            }
+
+            for (int i = 1; i <= length; i++)
+            {
+                for (int k = 1; k <=(length-i); k++)
+                {
+                    Console.Write (k);
+                }
+                Console.WriteLine ();
+            }
+            Console.ReadKey ();
+        }
+
+        */
+
+        /*  // pattern 5
+        static void Main (string[] args)
+        {
+            int length = 5;
+            int num = 1;
+            int[] array = new int[100];
+
+            for (int i = 0; i < 100; i++)
+            {
+                array[i] = i % 2;
+            }
+
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write (array[num++]);
+                }
+
+                Console.WriteLine ();
+            }
+
+            Console.ReadKey ();
+        }
+
+        */
+
+        /*     // pattern 7
+        static void Main (string[] args)
+        {
+            int length = 5;
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(j);
+                }
+
+                Console.WriteLine ();
+            }
+
+            for (int i = 1; i <= length; i++)
+            {
+                for (int k = 1; k <= length - i; k++)
+                {
+                    Console.Write (k);
+                }
+
+                Console.WriteLine ();
+            }
+
+            Console.ReadKey ();
+        }
+
+        */
+
+        /*  // pattern 6
+
+        static void Main (string[] args)
+        {
+            int length = 4;
+
+            int number = 0;
+
+
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write (++number + " ");
+                }
+
+                Console.WriteLine ();
+            }
+
+            Console.ReadKey ();
+        }
+
+        */
+
+        /*   // Pattern 10
+
+        static void Main (string[] args)
+        {
+            int length = 7;
+
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write (j);
+                }
+
+                for (int k = 1; k <= length - i; k++)
+                {
+                    Console.Write ("*");
+                }
+
+                Console.WriteLine ();
+            }
+
+
+
+
+            Console.ReadKey ();
+        }
+
+    */
+
+        /*  // Pattern 4
+
+        static void Main (string[] args)
+        {
+            int length = 5;
+            
+
+            for (int i = 1; i <= length; i++)
+            {
+                int number = 0;
+                for (int j = i; j <= length; j++)
+                {
+                    Console.Write (++number);
+                }
+                Console.WriteLine ();
+            }
+
+            for (int i = 1; i <= length; i++)
+            {
+                int number = 0;
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write (++number);
+                }
+                Console.WriteLine ();
+            }
+
+            Console.ReadKey ();
+        }
+        */
+
+        /*    // Pattern 9
+
+        static void Main (string[] args)
+        {
+            int length = 5;
+
+            for (int i = 1; i <= length; i++)
+            {
+                int number = length;
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write (number--);
+                }
+                Console.WriteLine ();
+            }
+            Console.ReadKey ();
+        }
+        */
     }
 }
