@@ -135,7 +135,7 @@ namespace PracticeConsole
         /*    // pattern 1
         static void Main (string[] args)
         {
-            
+
             int length = 8;
             int[] array = new int[200];
             int num = 0;
@@ -164,7 +164,7 @@ namespace PracticeConsole
                 {
                     Console.Write (--array[i]);
                 }
-            
+
 
                 Console.WriteLine ();
             }
@@ -325,14 +325,14 @@ namespace PracticeConsole
             Console.ReadKey ();
         }
 
-    */
+        */
 
         /*  // Pattern 4
 
         static void Main (string[] args)
         {
             int length = 5;
-            
+
 
             for (int i = 1; i <= length; i++)
             {
@@ -386,7 +386,7 @@ namespace PracticeConsole
             int[] array = new int[1000];
             array[0] = 0;
             array[1] = 1;
-             
+
             Console.WriteLine ("enter Number N");
             N = Convert.ToInt32 (Console.ReadLine ());
 
@@ -502,7 +502,141 @@ namespace PracticeConsole
         }
         */
 
+        /*    //  Write a program that reads from the console a positive integer number N (N<20) and 
+        // prints a matrix of numbers as on the figures below:
+        // N  = 123   N = 1234
+        //      234       2345
+        //      345       3456
+        //                4567  
+
+        static void Main (string[] args)
+        {
+            int length = 4;
+
+            for (int i = 1; i <= length; i++)
+            {
+                int temp = i;
+                for (int j = 1; j <= length; j++)
+                {
+                    Console.Write (i++);
+                }
+                i = temp;
+                Console.WriteLine ();
+            }
+            Console.ReadLine ();
+        }
+
+        */
+
+        /*   // write a program that calculates with how many zeroes the factorial of a given number ends.
+        // Examples : N = 10 -> 3628800 - > 2 and N = 20 -> 2432902008176640000 -> 4.
+
+        static void Main (string[] args)
+        {
+            long count = 0;
+            long N = 5;
+            long[] arrayN = new long[1000];
+            long resultN = 0;
+
+            for (int j = 1; j <= N; j++)
+            {
+                arrayN[j] = j;  
+            }
+
+            for (int i = (int) N; i >= 2; i--)
+            {
+                arrayN[i-1] = arrayN[i] * arrayN[i-1];
+                resultN = arrayN[i-1];
+            }
+            Console.WriteLine ("{0}! = {1} ",N,resultN);
+
+            while (resultN > 0 && (resultN % 10) == 0)
+            {
+                resultN = resultN / 10;
+                count++;
+            }
+
+            Console.WriteLine ("Zeros are " + count);
+            Console.ReadLine ();
+        }
+        */
+
+        /*  // write a program that converts a given number from decimal to binary notation ( numeral system ).
+
+        static void Main (string[] args)
+        {
+            int Number = 200;
+            string Value = string.Empty;
+
+            while (Number > 1)
+            {
+                int a = Number % 2;
+                Value = Value + Convert.ToString (a);
+                Number = Number / 2;
+            }
+
+            Console.WriteLine ("1" + Value);
+            Console.ReadLine ();
+        }
+        */
+
+        /*// write a program that converts a given number from binary to decimal notation ( numeral system ).
+
+        static void Main (string[] args)
+        {
+            do
+            {
+            string binary = Convert.ToString (Console.ReadLine ());
+            int check = Convert.ToInt32 (binary);
+            int count = 0;
+            string value;
+            int decimalValue = 0;
+
+            while (check >= 1)
+            {
+                check = check / 10;
+                ++count;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                value = binary[i].ToString();
+                value = Convert.ToString(Convert.ToInt32(value) * Convert.ToInt32 (Math.Pow (2, count - i - 1)));
+                decimalValue = Convert.ToInt32(value) + decimalValue;
+            }
+            Console.WriteLine ("Binary value {0} Convert into Decimal {1}",binary,decimalValue);
+            } while (true);
+        }
+        */
+
+
+        //static void Main (string[] args)
+        //{
+        //    string mf = "1";
+
+        //    int length = 5;
+
+        //    for (int i = 0; i < length; i++)
+        //    {
+        //        string casevalue = mf;
+
+        //        string mf2 = string.Empty;
+
+        //        for (int j = 0; j <= i; j++)
+        //        {
+        //            casevalue += mf2;
+
+        //            mf2 =mf2==string.Empty?"0": mf2 == "1" ?  "0" : "1";
+        //        }
+        //        mf = mf2;
+        //        Console.WriteLine (casevalue);
+        //    }
+
+        //    Console.ReadLine ();
+        //}
+
 
 
     }
 }
+ 
