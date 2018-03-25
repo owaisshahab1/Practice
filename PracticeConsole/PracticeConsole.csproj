@@ -195,6 +195,8 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Class2.cs" />
+    <Compile Include="Class3.cs" />
+    <Compile Include="Class4.cs" />
     <Compile Include="Delegate_Uses.cs" />
     <Compile Include="Else_If.cs" />
     <Compile Include="Flow Control\Experiments.cs" />
@@ -312,6 +314,7 @@
   <ItemGroup>
     <Content Include="Content\Data.txt" />
     <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\Question.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

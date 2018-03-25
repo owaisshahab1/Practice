@@ -8,6 +8,51 @@ namespace PracticeConsole.OOP_Concepts
 {
     class OOP_SoloLearn
     {
+        /*
+        static void Main(string[] args)
+        {
+            int length = 10  ;
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = i; j < length; j++)
+                {
+                    Console.Write(" ");
+                }
+
+                for (int k = length - i; k < length; k++)
+                {
+                    Console.Write("*");
+                }
+                for (int l = length - i + 1; l < length; l++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+            for (int i = 1; i < length; i++)
+            {
+                for (int j = length - i; j < length; j++)
+                {
+                    Console.Write(" ");
+                }
+
+                for (int k = i; k < length; k++)
+                {
+                    Console.Write("*");
+                }
+
+                for (int l = 1; l < length - i; l++)
+                {
+                    Console.Write("*");
+                }
+
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+
+        }
+        */
 
         //static void Main(string[] args)
         //{

@@ -69,14 +69,14 @@
             this.depthToolStripMenuItem,
             this.timeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(132, 70);
             // 
             // EvaluationToolStripMenuItem
             // 
             this.EvaluationToolStripMenuItem.Checked = true;
             this.EvaluationToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EvaluationToolStripMenuItem.Name = "EvaluationToolStripMenuItem";
-            this.EvaluationToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.EvaluationToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.EvaluationToolStripMenuItem.Text = "Evaluation";
             this.EvaluationToolStripMenuItem.Click += new System.EventHandler(this.EvaluationToolStripMenuItem_Click);
             // 
@@ -85,7 +85,7 @@
             this.depthToolStripMenuItem.Checked = true;
             this.depthToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.depthToolStripMenuItem.Name = "depthToolStripMenuItem";
-            this.depthToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.depthToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.depthToolStripMenuItem.Text = "Depth";
             this.depthToolStripMenuItem.Click += new System.EventHandler(this.timeToolStripMenuItem_Click);
             // 
@@ -94,7 +94,7 @@
             this.timeToolStripMenuItem.Checked = true;
             this.timeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.timeToolStripMenuItem.Name = "timeToolStripMenuItem";
-            this.timeToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.timeToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.timeToolStripMenuItem.Text = "Time";
             this.timeToolStripMenuItem.Click += new System.EventHandler(this.depthToolStripMenuItem_Click);
             // 
