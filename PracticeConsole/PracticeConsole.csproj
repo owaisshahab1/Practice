@@ -313,8 +313,14 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Content\Data.txt" />
+    <Content Include="Resources\Compare1.txt" />
+    <Content Include="Resources\Compare2.txt" />
     <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\Names.txt" />
+    <Content Include="Resources\numbers.txt" />
+    <Content Include="Resources\numbers2.txt" />
     <Content Include="Resources\Question.PNG" />
+    <Content Include="Resources\words.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
