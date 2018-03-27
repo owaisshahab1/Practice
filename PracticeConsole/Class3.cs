@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PracticeConsole
 {
@@ -338,569 +340,214 @@ namespace PracticeConsole
         }
         */
 
-
-        /* //Use  counting  of  the  brackets:  For  an  opening  bracket  increase  the 
-        // counter by 1 and for closing bracket decrease it by 1. Watch the counter
-        // not to become a negative number and always ends with 0.
-
-         static void Main(string[] args)
-         {
-             int count = 0;
-             string str = "((((()))))";
-             string[] strArray = new string[100];
-             strArray = str.Split('(');
-             foreach (var item in strArray)
-             {
-                 if (item == "")
-                 {
-                     ++count;
-                 }
-             }
-
-             strArray = str.Split(')');
-
-             foreach (var item in strArray)
-             {
-                 if (item == "")
-                 {
-                     --count;
-                 }
-             }
-
-             Console.WriteLine(count);
-             Console.ReadKey();
-         }
-         */
-
-        /*   //Write  a  program  that  reads  a  string,  reverse  it  and  prints  it  to  the 
-       // console.For example: "introduction"  "noitcudortni".
-
-        static void Main(string[] args)
+        /*   //  Write a  program that  reads a  text file  and prints  its odd  lines on  the console.
+        static void Main (string[] args)
         {
-            string str = "introduction";
-
-            char[] charArray = new char[100];
-
-            charArray = str.ToCharArray();
-
-            Array.Reverse(charArray);
-
-            foreach (var item in charArray)
-            {
-                Console.Write(item);
-            }
-
-            Console.ReadKey();
-        }
-        */
-
-        /*   //  Write  a  program  that  checks  whether  the  parentheses  are  placed 
-        /// correctly  in  an arithmetic  expression.Example of  expression with
-        //correctly placed  brackets:  ((a+b)/5-d).  Example of  an incorrect
-        //expression: )(a+b)).
-
-        static void Main(string[] args)
-        {
-            string str = "((a + b) / 5 - d)";
-            //"((a + b) / 5 - d)";
-            //string incorrect = ")(a+b))";
-
-            int openBracketCounter = 0;
-
-            char[] charArray = new char[100];
-
-            charArray = str.ToCharArray();
-
-            for (int i = 0; i < charArray.Length; i++)
-            {
-                if (charArray[i] == '(')
-                {
-                    ++openBracketCounter;
-                }
-                else if (charArray[i] == ')')
-                {
-                    --openBracketCounter;
-                }
-            }
-
-            Console.WriteLine(openBracketCounter == 0 ? "all brackets are properly closed" : "any brackets are not properly closed");
-            Console.ReadKey();
-
-        }
-        */
-
-        /*   //  Write a program that detects how many times a substring is contained in 
-        //  the text.For example, let’s look for the substring "in" in the text: 
-        static void Main(string[] args)
-        {
-            string str = "We are living in a yellow submarine.We don't have anything else. Inside the submarine is very tight.So we are drinking all the day.We will move out of it in 5 days.";
-            int count = 0;
-            char[] charArray = new char[1000];
-
-            charArray = str.ToCharArray();
-
-            for (int i = 0; i < charArray.Length-1; i++)
-            {
-                //if ( (charArray[i] == ('i') || charArray[i] == ('I')) && (charArray[i+1] == ('n') || charArray[i+1] == ('N')))
-                if ((charArray[i] == ('w') || charArray[i] == ('W')) && (charArray[i + 1] == ('e') || charArray[i + 1] == ('E')))
-                {
-                    ++count;
-                }
-            }
-
-            Console.WriteLine(count);
-            Console.ReadKey();
-
-        }
-        */
-
-        /*   //        A text is given. Write a program that  modifies the casing of letters to 
-        //        uppercase at  all places  in  the text  surrounded by<upcase>  and
-        //        </upcase> tags. Tags cannot be nested. 
-        //   Example: 
-        //   We are living in a<upcase> yellow submarine</upcase>.We
-        //   don't have <upcase>anything</upcase> else. 
-        //   Result: 
-        //   We are living in a YELLOW SUBMARINE.We don't have ANYTHING else. 
-
-        static void Main(string[] args)
-        {
-            int length = 2000;
-            string str = "We are living in a<upcase> yellow submarine</upcase>. We don't have <upcase>anything</upcase> else.";
-            char[] chrArray = new char[2000];
-            string[] strArray = new string[str.Length];
-            chrArray = str.ToCharArray();
-            for (int i = 0; i < chrArray.Length; i++)
-            {
-                strArray[i] = chrArray[i].ToString();
-            }
-            int lastIndex = str.IndexOf('>');
+            string text = System.IO.File.ReadAllText (@"E:\numbers.txt");
+            string[] strArray = new string[100];
+            strArray = text.Split ('\r');
             for (int i = 0; i < strArray.Length; i++)
-            {
-                if(strArray[i] == ("<") && strArray[i+1] == ("u") && strArray[i+2] == ("p") && strArray[i+3] == ("c") && strArray[i+4] == ("a") && strArray[i+5] == ("s") && strArray[i+6] == ("e") && strArray[i+7] == (">") )
-                {
-                    strArray[i] = strArray[i].Replace("<", "");
-                    strArray[i + 1] = strArray[i + 1].Replace("u", "");
-                    strArray[i + 2] = strArray[i + 2].Replace("p", "");
-                    strArray[i + 3] = strArray[i + 3].Replace("c", "");
-                    strArray[i + 4] = strArray[i + 4].Replace("a", "");
-                    strArray[i + 5] = strArray[i + 5].Replace("s", "");
-                    strArray[i + 6] = strArray[i + 6].Replace("e", "");
-                    strArray[i + 7] = strArray[i + 7].Replace(">", "");
-
-                    for (int j = i+8; j < strArray.Length-5; j++)
-                    {
-                        strArray[j] = strArray[j].ToString().ToUpper();
-                        if (strArray[j] == ("<") && strArray[j + 1] == ("/") )
-                        {
-                            strArray[j] = strArray[j].Replace("<", "");
-                            strArray[j + 1] = strArray[j+1].Replace("/", "");
-                            strArray[j + 2] = strArray[j+2].Replace("u", "");
-                            strArray[j + 3] = strArray[j+3].Replace("p", "");
-                            strArray[j + 4] = strArray[j+4].Replace("c", "");
-                            strArray[j + 5] =  strArray[j+5].Replace("a", "");
-                            strArray[j + 6] = strArray[j+6].Replace("s", "");
-                            strArray[j + 7] = strArray[j+7].Replace("e", "");
-                            strArray[j + 8] = strArray[j + 7].Replace(">", "");
-                            break;
-                        }
-                    }
-                } 
-            }
-
-            foreach (var item in strArray)
-            {
-                Console.Write(item);
-            }
-            Console.ReadKey();
-        }
-        */
-
-        /*    // Write a program that extracts from a text all sentences that contain a particular  word.We accept  that the  sentences are  separated from each other  by the  character  "."  and the  words are  separated from  one another by a character which is not a letter.
-        //Sample text: 
-        //We are living in a yellow submarine.We don't have anything else. Inside the submarine is very tight.So we are drinking all the day. We will move out of it in 5 days.
-        //Sample result: 
-        //We are living in a yellow submarine. 
-        //We will move out of it in 5 days.
-
-        static void Main(string[] args)
-        {
-            string str = "We are living in a yellow submarine.We don't have anything else. Inside the submarine is very tight.So we are drinking all the day. We will move out of it in 5 days.";
-            string[] strArray = new string[10];
-            strArray = str.Split('.');
-
-            foreach (var item in strArray)
-            {
-                if (item.Contains(" in "))
-                {
-                    Console.WriteLine(item);
-                }
-            }
-            Console.ReadKey();
-        }
-        */
-
-        /*  // A string is given, composed of several "forbidden" words separated by commas.Also  a text  is  given, containing those  words.Write a  program that replaces the forbidden words with asterisks.  
-        // Sample text: Microsoft announced its next generation C# compiler today. It uses advanced parser and special optimizer for the Microsoft CLR. 
-        // Sample string containing the forbidden words: "C#,CLR,Microsoft". 
-        // Sample result: ********* announced its next generation ** compiler today. It uses advanced parser and special optimizer for the************.
-
-        static void Main(string[] args)
-        {
-            string str = "Microsoft announced its next generation C# compiler today. It uses advanced parser and special optimizer for the Microsoft CLR.";
-            char[] chArray = new char[str.Length];
-            string[] strArray = new string[str.Length];
-
-            chArray = str.ToCharArray();
-
-            for (int i = 0; i < chArray.Length; i++)
-            {
-                strArray[i] =  chArray[i].ToString();
-            }
-
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (strArray[i] == "M" && strArray[i+1] == "i" && strArray[i+2] == "c" && strArray[i+3] == "r" && strArray[i+4] == "o" && strArray[i+5] == "s" && strArray[i+6] == "o" && strArray[i+7] == "f" && strArray[i+8] == "t")  
-                {
-                    strArray[i] = strArray[i].Replace('M', '*');
-                    strArray[i+1] = strArray[i+1].Replace('i', '*');
-                    strArray[i+2] = strArray[i+2].Replace('c', '*');
-                    strArray[i+3] = strArray[i+3].Replace('r', '*');
-                    strArray[i+4] = strArray[i+4].Replace('o', '*');
-                    strArray[i+5] = strArray[i+5].Replace('s', '*');
-                    strArray[i+6] = strArray[i+6].Replace('o', '*');
-                    strArray[i+7] = strArray[i+7].Replace('f', '*');
-                    strArray[i + 8] = strArray[i + 8].Replace('t', '*');
-                }
-
-                if (strArray[i] == "C" && strArray[i + 1] == "#")
-                {
-                    strArray[i] = strArray[i].Replace('C', '*');
-                    strArray[i + 1] = strArray[i + 1].Replace('#', '*');
-                }
-
-                if (strArray[i] == "C" && strArray[i + 1] == "L" && strArray[i + 2] == "R")
-                {
-                    strArray[i] = strArray[i].Replace('C', '*');
-                    strArray[i + 1] = strArray[i + 1].Replace('L', '*');
-                    strArray[i + 2] = strArray[i + 2].Replace('R', '*');
-                }
-            }
-
-            foreach (var item in strArray)
-            {
-                Console.Write(item);
-            }
-
-            Console.ReadLine();
-        }
-        */
-        /*    //Write a program that parses an URL in following format: 
-        //[protocol]://[server]/[resource] 
-        //It should extract from the URL the protocol, server and resource parts.
-        //For example, when http://www.cnn.com/video is passed, the result is: 
-        //[protocol]="http" 
-        //[server]="www.cnn.com" 
-        //[resource]="/video"
-
-        static void Main(string[] args)
-        {
-            int count = 0;
-            string str = "http://www.cnn.com/video";
-            string protocol = string.Empty;
-            string server = string.Empty;
-            string resources = string.Empty;
-
-            protocol = str.Split(':')[0];
-
-            server = str.Split('/')[2];
-
-            resources = str.Split('/')[3];
-
-            Console.WriteLine("[protocol] = \"" + protocol + "\"");
-            Console.WriteLine("[server] = \"" + server + "\"");
-            Console.WriteLine("[resource] = \"" + "/" + resources + "\"");
-
-            Console.ReadKey();
-        }
-        */
-
-        /*   //Write a program that reverses the words in a given sentence without changing punctuation  and spaces.For  example:  "C#  is  not  C++  and PHP is not Delphi"  "Delphi not is PHP and C++ not is C#". 
-
-        static void Main(string[] args)
-        {
-            string str = "C# is not C++ and PHP is not Delphi";
-            string[] strArray = new string[200];
-
-            strArray = str.Split(' ');
-
-            for (int i = strArray.Length-1; i >= 0; i--)
             {
                 if (strArray[i] != null)
                 {
-                    Console.Write(strArray[i] + " ");
+                    strArray[i] = strArray[i].Contains("\n") ? strArray[i].Replace ("\n", "") : strArray[i];
+                    Console.Write(strArray[i]);
                 }
+                i++;
             }
-            Console.ReadKey();
+
+            Console.ReadKey ();
         }
         */
-        /*   // A dictionary  is  given,  which consists  of several  lines of  text.Each line consists of a word and its xplanation, separated by a hyphen: 
-        //.NET – platform for applications from Microsoft
-        // CLR – managed execution environment for .NET
-        // namespace – hierarchical organization of classes
-        // Write a program that parses the dictionary and then reads words from the console in a loop, gives an explanation for it or writes a message on the console that the word is not into the dictionary.
 
-        static void Main(string[] args)
+        /*  //Write a  program that  joins two  text files  and records  the results  in  a third file.
+
+        static void Main (string[] args)
         {
-            Dictionary<string, string> dictionary = new Dictionary<string, string>();
-            dictionary.Add(".NET", "– platform for applications from Microsoft");
-            dictionary.Add("CLR", "– managed execution environment for .NET");
-            dictionary.Add("namespace", "– hierarchical organization of classes");
-            do
+            string data = System.IO.Path.GetDirectoryName (Application.StartupPath);
+            data = data.Replace ("bin", "");
+            string str1 = System.IO.File.ReadAllText (data + "Resources\\numbers.txt");
+            string str2 = System.IO.File.ReadAllText (data + "Resources\\numbers2.txt");
+            string[] strArray1 = new string[100];
+            string[] strArray2 = new string[100];
+            strArray1 = str1.Split ('\r');
+            strArray2 = str2.Split ('\r');
+            var list = new List <string>();
+            list.AddRange (strArray1);
+            list.AddRange (strArray2);
+            string[] strArray3 = list.ToArray ();
+
+            foreach (var item in strArray3)
             {
-                bool wordNotExist = true;
-                string checkWord = Console.ReadLine();
-                Console.WriteLine();
-                foreach (var item in dictionary)
-                {
-                    if (checkWord == item.Key)
-                    {
-                        Console.WriteLine(item.Value);
-                        wordNotExist = false;
-                    }
-                }
-                if (wordNotExist)
-                {
-                    Console.WriteLine("Your Word don't Exist in the dictionary");
-                }
-            } while (true);
-
-        }
-        */
-        /* //Write a  program that  reads two  dates entered  in  the format "day.month.year" and calculates the number of days between them.
-        //Enter the first date: 27.02.2006 
-        //Enter the second date: 3.03.2006 
-        //Distance: 4 days
-        // suppose every month has 30 days so answer will be 6
-
-        static void Main(string[] args)
-        {
-            int days = 0;
-            Console.Write("Enter the first Date : ");
-            //string date1 = Console.ReadLine();
-            string date1 = "27.02.2006";
-            Console.Write("Enter the second Date : ");
-            //string date2 = Console.ReadLine();
-            string date2 = "3.05.2006";
-            string[] date1Array = new string[10];
-            string[] date2Array = new string[10];
-            string[] difference = new string[10];
-
-            date1Array = date1.Split('.');
-            date2Array = date2.Split('.');
-
-            difference[2] =  (Math.Abs(Convert.ToInt32(date1Array[2]) - Convert.ToInt32(date2Array[2]))).ToString();
-            difference[1] = (Math.Abs(Convert.ToInt32(date1Array[1]) - Convert.ToInt32(date2Array[1]))).ToString();
-            difference[0] = (Math.Abs(Convert.ToInt32(date1Array[0]) - Convert.ToInt32(date2Array[0]))).ToString();
-
-            if (Convert.ToInt32(difference[2]) > 0)
-            {
-                days = 365;
-                for (int i = 1; i < Convert.ToInt32( difference[2]); i++)
-                {
-                    days = days + 365;
-                }
-            }
-            if (Convert.ToUInt32(difference[1]) > 0)
-            {
-                if (Convert.ToUInt32(difference[0]) > 0 && Convert.ToUInt32(difference[1]) > 1)
-                {
-                   days = days + (Math.Abs(Convert.ToInt32(date1Array[0]) - 30)) + (Math.Abs(Convert.ToInt32(date2Array[0]) - 0));
-                }
-                if (Convert.ToUInt32(difference[1]) > 1)
-                {
-                    for (int i = 1; i < Convert.ToUInt32(difference[1]); i++)
-                    {
-                        days = days + 30;
-                    }
-                }
-
+                string item1 = item.Contains ('\n') ? item.Replace ("\n", "") : item;
+                Console.Write(item1);
             }
 
-            Console.WriteLine("difference " +  days);
-            Console.ReadKey();
-        }
-        */
-        /*  //Write a  program that  extracts from  a text  all words  which are palindromes, such as ABBA", "lamal", "exe". 
-        static void Main(string[] args)
-        {
-            bool palindrome = true;
-            string[] palindromArray = new string[20];
-            string str = "EXE";
-            string str2 = str;
-            char[] chArray = new char[100];
-            chArray = str.ToCharArray();
-
-            for (int i = 0; i < str.Length; i++)
-            {
-                for (int j = str.Length-1-i; j >= 0; j--)
-                {
-                    if (chArray[i] == chArray[j])
-                    {
-                        palindromArray[i] = "true";
-                        break;
-                    }
-                    else
-                    {
-                        palindromArray[i] = "false";
-                        break;
-                    }
-
-                    if (j == str.Length/2)
-                    {
-                        break;
-                    }
-                }
-
-                if (i == str.Length / 2)
-                {
-                    break;
-                }
-            }
-
-            foreach (var item in palindromArray)
-            {
-                if (!string.IsNullOrEmpty(item))
-                {
-                    if (item.Contains("false"))
-                    {
-                        palindrome = false;
-                        break;
-                    }
-                }
-
-            }
-            
-
-            Console.WriteLine(palindrome);
-            Console.ReadKey();
+            Console.ReadKey ();
         }
         */
 
-        /* // Write  a  program  that  reads  a  string  from  the  console  and  prints  in alphabetical order  all letters  from the  input string and  how many times each one of them occurs in the string. 
+        /*   //Write  a  program  that  reads  the  contents  of  a  text  file  and  inserts  the line numbers  at the  beginning of  each line, then  rewrites the  file contents.
 
-        static void Main(string[] args)
-        {
-            string str = "1236548951454552741213135";
-            char[] chrArray = new char[100];
-            chrArray = str.ToCharArray();
-            int[] countArray = new int[10];
-            foreach (var item in chrArray)
-            {
-                if (!string.IsNullOrEmpty(item.ToString()))
-                {
-                    switch (item)
-                    {
-                        case '1':
-                            ++countArray[1];
-                            break;
-                        case '2':
-                            ++countArray[2];
-                            break;
-                        case '3':
-                            ++countArray[3];
-                            break;
-                        case '4':
-                            ++countArray[4];
-                            break;
-                        case '5':
-                            ++countArray[5];
-                            break;
-                        case '6':
-                            ++countArray[6];
-                            break;
-                        case '7':
-                            ++countArray[7];
-                            break;
-                        case '8':
-                            ++countArray[8];
-                            break;
-                        case '9':
-                            ++countArray[9];
-                            break;
-                        case '0':
-                            ++countArray[0];
-                            break;
-                    }
-                
-                }
-
-            }
-
-            for (int i = 0; i < countArray.Length; i++)
-            {
-                Console.WriteLine("{0} : {1}",i,countArray[i]);
-            }
-
-            Console.ReadKey();
-        }
-        */
-        /*   //Write a program that reads a string from the console and replaces every sequence  of identical  letters  in  it with  a single  letter(the repeating letter). Example: "aaaaabbbbbcdddeeeedssaa"  "abcdedsa". 
-
-         static void Main(string[] args)
+         static void Main (string[] args)
          {
-             string str = "aaaaabbbbbcdddeeeedssaa";
+             string data = System.IO.Path.GetDirectoryName (Application.StartupPath);
+             data = data.Replace ("bin", "");
+             string str = System.IO.File.ReadAllText (data + "Resources\\words.txt");
              string[] strArray = new string[100];
-             char[] chrArray = new char[100];
+             strArray = str.Split ('\r');
 
-             chrArray = str.ToCharArray();
-             for (int i = 0; i < str.Length; i++)
+             for (int i = 0; i < strArray.Length; i++)
              {
-                 strArray[i] = chrArray[i].ToString();
+                 strArray[i] = strArray[i].Contains ('\n') ? strArray[i].Replace ("\n", "") : strArray[i];
+                 Console.WriteLine ("{0}- {1}", i + 1, strArray[i]);
              }
-
-             for (int i = 0; i < str.Length; i++)
-             {
-                 if (strArray[i] != null)
-                 {
-                     if (strArray[i] == strArray[i + 1])
-                     {
-                         strArray[i] = strArray[i].Replace(strArray[i], string.Empty);
-                     }
-                 }
-
-
-             }
-
-             for (int i = 0; i < str.Length; i++)
-             {
-                 if (strArray[i] != null)
-                 {
-                     Console.Write(strArray[i]);
-                 }
-             }
-             Console.ReadKey();
+             Console.ReadKey ();
          }
          */
-        /*  //   Write a program that reads a list of words separated by commas from the console and prints them in alphabetical order(after sorting). 
-        static void Main(string[] args)
+
+        /*  //   Write a program that compares two text files with the same number of rows  line by  line and  prints the  number of  equal and  the number  of different lines.
+
+        static void Main (string[] args)
         {
-            string str = "fahad,waqas,faisal,owais,lubna";
-            char[] chrArray = new char[100];
-            string[] strArray = new string[100];
-            
-            strArray = str.Split(',');
-            var list = strArray.ToList();
-            list.Sort();
-
-            foreach (var item in list)
+            string data = System.IO.Path.GetDirectoryName (Application.StartupPath);
+            data = data.Replace ("bin", "");
+            string str1 = System.IO.File.ReadAllText (data + "Resources\\Compare1.txt");
+            string str2 = System.IO.File.ReadAllText (data + "Resources\\Compare2.txt");
+            string[] strArray1 = new string[100];
+            string[] strArray2 = new string[100];
+            strArray1 = str1.Split ('\r');
+            strArray2 = str2.Split ('\r');
+            int diff = Math.Abs (strArray1.Length - strArray2.Length);
+            if (strArray1.Length == strArray2.Length)
             {
-                Console.WriteLine(item);
+                Console.WriteLine ("Rows are Equal - Difference {0} ",diff);
             }
-
-            Console.ReadKey();
-
+            else
+            {
+                Console.WriteLine ("Rows are UnEqual - Difference {0} ", diff);
+            }
+            Console.ReadKey ();
         }
         */
+
+        /*   //Write a  program that  reads a  list of  names from  a text  file,  arranges them  in  alphabetical order, and  writes them  to another  file.The lines are written one per row.
+
+         static void Main (string[] args)
+         {
+             string data = System.IO.Path.GetDirectoryName (Application.StartupPath);
+             data = data.Replace ("bin", string.Empty);
+             string str = System.IO.File.ReadAllText (data + @"Resources\Names.txt");
+             string[] strArray = new string[100];
+             strArray = str.Split (',');
+             List<string> list = new List<string> ();
+             list = strArray.ToList ();
+             list.Sort ();
+             foreach (var item in list)
+             {
+                 Console.WriteLine (item);
+             }
+             Console.ReadKey ();
+         }*/
+
+        /*  //Write a  program that  reads from  the console  a sequence  of positive integer numbers.The  sequence ends  when empty  line  is  entered. Calculate and  print the  sum and  the average  of the  sequence.Keep the sequence in List<int>.
+
+         static void Main (string[] args)
+         {
+             string str = string.Empty;
+             List<int> listInt = new List<int> ();
+             List<string> listString = new List<string> ();
+             int[] intArray = new int[100];
+             string[] stringArray = new string[100];
+             int i = 0;
+             do
+             {
+                 str = Console.ReadLine ();
+                 listString.Add (str); 
+                     i++; 
+
+             } while (str != " ");
+
+             listString.Remove (" ");
+
+             for (int j = 0; j < listString.Count ; j++)
+             {
+                 listInt.Add(Convert.ToInt32(listString[j]));
+             }
+
+             double avg = listInt.Average ();
+             double sum = listInt.Sum ();
+
+             Console.WriteLine ("Average" + avg);
+             Console.WriteLine ("Sum" +sum);
+             Console.ReadKey ();
+
+         }
+         */
+        /*  // Write a  program,  which reads  from the  console N  integers and  prints them in reversed order.Use the Stack<int> class.
+
+        static void Main (string[] args)
+        {
+            List<string> listString = new List<string> ();
+            Stack<int> stack = new Stack<int> ();
+            int N = Convert.ToInt32 (Console.ReadLine ());
+
+            for (int i = 0; i < N; i++)
+            {
+                int a = Convert.ToInt32 (Console.ReadLine ());
+                stack.Push (a);
+            }
+            Console.WriteLine ("==========================");
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine (stack.Pop ());
+            }
+            Console.ReadKey ();
+        }*/
+
+        /* //Write a  program that  reads from  the console  a sequence  of positive integer numbers.The sequence ends when an empty line is entered. Print the sequence sorted in ascending order.
+
+        static void Main (string[] args)
+        {
+            List<int> listInt = new List<int> ();
+
+            List<string> listString = new List<string> ();
+            listString.Add ("6");
+            listString.Add ("2");
+            listString.Add ("4");
+            listString.Add ("1");
+            listString.Add ("3");
+            listString.Add ("7");
+            listString.Add (" ");
+            listString.Remove (" ");
+            for (int i = 0; i < listString.Count; i++)
+            {
+                listInt.Add (Convert.ToInt32(listString[i]));
+            }
+
+            listInt.Sort ();
+
+            foreach (var item in listInt)
+            {
+                Console.WriteLine (item);
+            }
+            Console.ReadKey ();
+        }*/
+       /*  //Write a  program,  which removes  all negative  numbers from sequence. Example: array = {19, -10, 12, -6, -3, 34, -2, 5}  {19, 12, 34, 5} 
+
+        static void Main (string[] args)
+        {
+            int[] arrayInt = new int[] { 19, -10, 12, -6, -3, 34, -2, 5 };
+            List<int> listInt = new List<int> ();
+            listInt = arrayInt.ToList ();
+            for (int i = 0; i < listInt.Count; i++)
+            {
+                if (listInt[i] > 0)
+                {
+                    Console.Write(listInt[i] + ", ");
+                } 
+            }
+        }*/
     }
 }
+
