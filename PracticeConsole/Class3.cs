@@ -533,20 +533,128 @@ namespace PracticeConsole
             }
             Console.ReadKey ();
         }*/
-       /*  //Write a  program,  which removes  all negative  numbers from sequence. Example: array = {19, -10, 12, -6, -3, 34, -2, 5}  {19, 12, 34, 5} 
+        /*  //Write a  program,  which removes  all negative  numbers from sequence. Example: array = {19, -10, 12, -6, -3, 34, -2, 5}  {19, 12, 34, 5} 
+
+         static void Main (string[] args)
+         {
+             int[] arrayInt = new int[] { 19, -10, 12, -6, -3, 34, -2, 5 };
+             List<int> listInt = new List<int> ();
+             listInt = arrayInt.ToList ();
+             for (int i = 0; i < listInt.Count; i++)
+             {
+                 if (listInt[i] > 0)
+                 {
+                     Console.Write(listInt[i] + ", ");
+                 } 
+             }
+         }*/
+
+        /* //Write a  program that  finds  in  a given  array of  integers (in  the range [0…1000]) how many times each of them occurs. Example: array = {3, 4, 4, 2, 3, 3, 4, 3, 2}
+
+        //  2 -> 2 times 
+        //  3 -> 4 times 
+        //  4 -> 3 times
 
         static void Main (string[] args)
         {
-            int[] arrayInt = new int[] { 19, -10, 12, -6, -3, 34, -2, 5 };
-            List<int> listInt = new List<int> ();
-            listInt = arrayInt.ToList ();
-            for (int i = 0; i < listInt.Count; i++)
+            int[] arrayInt = new int[] { 3, 4, 4, 2, 3, 3, 4, 3, 2 };
+            int[] count = new int[10];
+            for (int i = 0; i < arrayInt.Length; i++)
             {
-                if (listInt[i] > 0)
+                switch (arrayInt[i])
                 {
-                    Console.Write(listInt[i] + ", ");
-                } 
+                    case 1:
+                        ++count[1];
+                        break;
+                    case 2:
+                        ++count[2];
+                        break;
+                    case 3:
+                        ++count[3];
+                        break;
+                    case 4:
+                        ++count[4];
+                        break;
+                    case 5:
+                        ++count[5];
+                        break;
+                    case 6:
+                        ++count[6];
+                        break;
+                    case 7:
+                        ++count[7];
+                        break;
+                    case 8:
+                        ++count[8];
+                        break;
+                    case 9:
+                        ++count[9];
+                        break;
+                    case 0:
+                        ++count[0];
+                        break;
+                }
             }
+
+            for (int i = 0; i < arrayInt.Length; i++)
+            {
+                if (count[i] > 0)
+                {
+                    Console.WriteLine ("{0} -> {1}", i, count[i]);
+                }
+            }
+
+            Console.ReadKey ();
+        }*/
+      /*  //The majorant  of an  array of  size N  is  a value  that occurs  in  it at  least N/2 + 1 times.Write a program that finds the majorant of given array and prints it.If it does not exist, print "The majorant does not exist!".  Example: {2, 2, 3, 3, 2, 3, 4, 3, 3} -> 3 
+
+        static void Main (string[] args)
+        {
+            int[] arrayInt = new int[] { 2, 2, 3, 3, 2, 3, 4,1,1,5,5,7};
+            int[] count = new int[10];
+            List<int> listInt = new List<int> ();
+
+            for (int i = 0; i < arrayInt.Length; i++)
+            {
+                switch (arrayInt[i])
+                {
+                    case 0:
+                        ++count[0];
+                        break;
+                    case 1:
+                        ++count[1];
+                        break;
+                    case 2:
+                        ++count[2];
+                        break;
+                    case 3:
+                        ++count[3];
+                        break;
+                    case 4:
+                        ++count[4];
+                        break;
+                    case 5:
+                        ++count[5];
+                        break;
+                    case 6:
+                        ++count[6];
+                        break;
+                    case 7:
+                        ++count[7];
+                        break;
+                    case 8:
+                        ++count[8];
+                        break;
+                    case 9:
+                        ++count[9];
+                        break;
+                }
+            }
+
+            int a = count.Max ();
+            int index1 = Array.IndexOf (count, a);
+            Console.WriteLine (index1);
+            Console.ReadKey ();
         }*/
     }
 }
