@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CreatingAndUsingObjects;
 
 namespace PracticeConsole
 {
@@ -606,56 +607,329 @@ namespace PracticeConsole
 
             Console.ReadKey ();
         }*/
-      /*  //The majorant  of an  array of  size N  is  a value  that occurs  in  it at  least N/2 + 1 times.Write a program that finds the majorant of given array and prints it.If it does not exist, print "The majorant does not exist!".  Example: {2, 2, 3, 3, 2, 3, 4, 3, 3} -> 3 
+        /*  //The majorant  of an  array of  size N  is  a value  that occurs  in  it at  least N/2 + 1 times.Write a program that finds the majorant of given array and prints it.If it does not exist, print "The majorant does not exist!".  Example: {2, 2, 3, 3, 2, 3, 4, 3, 3} -> 3 
+
+          static void Main (string[] args)
+          {
+              int[] arrayInt = new int[] { 2, 2, 3, 3, 2, 3, 4,1,1,5,5,7};
+              int[] count = new int[10];
+              List<int> listInt = new List<int> ();
+
+              for (int i = 0; i < arrayInt.Length; i++)
+              {
+                  switch (arrayInt[i])
+                  {
+                      case 0:
+                          ++count[0];
+                          break;
+                      case 1:
+                          ++count[1];
+                          break;
+                      case 2:
+                          ++count[2];
+                          break;
+                      case 3:
+                          ++count[3];
+                          break;
+                      case 4:
+                          ++count[4];
+                          break;
+                      case 5:
+                          ++count[5];
+                          break;
+                      case 6:
+                          ++count[6];
+                          break;
+                      case 7:
+                          ++count[7];
+                          break;
+                      case 8:
+                          ++count[8];
+                          break;
+                      case 9:
+                          ++count[9];
+                          break;
+                  }
+              }
+
+              int a = count.Max ();
+              int index1 = Array.IndexOf (count, a);
+              Console.WriteLine (index1);
+              Console.ReadKey ();
+          }*/
+        /*  // Write a program, which generates and prints on the console 10 random numbers in the range[100, 200]. 
 
         static void Main (string[] args)
         {
-            int[] arrayInt = new int[] { 2, 2, 3, 3, 2, 3, 4,1,1,5,5,7};
-            int[] count = new int[10];
+            string str = string.Empty;
+            Random r = new Random ();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine (r.Next (100, 200));
+            }
+        }*/
+        /* //  Write a program, which prints, on the console which day of the week is today.
+
+         static void Main (string[] args)
+         {
+             DateTime now = DateTime.Now;
+             Console.WriteLine (now.DayOfWeek);
+             Console.ReadKey ();
+         }*/
+        /*     //Write a program, which prints on the standard output the count of days, hours, and  minutes,  which have  passes since  the computer  is started until  the moment  of the  program execution.For  the implementation use the class Environment. 
+
+             static void Main (string[] args)
+             {
+
+             }*/
+        /*   //  Write a program, which reads from the console a year and checks if it is a leap year.
+
+           static void Main (string[] args)
+           {
+              bool a =  DateTime.IsLeapYear (2004);
+           }*/
+        /*   //Write a  program which  by given  two sides  finds the  hypotenuse of  a right triangle.Implement entering of the lengths of the sides from the standard input, and for the calculation of the hypotenuse use methods of the class Math. 
+
+           static void Main (string[] args)
+           {
+               double a = 8, b = 12, c = 0;
+               c = Math.Round(Math.Sqrt (Math.Pow (a, 2) + Math.Pow (b, 2)),2);
+               Console.WriteLine (c);
+               Console.ReadKey ();
+           }*/
+
+        /*    Define your  own  namespace CreatingAndUsingObjects  and  place  in  it two  classes Cat  and Sequence, which  we used  in  the examples  of the current chapter.Define  one more  namespace and  make  a class,  which calls the classes Cat and Sequence, in it
+
+        //  Cat c = new Cat ();
+        //  Sequence s = new Sequence ();
+        */
+        /*   //Write a  method that  returns the  English name  of the  last digit  of a given number.Example: for 512 prints "two"; for 1024  "four".
+
+        static void Main (string[] args)
+        {
+            do
+            {
+            string word = string.Empty;
+            Console.WriteLine ("Enter your number");
+            string str = Console.ReadLine ();
+            string a = str.Substring(str.Length - 1);
+            switch (Convert.ToInt32(a))
+            {
+                case 1:
+                    word = "one";
+                    break;
+                case 2:
+                    word = "two";
+                    break;
+                case 3:
+                    word = "three";
+                    break;
+                case 4:
+                    word = "four";
+                    break;
+                case 5:
+                    word = "five";
+                    break;
+                case 6:
+                    word = "six";
+                    break;
+                case 7:
+                    word = "seven";
+                    break;
+                case 8:
+                    word = "eight";
+                    break;
+                case 9:
+                    word = "nine";
+                    break;
+                case 0:
+                        word = "zero";
+                        break;
+
+                }
+                Console.WriteLine (word);
+                Console.WriteLine ();
+            } while (true);
+        }*/
+
+        /*  // Write a  method that  prints the  digits of  a given  decimal number  in  a reversed order.For example 256, must be printed as 652..
+
+          static void Main (string[] args)
+          {
+              do
+              {
+              Console.WriteLine ("Enter Number");
+              string str = Console.ReadLine ();
+              char[] chr = str.ToCharArray ();
+              Array.Reverse (chr);
+              Console.WriteLine (chr);
+              Console.WriteLine ();
+              } while (true);
+          }*/
+
+        /* //  Write a  method that  finds the  biggest element  of an  array.Use that method to implement sorting in descending order.
+
+        static void Main (string[] args)
+        {
+            int[] arrayInt = new int[] {2,5,41,24,100,9,7,13,12,30,70,70,81 };
+
+            for (int i = 0; i < arrayInt.Length-1; i++)
+            {
+                for (int j = 0; j < arrayInt.Length-1-i; j++)
+                {
+                    if (arrayInt[j + 1] > arrayInt[j])
+                    {
+                        int temp = arrayInt[j + 1];
+                        arrayInt[j + 1] = arrayInt[j];
+                        arrayInt[j] = temp;
+                    }
+                }
+            }
+
+            Console.WriteLine ("highest value in Array " + arrayInt[0]);
+            Console.ReadLine (); 
+
+        }*/
+
+        /*  ////  Write a  program to  remove from  a sequence  all the  integers,  which appear odd number of times.For instance, for the sequence {4, 2, 2, 5, 2, 3, 2, 3, 1, 5, 2, 6, 6, 6} the output would be {5, 3, 3, 5}. 
+
+        static void Main (string[] args)
+        {
+            int[] arrayInt = new int[] { 4, 2, 2, 5, 2, 3, 2, 3, 1, 5, 2, 6, 6, 6 };
+
             List<int> listInt = new List<int> ();
+
+            int[] countInt = new int[10];
 
             for (int i = 0; i < arrayInt.Length; i++)
             {
                 switch (arrayInt[i])
                 {
-                    case 0:
-                        ++count[0];
-                        break;
                     case 1:
-                        ++count[1];
+                        ++countInt[1];
                         break;
                     case 2:
-                        ++count[2];
+                        ++countInt[2];
                         break;
                     case 3:
-                        ++count[3];
+                        ++countInt[3];
                         break;
                     case 4:
-                        ++count[4];
+                        ++countInt[4];
                         break;
                     case 5:
-                        ++count[5];
+                        ++countInt[5];
                         break;
                     case 6:
-                        ++count[6];
+                        ++countInt[6];
                         break;
                     case 7:
-                        ++count[7];
+                        ++countInt[7];
                         break;
                     case 8:
-                        ++count[8];
+                        ++countInt[8];
                         break;
                     case 9:
-                        ++count[9];
+                        ++countInt[9];
                         break;
+
                 }
             }
 
-            int a = count.Max ();
-            int index1 = Array.IndexOf (count, a);
-            Console.WriteLine (index1);
-            Console.ReadKey ();
+            for (int i = 0; i < countInt.Length; i++)
+            {
+                if (countInt[i] != 0 && countInt[i]%2 == 0)
+                {
+                    listInt.Add (i);
+                }
+            }
+
+            for (int i = 0; i < arrayInt.Length; i++)
+            {
+                if (listInt.Contains(arrayInt[i]))
+                {
+                    Console.Write ("{0} ", arrayInt[i]);
+                }
+            }
         }*/
+
+        /*  //Write a program that counts how many times each word from a given text file words.txt appears in it.The result words should be ordered by their number of occurrences in the text. Example:  "This is the TEXT. Text, text, text – THIS TEXT! Is this the text?" Result: is  2, the  2, this  3, text  6.
+
+         static void Main (string[] args)
+         {
+             char[] arrayChar = new char[200];
+             List<string> listString = new List<string> ();
+             string[] arrayString = new string[100];
+             string[] arrayString2 = new string[100];
+             string str = "This is the TEXT. Text, text, text – THIS TEXT! Is this the text?";
+             string str2 = string.Empty;
+             arrayChar = str.ToCharArray ();
+             for (int i = 0; i < str.Length - 1; i++)
+             {
+                 if (arrayChar[i].ToString ().Contains (','))
+                 {
+                     arrayString[i] = arrayChar[i].ToString ().Replace (",", "");
+                     str2 = str2 + arrayString[i];
+                 }
+                 else if (arrayChar[i].ToString ().Contains ('!'))
+                 {
+                     arrayString[i] = arrayChar[i].ToString ().Replace ("!", "");
+                     str2 = str2 + arrayString[i];
+                 }
+                 else if (arrayChar[i].ToString ().Contains ('.'))
+                 {
+                     arrayString[i] = arrayChar[i].ToString ().Replace (".", "");
+                     str2 = str2 + arrayString[i];
+                 }
+                 else if (arrayChar[i].ToString ().Contains ('?'))
+                 {
+                     arrayString[i] = arrayChar[i].ToString ().Replace ("?", "");
+                     str2 = str2 + arrayString[i];
+                 }
+                 else if (arrayChar[i].ToString ().Contains ('–'))
+                 {
+                     arrayString[i] = arrayChar[i].ToString ().Replace ("–", "");
+                     str2 = str2 + arrayString[i];
+                 }
+                 else
+                 {
+                     arrayString[i] = arrayChar[i].ToString ();
+                     str2 = str2 + arrayString[i];
+                 }
+             }
+
+             str = str2.ToUpper ();
+             arrayString = str.Split ();
+             foreach (var item in arrayString)
+             {
+                 if (!listString.Contains(item))
+                 { 
+                     listString.Add (item);
+                 }
+             }
+
+             foreach (var item in listString)
+             {
+                 int count = 0;
+                 for (int i = 0; i < arrayString.Length; i++)
+                 {
+                     if (item == arrayString[i])
+                     {
+                         ++count;
+                     }
+                 }
+                 if (!string.IsNullOrEmpty(item))
+                 {
+                     Console.WriteLine ("{0} {1}", item, count);
+                 }
+             }  
+         }*/
+//        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
+//-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
+//-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
+//-  Puts the last digit in the first position: dabc (in our example 1201). 
+//-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
     }
 }
 
