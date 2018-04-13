@@ -606,56 +606,73 @@ namespace PracticeConsole
 
             Console.ReadKey ();
         }*/
-      /*  //The majorant  of an  array of  size N  is  a value  that occurs  in  it at  least N/2 + 1 times.Write a program that finds the majorant of given array and prints it.If it does not exist, print "The majorant does not exist!".  Example: {2, 2, 3, 3, 2, 3, 4, 3, 3} -> 3 
+        /*  //The majorant  of an  array of  size N  is  a value  that occurs  in  it at  least N/2 + 1 times.Write a program that finds the majorant of given array and prints it.If it does not exist, print "The majorant does not exist!".  Example: {2, 2, 3, 3, 2, 3, 4, 3, 3} -> 3 
 
-        static void Main (string[] args)
+          static void Main (string[] args)
+          {
+              int[] arrayInt = new int[] { 2, 2, 3, 3, 2, 3, 4,1,1,5,5,7};
+              int[] count = new int[10];
+              List<int> listInt = new List<int> ();
+
+              for (int i = 0; i < arrayInt.Length; i++)
+              {
+                  switch (arrayInt[i])
+                  {
+                      case 0:
+                          ++count[0];
+                          break;
+                      case 1:
+                          ++count[1];
+                          break;
+                      case 2:
+                          ++count[2];
+                          break;
+                      case 3:
+                          ++count[3];
+                          break;
+                      case 4:
+                          ++count[4];
+                          break;
+                      case 5:
+                          ++count[5];
+                          break;
+                      case 6:
+                          ++count[6];
+                          break;
+                      case 7:
+                          ++count[7];
+                          break;
+                      case 8:
+                          ++count[8];
+                          break;
+                      case 9:
+                          ++count[9];
+                          break;
+                  }
+              }
+
+              int a = count.Max ();
+              int index1 = Array.IndexOf (count, a);
+              Console.WriteLine (index1);
+              Console.ReadKey ();
+          }*/
+          // todo
+        //Write a  program,  which reads  the integer  numbers N  and K  from the console and prints all variations of K elements of the numbers in the interval[1…N]. Example: N = 3, K = 2  {1, 1}, {1, 2}, {1, 3}, {2, 1}, {2, 2}, {2, 3}, {3, 1}, {3, 2}, {3, 3}. 
+
+        static void Main(string[] args)
         {
-            int[] arrayInt = new int[] { 2, 2, 3, 3, 2, 3, 4,1,1,5,5,7};
-            int[] count = new int[10];
-            List<int> listInt = new List<int> ();
-
-            for (int i = 0; i < arrayInt.Length; i++)
+            int N = 2, K = 2;
+            for (int i = 1; i <= N; i++)
             {
-                switch (arrayInt[i])
+                for (int j = 1; j <= N; j++)
                 {
-                    case 0:
-                        ++count[0];
-                        break;
-                    case 1:
-                        ++count[1];
-                        break;
-                    case 2:
-                        ++count[2];
-                        break;
-                    case 3:
-                        ++count[3];
-                        break;
-                    case 4:
-                        ++count[4];
-                        break;
-                    case 5:
-                        ++count[5];
-                        break;
-                    case 6:
-                        ++count[6];
-                        break;
-                    case 7:
-                        ++count[7];
-                        break;
-                    case 8:
-                        ++count[8];
-                        break;
-                    case 9:
-                        ++count[9];
-                        break;
+                    Console.Write("{");
+                    Console.Write(" {0},{1} ",i,j);
+                    Console.Write("}");
                 }
             }
-
-            int a = count.Max ();
-            int index1 = Array.IndexOf (count, a);
-            Console.WriteLine (index1);
-            Console.ReadKey ();
-        }*/
+            Console.ReadKey();
+        }
     }
 }
 
