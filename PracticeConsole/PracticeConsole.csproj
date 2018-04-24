@@ -321,6 +321,13 @@
     <Content Include="Resources\numbers2.txt" />
     <Content Include="Resources\Question.PNG" />
     <Content Include="Resources\words.txt" />
+    <Content Include="SQL\euro2012 original.sql" />
+    <Content Include="SQL\euro2012 php export.sql" />
+    <Content Include="SQL\FunctionsExample.sql" />
+    <Content Include="SQL\JoinsExample.sql" />
+    <Content Include="SQL\Join_SqlZoo.sql" />
+    <Content Include="SQL\SqlQuery_1.sql" />
+    <Content Include="SQL\StoredProcedurePractice.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

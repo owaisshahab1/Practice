@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CreatingAndUsingObjects;
+
 
 namespace PracticeConsole
 {
@@ -657,10 +657,10 @@ namespace PracticeConsole
               Console.WriteLine (index1);
               Console.ReadKey ();
           }*/
-<<<<<<< HEAD
-          // todo
+
+        // todo
         //Write a  program,  which reads  the integer  numbers N  and K  from the console and prints all variations of K elements of the numbers in the interval[1…N]. Example: N = 3, K = 2  {1, 1}, {1, 2}, {1, 3}, {2, 1}, {2, 2}, {2, 3}, {3, 1}, {3, 2}, {3, 3}. 
-=======
+
         /*  // Write a program, which generates and prints on the console 10 random numbers in the range[100, 200]. 
 >>>>>>> 9c7dc154a928a2d1c61fa658bd002b0b282e433b
 
@@ -944,12 +944,90 @@ namespace PracticeConsole
                  }
              }  
          }*/
-//        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
-//-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
-//-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
-//-  Puts the last digit in the first position: dabc (in our example 1201). 
-//-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
->>>>>>> 9c7dc154a928a2d1c61fa658bd002b0b282e433b
+
+        //        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
+        //-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
+        //-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
+        //-  Puts the last digit in the first position: dabc (in our example 1201). 
+        //-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
+
+        /*  //        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
+        //-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
+        //-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
+        //-  Puts the last digit in the first position: dabc (in our example 1201). 
+        //-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
+
+        static void Main (string[] args)
+        {
+            int sum = 0;
+            Console.WriteLine ("enter number");
+            Console.WriteLine ("2011");
+            //string str = Console.ReadLine ();
+            string str = "2011";
+            char[] arrayChar = new char[100];
+            arrayChar = str.ToCharArray ();
+            foreach (var item in arrayChar)
+            {
+                sum = item + sum;
+            }
+            Array.Reverse (arrayChar);
+            Console.WriteLine ("Array Reverse");
+            foreach (var item in arrayChar)
+            {
+                Console.Write (item);
+            }
+            Array.Reverse (arrayChar);
+            Console.WriteLine ();
+            Console.Write ("dabc = ");
+            Console.Write (arrayChar[arrayChar.Length-1]);
+            for (int i = 0; i < arrayChar.Length-2; i++)
+            {
+                Console.Write (arrayChar[i]);
+            }
+            Console.Write (arrayChar[arrayChar.Length - 2]);
+            Console.WriteLine ();
+            Console.Write("acbd = ");
+            Console.Write(arrayChar[0]);
+            for (int i = arrayChar.Length - 2; i > 0; i--)
+            {
+                Console.Write (arrayChar[i]);
+            }
+            Console.Write(arrayChar[arrayChar.Length-1]); 
+            Console.ReadKey ();
+        }*/
+
+        //static void Main (string[] args)
+        //{
+        //    int num = 1234;
+        //    int rem = 0;
+        //    do
+        //    {
+        //        rem = num % 10;
+        //        num = num / 10;
+        //        Console.Write (rem);
+        //    } while (num > 0);
+        //    Console.ReadKey ();
+        //}
+
+       /* static void Main (string[] args)
+        {
+            int[] arrayInt = new int[] { 2,4,3,9,16,4 };
+            if (arrayInt.Length%2 == 0)
+            {
+                for (int i = 0; i < arrayInt.Length/2; i++)
+                {
+                    if (Math.Pow (arrayInt[i], 2) == arrayInt[arrayInt.Length-1-i])
+                    {
+                        Console.WriteLine ("Array Element {0}",arrayInt[i]);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine ("Array Length is Odd");
+            }
+            Console.ReadLine ();
+        }*/
     }
 }
 
