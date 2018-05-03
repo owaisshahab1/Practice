@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CreatingAndUsingObjects;
+//using CreatingAndUsingObjects;
 
 namespace PracticeConsole
 {
@@ -657,19 +657,19 @@ namespace PracticeConsole
               Console.WriteLine (index1);
               Console.ReadKey ();
           }*/
-<<<<<<< HEAD
-          // todo
+
+        // todo
         //Write a  program,  which reads  the integer  numbers N  and K  from the console and prints all variations of K elements of the numbers in the interval[1…N]. Example: N = 3, K = 2  {1, 1}, {1, 2}, {1, 3}, {2, 1}, {2, 2}, {2, 3}, {3, 1}, {3, 2}, {3, 3}. 
-=======
+
         /*  // Write a program, which generates and prints on the console 10 random numbers in the range[100, 200]. 
 >>>>>>> 9c7dc154a928a2d1c61fa658bd002b0b282e433b
 
         static void Main(string[] args)
         {
-<<<<<<< HEAD
+
             int N = 2, K = 2;
             for (int i = 1; i <= N; i++)
-=======
+
             string str = string.Empty;
             Random r = new Random ();
 
@@ -944,12 +944,58 @@ namespace PracticeConsole
                  }
              }  
          }*/
-//        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
-//-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
-//-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
-//-  Puts the last digit in the first position: dabc (in our example 1201). 
-//-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
->>>>>>> 9c7dc154a928a2d1c61fa658bd002b0b282e433b
+
+   /*     static void Main(string[] args)
+        {
+            int length = 3;
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= length - i; j++)
+                {
+                    Console.Write(" ");
+                }
+
+                for (int k = 1; k <= i; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
+        }*/
+
+        /*  static void Main(string[] args)
+          {
+              int length = 3;
+              for (int i = 1; i <= length; i++)
+              {
+                  for (int j = 1; j <= length-i; j++)
+                  {
+                      Console.Write(" ");
+                  }
+
+                  for (int k = 1; k <= i; k++)
+                  {
+                      Console.Write("*");
+                  }
+
+                  for (int l = 1; l <= i-1; l++)
+                  {
+                      Console.Write("*");
+                  }
+
+                  Console.WriteLine();
+              }
+              Console.ReadLine();
+          }*/
+
+        //        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
+        //-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
+        //-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
+        //-  Puts the last digit in the first position: dabc (in our example 1201). 
+        //-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
+
     }
 }
 
