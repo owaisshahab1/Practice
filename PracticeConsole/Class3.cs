@@ -5,11 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-//using CreatingAndUsingObjects;
-=======
 
->>>>>>> 79099f4d28d99ec56bbef93152979cb350331928
+//using CreatingAndUsingObjects;
+
 
 namespace PracticeConsole
 {
@@ -949,7 +947,6 @@ namespace PracticeConsole
              }  
          }*/
 
-<<<<<<< HEAD
    /*     static void Main(string[] args)
         {
             int length = 3;
@@ -1001,7 +998,7 @@ namespace PracticeConsole
         //-  Puts the last digit in the first position: dabc (in our example 1201). 
         //-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
 
-=======
+
         //        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
         //-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
         //-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
@@ -1085,7 +1082,7 @@ namespace PracticeConsole
             }
             Console.ReadLine ();
         }*/
->>>>>>> 79099f4d28d99ec56bbef93152979cb350331928
+
     }
 }
 
