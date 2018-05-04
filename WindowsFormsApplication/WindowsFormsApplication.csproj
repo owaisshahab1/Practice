@@ -72,6 +72,12 @@
     <Compile Include="SalesChart.Designer.cs">
       <DependentUpon>SalesChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="SymbolPalleteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SymbolPalleteWindow.Designer.cs">
+      <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="SalesChart.resx">
       <DependentUpon>SalesChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SymbolPalleteWindow.resx">
+      <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
