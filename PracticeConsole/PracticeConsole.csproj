@@ -217,7 +217,6 @@
     <Compile Include="Logic Building\FindLEN-LONAraay.cs" />
     <Compile Include="Logic Building\FindStringOrInteger.cs" />
     <Compile Include="Advance Concept\AnonymousMethod.cs" />
-    <Compile Include="Flow Control\BreakContinue.cs" />
     <Compile Include="Keywords\ConstReadOnlyExample.cs" />
     <Compile Include="Logic Building\CountDigits.cs" />
     <Compile Include="Advance Concept\DelegateExample.cs" />
@@ -230,7 +229,6 @@
     <Compile Include="Advance Concept\IndexerExample.cs" />
     <Compile Include="Advance Concept\IsVsAs.cs" />
     <Compile Include="Advance Concept\LinkedListExample.cs" />
-    <Compile Include="Flow Control\Loop.cs" />
     <Compile Include="Logic Building\ManyDivisions.cs" />
     <Compile Include="Advance Concept\MulticastingDelegateExample.cs" />
     <Compile Include="Advance Concept\NullablesExample.cs" />
@@ -316,6 +314,7 @@
     <Content Include="Resources\Compare1.txt" />
     <Content Include="Resources\Compare2.txt" />
     <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\mails.txt" />
     <Content Include="Resources\Names.txt" />
     <Content Include="Resources\numbers.txt" />
     <Content Include="Resources\numbers2.txt" />
