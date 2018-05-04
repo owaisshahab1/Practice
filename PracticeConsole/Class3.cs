@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//using CreatingAndUsingObjects;
+
 
 namespace PracticeConsole
 {
@@ -666,10 +668,10 @@ namespace PracticeConsole
 
         static void Main(string[] args)
         {
-<<<<<<< HEAD
+
             int N = 2, K = 2;
             for (int i = 1; i <= N; i++)
-=======
+
             string str = string.Empty;
             Random r = new Random ();
 
@@ -945,6 +947,58 @@ namespace PracticeConsole
              }  
          }*/
 
+   /*     static void Main(string[] args)
+        {
+            int length = 3;
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= length - i; j++)
+                {
+                    Console.Write(" ");
+                }
+
+                for (int k = 1; k <= i; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+            Console.ReadKey();
+        }*/
+
+        /*  static void Main(string[] args)
+          {
+              int length = 3;
+              for (int i = 1; i <= length; i++)
+              {
+                  for (int j = 1; j <= length-i; j++)
+                  {
+                      Console.Write(" ");
+                  }
+
+                  for (int k = 1; k <= i; k++)
+                  {
+                      Console.Write("*");
+                  }
+
+                  for (int l = 1; l <= i-1; l++)
+                  {
+                      Console.Write("*");
+                  }
+
+                  Console.WriteLine();
+              }
+              Console.ReadLine();
+          }*/
+
+        //        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
+        //-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
+        //-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
+        //-  Puts the last digit in the first position: dabc (in our example 1201). 
+        //-  Exchanges the  second and  the third  digits:  acbd (in  our example 2101).
+
+
         //        Write a program that takes as input a four-digit number in format abcd (e.g. 2011) and performs the following actions: 
         //-  Calculates the sum of the digits (in our example 2+0+1+1 = 4). 
         //-  Prints on  the console  the number  in  reversed order:  dcba (in  our example 1102). 
@@ -1028,6 +1082,7 @@ namespace PracticeConsole
             }
             Console.ReadLine ();
         }*/
+
     }
 }
 
