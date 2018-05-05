@@ -52,6 +52,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartDemoVc3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartDemoVc3.Designer.cs">
+      <DependentUpon>ChartDemoVc3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="SymbolPalleteWindow.Designer.cs">
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChartDemoVc3.resx">
+      <DependentUpon>ChartDemoVc3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +108,7 @@
     <EmbeddedResource Include="SymbolPalleteWindow.resx">
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Backup Database\JIChart.bak" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
