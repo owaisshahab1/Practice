@@ -34,6 +34,7 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("IsInterestedInVb", IsVbCheckBox.Checked);
                     cmd.Parameters.AddWithValue("IsInterestedInSql", IsSqlCheckBox.Checked);
                     cmd.Parameters.AddWithValue("GenderId", GetGender());
+                    cmd.Parameters.AddWithValue("DateOfBirth", DobDateTimePicker.Value.Date);
                     conn.Open();
                     // execute reader for select
                     // executescalar for select
@@ -72,6 +73,17 @@ namespace WindowsFormsApplication
             this.Close();
         }
 
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DobDateTimePicker.CustomFormat = "dd/MM/yyyy";
+        }
 
+        private void DobDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) 
+            {
+                DobDateTimePicker.CustomFormat = " ";
+            }
+        }
     }
 }

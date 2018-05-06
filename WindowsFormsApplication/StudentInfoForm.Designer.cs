@@ -41,6 +41,8 @@
             this.MaleRadioButton = new System.Windows.Forms.RadioButton();
             this.FemaleRadioButton = new System.Windows.Forms.RadioButton();
             this.Genderlabel = new System.Windows.Forms.Label();
+            this.DobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.Dlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameTextBox
@@ -79,7 +81,7 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(66, 188);
+            this.SaveBtn.Location = new System.Drawing.Point(63, 260);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(72, 23);
             this.SaveBtn.TabIndex = 3;
@@ -89,7 +91,7 @@
             // 
             // CloseBtn
             // 
-            this.CloseBtn.Location = new System.Drawing.Point(181, 188);
+            this.CloseBtn.Location = new System.Drawing.Point(178, 260);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(72, 23);
             this.CloseBtn.TabIndex = 3;
@@ -169,11 +171,33 @@
             this.Genderlabel.TabIndex = 2;
             this.Genderlabel.Text = "Gender";
             // 
+            // DobDateTimePicker
+            // 
+            this.DobDateTimePicker.CustomFormat = " ";
+            this.DobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DobDateTimePicker.Location = new System.Drawing.Point(124, 193);
+            this.DobDateTimePicker.Name = "DobDateTimePicker";
+            this.DobDateTimePicker.Size = new System.Drawing.Size(180, 20);
+            this.DobDateTimePicker.TabIndex = 6;
+            this.DobDateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
+            this.DobDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DobDateTimePicker_KeyDown);
+            // 
+            // Dlabel
+            // 
+            this.Dlabel.AutoSize = true;
+            this.Dlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dlabel.Location = new System.Drawing.Point(31, 193);
+            this.Dlabel.Name = "Dlabel";
+            this.Dlabel.Size = new System.Drawing.Size(87, 17);
+            this.Dlabel.TabIndex = 2;
+            this.Dlabel.Text = "Date of Birth";
+            // 
             // StudentInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 223);
+            this.ClientSize = new System.Drawing.Size(345, 295);
+            this.Controls.Add(this.DobDateTimePicker);
             this.Controls.Add(this.FemaleRadioButton);
             this.Controls.Add(this.MaleRadioButton);
             this.Controls.Add(this.IsSqlCheckBox);
@@ -181,6 +205,7 @@
             this.Controls.Add(this.IsCSharpCheckBox);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.SaveBtn);
+            this.Controls.Add(this.Dlabel);
             this.Controls.Add(this.Genderlabel);
             this.Controls.Add(this.interestlabel);
             this.Controls.Add(this.emailLabel);
@@ -212,5 +237,7 @@
         private System.Windows.Forms.RadioButton MaleRadioButton;
         private System.Windows.Forms.RadioButton FemaleRadioButton;
         private System.Windows.Forms.Label Genderlabel;
+        private System.Windows.Forms.DateTimePicker DobDateTimePicker;
+        private System.Windows.Forms.Label Dlabel;
     }
 }
