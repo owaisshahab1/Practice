@@ -30,6 +30,9 @@ namespace WindowsFormsApplication
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = NameTextBox.Text;
                     cmd.Parameters.AddWithValue("Email", emailTextBox.Text);
+                    cmd.Parameters.AddWithValue("IsInterestedInCSharp", IsCSharpCheckBox.Checked);
+                    cmd.Parameters.AddWithValue("IsInterestedInVb", IsVbCheckBox.Checked);
+                    cmd.Parameters.AddWithValue("IsInterestedInSql", IsSqlCheckBox.Checked);
                     conn.Open();
                     // execute reader for select
                     // executescalar for select
