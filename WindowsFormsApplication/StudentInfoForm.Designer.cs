@@ -38,6 +38,9 @@
             this.IsCSharpCheckBox = new System.Windows.Forms.CheckBox();
             this.IsVbCheckBox = new System.Windows.Forms.CheckBox();
             this.IsSqlCheckBox = new System.Windows.Forms.CheckBox();
+            this.MaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.FemaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.Genderlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameTextBox
@@ -76,9 +79,9 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(66, 159);
+            this.SaveBtn.Location = new System.Drawing.Point(66, 188);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(75, 23);
+            this.SaveBtn.Size = new System.Drawing.Size(72, 23);
             this.SaveBtn.TabIndex = 3;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
@@ -86,9 +89,9 @@
             // 
             // CloseBtn
             // 
-            this.CloseBtn.Location = new System.Drawing.Point(181, 159);
+            this.CloseBtn.Location = new System.Drawing.Point(181, 188);
             this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.CloseBtn.Size = new System.Drawing.Size(72, 23);
             this.CloseBtn.TabIndex = 3;
             this.CloseBtn.Text = "Close";
             this.CloseBtn.UseVisualStyleBackColor = true;
@@ -134,16 +137,51 @@
             this.IsSqlCheckBox.Text = "SQL";
             this.IsSqlCheckBox.UseVisualStyleBackColor = true;
             // 
+            // MaleRadioButton
+            // 
+            this.MaleRadioButton.AutoSize = true;
+            this.MaleRadioButton.Location = new System.Drawing.Point(104, 151);
+            this.MaleRadioButton.Name = "MaleRadioButton";
+            this.MaleRadioButton.Size = new System.Drawing.Size(48, 17);
+            this.MaleRadioButton.TabIndex = 5;
+            this.MaleRadioButton.TabStop = true;
+            this.MaleRadioButton.Text = "Male";
+            this.MaleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // FemaleRadioButton
+            // 
+            this.FemaleRadioButton.AutoSize = true;
+            this.FemaleRadioButton.Location = new System.Drawing.Point(158, 151);
+            this.FemaleRadioButton.Name = "FemaleRadioButton";
+            this.FemaleRadioButton.Size = new System.Drawing.Size(59, 17);
+            this.FemaleRadioButton.TabIndex = 5;
+            this.FemaleRadioButton.TabStop = true;
+            this.FemaleRadioButton.Text = "Female";
+            this.FemaleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // Genderlabel
+            // 
+            this.Genderlabel.AutoSize = true;
+            this.Genderlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Genderlabel.Location = new System.Drawing.Point(31, 151);
+            this.Genderlabel.Name = "Genderlabel";
+            this.Genderlabel.Size = new System.Drawing.Size(56, 17);
+            this.Genderlabel.TabIndex = 2;
+            this.Genderlabel.Text = "Gender";
+            // 
             // StudentInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 223);
+            this.Controls.Add(this.FemaleRadioButton);
+            this.Controls.Add(this.MaleRadioButton);
             this.Controls.Add(this.IsSqlCheckBox);
             this.Controls.Add(this.IsVbCheckBox);
             this.Controls.Add(this.IsCSharpCheckBox);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.SaveBtn);
+            this.Controls.Add(this.Genderlabel);
             this.Controls.Add(this.interestlabel);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.Namelabel);
@@ -171,5 +209,8 @@
         private System.Windows.Forms.CheckBox IsCSharpCheckBox;
         private System.Windows.Forms.CheckBox IsVbCheckBox;
         private System.Windows.Forms.CheckBox IsSqlCheckBox;
+        private System.Windows.Forms.RadioButton MaleRadioButton;
+        private System.Windows.Forms.RadioButton FemaleRadioButton;
+        private System.Windows.Forms.Label Genderlabel;
     }
 }

@@ -33,6 +33,7 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("IsInterestedInCSharp", IsCSharpCheckBox.Checked);
                     cmd.Parameters.AddWithValue("IsInterestedInVb", IsVbCheckBox.Checked);
                     cmd.Parameters.AddWithValue("IsInterestedInSql", IsSqlCheckBox.Checked);
+                    cmd.Parameters.AddWithValue("GenderId", GetGender());
                     conn.Open();
                     // execute reader for select
                     // executescalar for select
@@ -45,9 +46,32 @@ namespace WindowsFormsApplication
 
         }
 
+        public enum gender
+        {
+            NoSelection = 0,
+            Male = 1,
+            Female = 2,
+            
+        }
+
+        private int GetGender()
+        {
+            if (MaleRadioButton.Checked)
+            {
+                return (int)gender.Male;
+            }
+            else if (FemaleRadioButton.Checked)
+            {
+                return (int)gender.Female;
+            }
+            return (int)gender.NoSelection;
+        }
+
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
     }
 }
