@@ -135,9 +135,7 @@
     <EmbeddedResource Include="SymbolPalleteWindow.resx">
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Backup Database\JIChart-.bak" />
     <None Include="Backup Database\JIChart.bak" />
-    <None Include="Backup Database\VcSharpDB.bak" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -147,6 +145,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="VcSharpDB.1bak" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

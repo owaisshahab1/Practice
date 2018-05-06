@@ -35,9 +35,11 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("IsInterestedInSql", IsSqlCheckBox.Checked);
                     cmd.Parameters.AddWithValue("GenderId", GetGender());
                     cmd.Parameters.AddWithValue("DateOfBirth", DobDateTimePicker.Value.Date);
+                    cmd.Parameters.AddWithValue("StartTime", StartTimeDateTimePicker.Value.TimeOfDay);
+                    cmd.Parameters.AddWithValue("EndTime", EndTimeDateTimePicker.Value.TimeOfDay);
                     conn.Open();
                     // execute reader for select
-                    // executescalar for select
+                    // executescalar for select 
                     // executeNoQuery for insert,update,delete
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("your information is save successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -83,6 +85,30 @@ namespace WindowsFormsApplication
             if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) 
             {
                 DobDateTimePicker.CustomFormat = " ";
+            }
+        }
+
+        private void CourseDuration_ValueChange(object sender, EventArgs e)
+        {
+            GetCustomTimeFormat(sender, "HH:mm");
+        }
+
+        private static void GetCustomTimeFormat(object sender,string format)
+        {
+            DateTimePicker dtp = (DateTimePicker)sender;
+            dtp.CustomFormat = format;
+        }
+
+        private void StartTimeDateTimePicker_MouseDown(object sender, MouseEventArgs e)
+        {
+            GetCustomTimeFormat(sender, "HH:mm");
+        }
+
+        private void StartTimeDateTimePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete)
+            {
+                GetCustomTimeFormat(sender, " ");
             }
         }
     }

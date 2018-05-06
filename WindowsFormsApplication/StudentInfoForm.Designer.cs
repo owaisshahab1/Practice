@@ -42,7 +42,11 @@
             this.FemaleRadioButton = new System.Windows.Forms.RadioButton();
             this.Genderlabel = new System.Windows.Forms.Label();
             this.DobDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.Dlabel = new System.Windows.Forms.Label();
+            this.Doblabel = new System.Windows.Forms.Label();
+            this.CourseTimelabel = new System.Windows.Forms.Label();
+            this.EndTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.StartTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.Tolabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameTextBox
@@ -182,21 +186,69 @@
             this.DobDateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             this.DobDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DobDateTimePicker_KeyDown);
             // 
-            // Dlabel
+            // Doblabel
             // 
-            this.Dlabel.AutoSize = true;
-            this.Dlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dlabel.Location = new System.Drawing.Point(31, 193);
-            this.Dlabel.Name = "Dlabel";
-            this.Dlabel.Size = new System.Drawing.Size(87, 17);
-            this.Dlabel.TabIndex = 2;
-            this.Dlabel.Text = "Date of Birth";
+            this.Doblabel.AutoSize = true;
+            this.Doblabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Doblabel.Location = new System.Drawing.Point(31, 193);
+            this.Doblabel.Name = "Doblabel";
+            this.Doblabel.Size = new System.Drawing.Size(87, 17);
+            this.Doblabel.TabIndex = 2;
+            this.Doblabel.Text = "Date of Birth";
+            // 
+            // CourseTimelabel
+            // 
+            this.CourseTimelabel.AutoSize = true;
+            this.CourseTimelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CourseTimelabel.Location = new System.Drawing.Point(12, 228);
+            this.CourseTimelabel.Name = "CourseTimelabel";
+            this.CourseTimelabel.Size = new System.Drawing.Size(106, 17);
+            this.CourseTimelabel.TabIndex = 2;
+            this.CourseTimelabel.Text = "Couse Duration";
+            // 
+            // EndTimeDateTimePicker
+            // 
+            this.EndTimeDateTimePicker.CustomFormat = " ";
+            this.EndTimeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.EndTimeDateTimePicker.Location = new System.Drawing.Point(233, 225);
+            this.EndTimeDateTimePicker.Name = "EndTimeDateTimePicker";
+            this.EndTimeDateTimePicker.ShowUpDown = true;
+            this.EndTimeDateTimePicker.Size = new System.Drawing.Size(71, 20);
+            this.EndTimeDateTimePicker.TabIndex = 7;
+            this.EndTimeDateTimePicker.ValueChanged += new System.EventHandler(this.CourseDuration_ValueChange);
+            this.EndTimeDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StartTimeDateTimePicker_KeyDown);
+            this.EndTimeDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StartTimeDateTimePicker_MouseDown);
+            // 
+            // StartTimeDateTimePicker
+            // 
+            this.StartTimeDateTimePicker.CustomFormat = " ";
+            this.StartTimeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.StartTimeDateTimePicker.Location = new System.Drawing.Point(126, 225);
+            this.StartTimeDateTimePicker.Name = "StartTimeDateTimePicker";
+            this.StartTimeDateTimePicker.ShowUpDown = true;
+            this.StartTimeDateTimePicker.Size = new System.Drawing.Size(71, 20);
+            this.StartTimeDateTimePicker.TabIndex = 7;
+            this.StartTimeDateTimePicker.ValueChanged += new System.EventHandler(this.CourseDuration_ValueChange);
+            this.StartTimeDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StartTimeDateTimePicker_KeyDown);
+            this.StartTimeDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StartTimeDateTimePicker_MouseDown);
+            // 
+            // Tolabel
+            // 
+            this.Tolabel.AutoSize = true;
+            this.Tolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tolabel.Location = new System.Drawing.Point(203, 228);
+            this.Tolabel.Name = "Tolabel";
+            this.Tolabel.Size = new System.Drawing.Size(25, 17);
+            this.Tolabel.TabIndex = 2;
+            this.Tolabel.Text = "To";
             // 
             // StudentInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 295);
+            this.Controls.Add(this.StartTimeDateTimePicker);
+            this.Controls.Add(this.EndTimeDateTimePicker);
             this.Controls.Add(this.DobDateTimePicker);
             this.Controls.Add(this.FemaleRadioButton);
             this.Controls.Add(this.MaleRadioButton);
@@ -205,7 +257,9 @@
             this.Controls.Add(this.IsCSharpCheckBox);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.SaveBtn);
-            this.Controls.Add(this.Dlabel);
+            this.Controls.Add(this.Tolabel);
+            this.Controls.Add(this.CourseTimelabel);
+            this.Controls.Add(this.Doblabel);
             this.Controls.Add(this.Genderlabel);
             this.Controls.Add(this.interestlabel);
             this.Controls.Add(this.emailLabel);
@@ -238,6 +292,10 @@
         private System.Windows.Forms.RadioButton FemaleRadioButton;
         private System.Windows.Forms.Label Genderlabel;
         private System.Windows.Forms.DateTimePicker DobDateTimePicker;
-        private System.Windows.Forms.Label Dlabel;
+        private System.Windows.Forms.Label Doblabel;
+        private System.Windows.Forms.Label CourseTimelabel;
+        private System.Windows.Forms.DateTimePicker EndTimeDateTimePicker;
+        private System.Windows.Forms.DateTimePicker StartTimeDateTimePicker;
+        private System.Windows.Forms.Label Tolabel;
     }
 }
