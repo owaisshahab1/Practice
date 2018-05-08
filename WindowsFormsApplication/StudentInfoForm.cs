@@ -34,9 +34,9 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("IsInterestedInVb", IsVbCheckBox.Checked);
                     cmd.Parameters.AddWithValue("IsInterestedInSql", IsSqlCheckBox.Checked);
                     cmd.Parameters.AddWithValue("GenderId", GetGender());
-                    cmd.Parameters.AddWithValue("DateOfBirth", DobDateTimePicker.Value.Date);
-                    cmd.Parameters.AddWithValue("StartTime", StartTimeDateTimePicker.Value.TimeOfDay);
-                    cmd.Parameters.AddWithValue("EndTime", EndTimeDateTimePicker.Value.TimeOfDay);
+                    cmd.Parameters.AddWithValue("DateOfBirth", (DobDateTimePicker.Text.Trim() == string.Empty) ? (DateTime?)null : DobDateTimePicker.Value.Date);
+                    cmd.Parameters.AddWithValue("StartTime", StartTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : StartTimeDateTimePicker.Value.TimeOfDay);
+                    cmd.Parameters.AddWithValue("EndTime", EndTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : EndTimeDateTimePicker.Value.TimeOfDay);
                     conn.Open();
                     // execute reader for select
                     // executescalar for select 
