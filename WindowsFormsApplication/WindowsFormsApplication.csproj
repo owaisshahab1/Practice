@@ -90,6 +90,7 @@
     <Compile Include="SalesChart.Designer.cs">
       <DependentUpon>SalesChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlData.cs" />
     <Compile Include="StudentInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +103,7 @@
     <Compile Include="SymbolPalleteWindow.Designer.cs">
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemEnum.cs" />
     <EmbeddedResource Include="ChartDemoVc3.resx">
       <DependentUpon>ChartDemoVc3.cs</DependentUpon>
     </EmbeddedResource>

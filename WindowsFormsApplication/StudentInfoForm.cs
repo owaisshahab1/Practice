@@ -111,5 +111,35 @@ namespace WindowsFormsApplication
                 GetCustomTimeFormat(sender, " ");
             }
         }
+
+        private void StudentInfoForm_Load(object sender, EventArgs e)
+        {
+            FundTypeComboBox.DataSource = GetListData((int)ListDataTypes.FundType);
+            FundTypeComboBox.DisplayMember = "Description";
+            FundTypeComboBox.SelectedIndex = -1;
+            FeePaymentComboBox.DataSource = GetListData((int)ListDataTypes.FeePaymemnt);
+            FeePaymentComboBox.DisplayMember = "Description";
+            FeePaymentComboBox.SelectedIndex = -1;
+        }
+
+        private DataTable GetListData(int listDataTypeId)
+        {
+            DataTable dtListData = new DataTable();
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_GetAllListData", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ListDataTypeId", listDataTypeId);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtListData.Load(reader);
+                }
+            }
+            return dtListData;
+        }
+
+
     }
 }

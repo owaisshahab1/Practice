@@ -47,6 +47,10 @@
             this.EndTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.StartTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Tolabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FundTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FeePaymentComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // NameTextBox
@@ -85,7 +89,7 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(63, 260);
+            this.SaveBtn.Location = new System.Drawing.Point(66, 362);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(72, 23);
             this.SaveBtn.TabIndex = 3;
@@ -95,7 +99,7 @@
             // 
             // CloseBtn
             // 
-            this.CloseBtn.Location = new System.Drawing.Point(178, 260);
+            this.CloseBtn.Location = new System.Drawing.Point(181, 362);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(72, 23);
             this.CloseBtn.TabIndex = 3;
@@ -242,11 +246,51 @@
             this.Tolabel.TabIndex = 2;
             this.Tolabel.Text = "To";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 270);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Fund Type";
+            // 
+            // FundTypeComboBox
+            // 
+            this.FundTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FundTypeComboBox.FormattingEnabled = true;
+            this.FundTypeComboBox.Location = new System.Drawing.Point(104, 270);
+            this.FundTypeComboBox.Name = "FundTypeComboBox";
+            this.FundTypeComboBox.Size = new System.Drawing.Size(200, 21);
+            this.FundTypeComboBox.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 309);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Fee Payment";
+            // 
+            // FeePaymentComboBox
+            // 
+            this.FeePaymentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FeePaymentComboBox.FormattingEnabled = true;
+            this.FeePaymentComboBox.Location = new System.Drawing.Point(107, 305);
+            this.FeePaymentComboBox.Name = "FeePaymentComboBox";
+            this.FeePaymentComboBox.Size = new System.Drawing.Size(200, 21);
+            this.FeePaymentComboBox.TabIndex = 8;
+            // 
             // StudentInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 295);
+            this.ClientSize = new System.Drawing.Size(340, 397);
+            this.Controls.Add(this.FeePaymentComboBox);
+            this.Controls.Add(this.FundTypeComboBox);
             this.Controls.Add(this.StartTimeDateTimePicker);
             this.Controls.Add(this.EndTimeDateTimePicker);
             this.Controls.Add(this.DobDateTimePicker);
@@ -258,6 +302,8 @@
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.Tolabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CourseTimelabel);
             this.Controls.Add(this.Doblabel);
             this.Controls.Add(this.Genderlabel);
@@ -272,6 +318,7 @@
             this.Name = "StudentInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentInfoForm";
+            this.Load += new System.EventHandler(this.StudentInfoForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +344,9 @@
         private System.Windows.Forms.DateTimePicker EndTimeDateTimePicker;
         private System.Windows.Forms.DateTimePicker StartTimeDateTimePicker;
         private System.Windows.Forms.Label Tolabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox FundTypeComboBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox FeePaymentComboBox;
     }
 }
