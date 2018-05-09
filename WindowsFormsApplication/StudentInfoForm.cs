@@ -37,6 +37,8 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("DateOfBirth", (DobDateTimePicker.Text.Trim() == string.Empty) ? (DateTime?)null : DobDateTimePicker.Value.Date);
                     cmd.Parameters.AddWithValue("StartTime", StartTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : StartTimeDateTimePicker.Value.TimeOfDay);
                     cmd.Parameters.AddWithValue("EndTime", EndTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : EndTimeDateTimePicker.Value.TimeOfDay);
+                    cmd.Parameters.AddWithValue("@FundTypeId", (FundTypeComboBox.SelectedIndex == -1) ? 0 : FundTypeComboBox.SelectedValue);
+                    cmd.Parameters.AddWithValue("@FeePaymentTypeId", FundTypeComboBox.SelectedIndex == -1 ? 0 : FeePaymentComboBox.SelectedValue);
                     conn.Open();
                     // execute reader for select
                     // executescalar for select 
@@ -116,9 +118,11 @@ namespace WindowsFormsApplication
         {
             FundTypeComboBox.DataSource = GetListData((int)ListDataTypes.FundType);
             FundTypeComboBox.DisplayMember = "Description";
+            FundTypeComboBox.ValueMember = "ListDataId";
             FundTypeComboBox.SelectedIndex = -1;
             FeePaymentComboBox.DataSource = GetListData((int)ListDataTypes.FeePaymemnt);
             FeePaymentComboBox.DisplayMember = "Description";
+            FeePaymentComboBox.ValueMember = "ListDataId";
             FeePaymentComboBox.SelectedIndex = -1;
         }
 
