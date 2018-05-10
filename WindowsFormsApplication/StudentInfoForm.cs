@@ -40,6 +40,10 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("@FundTypeId", (FundTypeComboBox.SelectedIndex == -1) ? 0 : FundTypeComboBox.SelectedValue);
                     cmd.Parameters.AddWithValue("@FeePaymentTypeId", FundTypeComboBox.SelectedIndex == -1 ? 0 : FeePaymentComboBox.SelectedValue);
                     cmd.Parameters.AddWithValue("@Comments", commentsTextBox.Text);
+                    cmd.Parameters.AddWithValue("@Address", addressTextBox.Text);
+                    cmd.Parameters.AddWithValue("@LocalityId", localityComboBox.SelectedIndex == -1 ? 0 : localityComboBox.SelectedValue);
+                    cmd.Parameters.AddWithValue("@CityId", cityComboBox.SelectedIndex == -1 ? 0 : cityComboBox.SelectedValue);
+                    cmd.Parameters.AddWithValue("@PostalCode", postalCodeTextBox.Text);
                     conn.Open();
                     // execute reader for select
                     // executescalar for select 
@@ -121,10 +125,38 @@ namespace WindowsFormsApplication
             FundTypeComboBox.DisplayMember = "Description";
             FundTypeComboBox.ValueMember = "ListDataId";
             FundTypeComboBox.SelectedIndex = -1;
+
             FeePaymentComboBox.DataSource = GetListData((int)ListDataTypes.FeePaymemnt);
             FeePaymentComboBox.DisplayMember = "Description";
             FeePaymentComboBox.ValueMember = "ListDataId";
             FeePaymentComboBox.SelectedIndex = -1;
+
+            cityComboBox.SelectedValueChanged -= new EventHandler(cityComboBox_SelectedValueChanged);
+
+            cityComboBox.DataSource = GetAllCitiesData();
+            cityComboBox.DisplayMember = "Description";
+            cityComboBox.ValueMember = "CityId";
+            cityComboBox.SelectedIndex = -1;
+
+            cityComboBox.SelectedValueChanged += new EventHandler(cityComboBox_SelectedValueChanged);
+        }
+
+        private DataTable GetAllCitiesData()
+        {
+            DataTable dtCitiestData = new DataTable();
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_GetAllCitiesData", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtCitiestData.Load(reader);
+                }
+            }
+            return dtCitiestData;
         }
 
         private DataTable GetListData(int listDataTypeId)
@@ -145,24 +177,29 @@ namespace WindowsFormsApplication
             return dtListData;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void cityComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            localityComboBox.DataSource = GetAllLocalitiesByCityId((int)cityComboBox.SelectedValue);
+            localityComboBox.DisplayMember = "Description";
+            localityComboBox.ValueMember = "LocalityId";
         }
 
-        private void FundTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private object GetAllLocalitiesByCityId(int cityId)
         {
-
-        }
-
-        private void FeePaymentComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            DataTable dtLocalitiesData = new DataTable();
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_GetAllLocalityData", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CityId", cityId);
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtLocalitiesData.Load(reader);
+                }
+            }
+            return dtLocalitiesData;
         }
     }
 }

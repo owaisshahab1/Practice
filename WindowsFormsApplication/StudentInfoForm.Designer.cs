@@ -55,9 +55,19 @@
             this.extendedDetailsTabControl1 = new System.Windows.Forms.TabControl();
             this.extendedDetailsTabPage = new System.Windows.Forms.TabPage();
             this.commentsTabPage = new System.Windows.Forms.TabPage();
+            this.AddressTabPage = new System.Windows.Forms.TabPage();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            this.localityComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.postalCodeTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.extendedDetailsTabControl1.SuspendLayout();
             this.extendedDetailsTabPage.SuspendLayout();
             this.commentsTabPage.SuspendLayout();
+            this.AddressTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // NameTextBox
@@ -79,7 +89,7 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(91, 49);
+            this.emailTextBox.Location = new System.Drawing.Point(91, 48);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(209, 20);
             this.emailTextBox.TabIndex = 1;
@@ -88,11 +98,11 @@
             // 
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.Location = new System.Drawing.Point(35, 49);
+            this.emailLabel.Location = new System.Drawing.Point(22, 23);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(42, 17);
+            this.emailLabel.Size = new System.Drawing.Size(64, 17);
             this.emailLabel.TabIndex = 2;
-            this.emailLabel.Text = "Email";
+            this.emailLabel.Text = " Address";
             // 
             // SaveBtn
             // 
@@ -262,7 +272,6 @@
             this.label1.Size = new System.Drawing.Size(76, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Fund Type";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FundTypeComboBox
             // 
@@ -272,7 +281,6 @@
             this.FundTypeComboBox.Name = "FundTypeComboBox";
             this.FundTypeComboBox.Size = new System.Drawing.Size(200, 21);
             this.FundTypeComboBox.TabIndex = 8;
-            this.FundTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.FundTypeComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -283,7 +291,6 @@
             this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fee Payment";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FeePaymentComboBox
             // 
@@ -293,7 +300,6 @@
             this.FeePaymentComboBox.Name = "FeePaymentComboBox";
             this.FeePaymentComboBox.Size = new System.Drawing.Size(200, 21);
             this.FeePaymentComboBox.TabIndex = 8;
-            this.FeePaymentComboBox.SelectedIndexChanged += new System.EventHandler(this.FeePaymentComboBox_SelectedIndexChanged);
             // 
             // commentsTextBox
             // 
@@ -308,6 +314,7 @@
             // 
             this.extendedDetailsTabControl1.Controls.Add(this.extendedDetailsTabPage);
             this.extendedDetailsTabControl1.Controls.Add(this.commentsTabPage);
+            this.extendedDetailsTabControl1.Controls.Add(this.AddressTabPage);
             this.extendedDetailsTabControl1.Location = new System.Drawing.Point(12, 190);
             this.extendedDetailsTabControl1.Name = "extendedDetailsTabControl1";
             this.extendedDetailsTabControl1.SelectedIndex = 0;
@@ -343,6 +350,97 @@
             this.commentsTabPage.Text = "Comments";
             this.commentsTabPage.UseVisualStyleBackColor = true;
             // 
+            // AddressTabPage
+            // 
+            this.AddressTabPage.Controls.Add(this.cityComboBox);
+            this.AddressTabPage.Controls.Add(this.localityComboBox);
+            this.AddressTabPage.Controls.Add(this.label5);
+            this.AddressTabPage.Controls.Add(this.postalCodeTextBox);
+            this.AddressTabPage.Controls.Add(this.label4);
+            this.AddressTabPage.Controls.Add(this.label3);
+            this.AddressTabPage.Controls.Add(this.emailLabel);
+            this.AddressTabPage.Controls.Add(this.addressTextBox);
+            this.AddressTabPage.Location = new System.Drawing.Point(4, 22);
+            this.AddressTabPage.Name = "AddressTabPage";
+            this.AddressTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.AddressTabPage.Size = new System.Drawing.Size(601, 175);
+            this.AddressTabPage.TabIndex = 2;
+            this.AddressTabPage.Text = "Address";
+            this.AddressTabPage.UseVisualStyleBackColor = true;
+            // 
+            // cityComboBox
+            // 
+            this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cityComboBox.FormattingEnabled = true;
+            this.cityComboBox.Location = new System.Drawing.Point(129, 96);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(200, 21);
+            this.cityComboBox.TabIndex = 9;
+            this.cityComboBox.SelectedValueChanged += new System.EventHandler(this.cityComboBox_SelectedValueChanged);
+            // 
+            // localityComboBox
+            // 
+            this.localityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.localityComboBox.FormattingEnabled = true;
+            this.localityComboBox.Location = new System.Drawing.Point(129, 60);
+            this.localityComboBox.Name = "localityComboBox";
+            this.localityComboBox.Size = new System.Drawing.Size(200, 21);
+            this.localityComboBox.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(22, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Postal Code";
+            // 
+            // postalCodeTextBox
+            // 
+            this.postalCodeTextBox.Location = new System.Drawing.Point(129, 132);
+            this.postalCodeTextBox.Name = "postalCodeTextBox";
+            this.postalCodeTextBox.Size = new System.Drawing.Size(87, 20);
+            this.postalCodeTextBox.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(22, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "City";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = " Locality";
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(129, 23);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(312, 20);
+            this.addressTextBox.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(35, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 17);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Email";
+            // 
             // StudentInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,14 +453,14 @@
             this.Controls.Add(this.IsSqlCheckBox);
             this.Controls.Add(this.IsVbCheckBox);
             this.Controls.Add(this.IsCSharpCheckBox);
+            this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.Doblabel);
             this.Controls.Add(this.Genderlabel);
             this.Controls.Add(this.interestlabel);
-            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Namelabel);
-            this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.NameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -376,6 +474,8 @@
             this.extendedDetailsTabPage.PerformLayout();
             this.commentsTabPage.ResumeLayout(false);
             this.commentsTabPage.PerformLayout();
+            this.AddressTabPage.ResumeLayout(false);
+            this.AddressTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,5 +509,14 @@
         private System.Windows.Forms.TabControl extendedDetailsTabControl1;
         private System.Windows.Forms.TabPage extendedDetailsTabPage;
         private System.Windows.Forms.TabPage commentsTabPage;
+        private System.Windows.Forms.TabPage AddressTabPage;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox postalCodeTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cityComboBox;
+        private System.Windows.Forms.ComboBox localityComboBox;
     }
 }
