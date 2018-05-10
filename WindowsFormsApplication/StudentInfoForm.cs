@@ -39,6 +39,7 @@ namespace WindowsFormsApplication
                     cmd.Parameters.AddWithValue("EndTime", EndTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : EndTimeDateTimePicker.Value.TimeOfDay);
                     cmd.Parameters.AddWithValue("@FundTypeId", (FundTypeComboBox.SelectedIndex == -1) ? 0 : FundTypeComboBox.SelectedValue);
                     cmd.Parameters.AddWithValue("@FeePaymentTypeId", FundTypeComboBox.SelectedIndex == -1 ? 0 : FeePaymentComboBox.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Comments", commentsTextBox.Text);
                     conn.Open();
                     // execute reader for select
                     // executescalar for select 
@@ -144,6 +145,24 @@ namespace WindowsFormsApplication
             return dtListData;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void FundTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FeePaymentComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
