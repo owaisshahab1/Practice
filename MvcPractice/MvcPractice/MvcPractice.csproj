@@ -49,11 +49,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\PracticeConsole\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\PracticeConsole\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\PracticeConsole\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\PracticeConsole\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -168,8 +168,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MvcLocalDb_log.ldf" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\myTemplate\css\animate.css" />
+    <Content Include="Content\myTemplate\css\fancybox-buttons.css" />
+    <Content Include="Content\myTemplate\css\fancybox-thumbs.css" />
+    <Content Include="Content\myTemplate\css\fancybox.css" />
+    <Content Include="Content\myTemplate\css\main.css" />
+    <Content Include="Content\myTemplate\css\reset.css" />
+    <Content Include="Content\myTemplate\fonts\raleway-bold.svg" />
+    <Content Include="Content\myTemplate\fonts\raleway-regular.svg" />
+    <Content Include="Content\myTemplate\fonts\raleway-semibold.svg" />
+    <Content Include="Content\myTemplate\img\billboard.jpg" />
+    <Content Include="Content\myTemplate\img\billboard2.jpg" />
+    <Content Include="Content\myTemplate\img\blog_post1.jpg" />
+    <Content Include="Content\myTemplate\img\blog_post2.jpg" />
+    <Content Include="Content\myTemplate\img\blog_post3.jpg" />
+    <Content Include="Content\myTemplate\img\blog_post4.jpg" />
+    <Content Include="Content\myTemplate\img\client1.jpg" />
+    <Content Include="Content\myTemplate\img\client2.jpg" />
+    <Content Include="Content\myTemplate\img\client3.jpg" />
+    <Content Include="Content\myTemplate\img\fancybox\blank.gif" />
+    <Content Include="Content\myTemplate\img\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\myTemplate\img\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\myTemplate\img\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\myTemplate\img\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\myTemplate\img\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\myTemplate\img\footer_logo.png" />
+    <Content Include="Content\myTemplate\img\icon1.png" />
+    <Content Include="Content\myTemplate\img\icon2.png" />
+    <Content Include="Content\myTemplate\img\icon3.png" />
+    <Content Include="Content\myTemplate\img\logo_dark.png" />
+    <Content Include="Content\myTemplate\img\logo_light.png" />
+    <Content Include="Content\myTemplate\img\play_btn.png" />
+    <Content Include="Content\myTemplate\img\quotes.png" />
+    <Content Include="Content\myTemplate\img\shadow.png" />
+    <Content Include="Content\myTemplate\img\testimonial_triangle.png" />
+    <Content Include="Content\myTemplate\img\video.jpg" />
+    <Content Include="Content\myTemplate\img\video_logo.png" />
+    <Content Include="Content\myTemplate\js\fancybox-buttons.js" />
+    <Content Include="Content\myTemplate\js\fancybox-media.js" />
+    <Content Include="Content\myTemplate\js\fancybox-thumbs.js" />
+    <Content Include="Content\myTemplate\js\fancybox.js" />
+    <Content Include="Content\myTemplate\js\jquery.js" />
+    <Content Include="Content\myTemplate\js\main.js" />
+    <Content Include="Content\myTemplate\js\wow.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Database\MvcPractice.sql" />
     <Content Include="Global.asax" />
@@ -183,6 +227,18 @@
       <DependentUpon>EntityModel.edmx</DependentUpon>
       <LastGenOutput>EntityModel.cs</LastGenOutput>
     </Content>
+    <Content Include="App_Data\MvcLocalDb" />
+    <Content Include="App_Data\MvcLocalDb.dat" />
+    <Content Include="App_Data\MvcLocalDb_log.ldf.dat" />
+    <Content Include="Content\myTemplate\fonts\raleway-bold.eot" />
+    <Content Include="Content\myTemplate\fonts\raleway-bold.ttf" />
+    <Content Include="Content\myTemplate\fonts\raleway-bold.woff" />
+    <Content Include="Content\myTemplate\fonts\raleway-regular.eot" />
+    <Content Include="Content\myTemplate\fonts\raleway-regular.ttf" />
+    <Content Include="Content\myTemplate\fonts\raleway-regular.woff" />
+    <Content Include="Content\myTemplate\fonts\raleway-semibold.eot" />
+    <Content Include="Content\myTemplate\fonts\raleway-semibold.ttf" />
+    <Content Include="Content\myTemplate\fonts\raleway-semibold.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -197,6 +253,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Views\Home\---Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -273,13 +330,14 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\_myTemplate.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -287,9 +345,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

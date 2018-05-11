@@ -8,6 +8,7 @@ namespace MvcPractice.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index ()
         {
             return View ();
@@ -26,5 +27,12 @@ namespace MvcPractice.Controllers
 
             return View ();
         }
+
+        //public ActionResult Index2 ()
+        //{
+        //    ViewBag.Message = "--------------------";
+
+        //    return View ();
+        //}
     }
 }
