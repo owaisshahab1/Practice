@@ -14,6 +14,8 @@ namespace WindowsFormsApplication
 {
     public partial class ManageStudentForm : Form
     {
+        private DataTable dtStudentData = new DataTable();
+
         public ManageStudentForm()
         {
             InitializeComponent();
@@ -32,7 +34,8 @@ namespace WindowsFormsApplication
 
         private void ManageStudentForm_Load(object sender, EventArgs e)
         {
-            studentListDataGridView.DataSource = GetStudentList();
+            dtStudentData = GetStudentList();
+            studentListDataGridView.DataSource = dtStudentData;
         }
 
         private DataTable GetStudentList()
@@ -51,6 +54,34 @@ namespace WindowsFormsApplication
                 }
             }
             return dtStudentData;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            FilterStringByColumn("Name",nameTextBox);
+        }
+
+        private void FilterStringByColumn(string columnName, TextBox txt)
+        {
+            DataView dvStudents = dtStudentData.DefaultView;
+            dvStudents.RowFilter = columnName + " LIKE  '%" + txt.Text + "%'";
+        }
+
+        private void addressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FilterStringByColumn("Address",addressTextBox);
+        }
+
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FilterStringByColumn("Email", emailTextBox);
+        }
+
+        private void resetFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            emailTextBox.Clear();
+            addressTextBox.Clear();
+            nameTextBox.Clear();
         }
     }
 }

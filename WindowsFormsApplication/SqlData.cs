@@ -8,7 +8,68 @@ namespace WindowsFormsApplication
 {
     class SqlData
     {
+        //------------------Friday, 11 May 2018-----------------------
+        /*
 
+        USE [VcSharpDB]
+GO
+
+        SET ANSI_NULLS ON
+        GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure[dbo].[usp_GetAllCitiesData]
+as
+begin
+select[CityId],[Description] from[dbo].[Cities]
+        end
+
+//-----------------------------------------------
+
+              USE[VcSharpDB]
+        GO
+
+        SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure[dbo].[usp_GetAllListData]
+(
+@ListDataTypeId Int
+)
+as 
+begin
+select[ListDataId],[Description] from[dbo].[ListData]
+        where[ListDataTypeId] = @ListDataTypeId
+end
+
+        //------------------------------------------
+        
+USE [VcSharpDB]
+GO
+
+        SET ANSI_NULLS ON
+        GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure[dbo].[usp_StudentGetAllStudents]
+as
+begin
+select st.StudentId
+		,st.Name
+		,st.Email
+		,case st.GenderId
+        when 1 then 'Male'
+		when 2 then 'Female'
+		end as 'Gender'
+		,convert(varchar, st.DateOfBirth,103) as 'Date of Birth'
+		,isnull(st.[Address],'') + ' ' + isnull(l.Description,'') + ' ' + isnull(c.Description,'') + ' ' + isnull(st.PostalCode,'')  as 'Address'
+from Students as st
+left join[dbo].[Localities]
+        l on st.LocalityId = l.LocalityId
+left join dbo.Cities c on st.CityId = c.CityId
+end
+*/
 
         //-----------Tuesday, 8 May 2018--------------------------
 
