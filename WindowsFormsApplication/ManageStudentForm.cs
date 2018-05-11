@@ -14,12 +14,13 @@ namespace WindowsFormsApplication
 {
     public partial class ManageStudentForm : Form
     {
-        private DataTable dtStudentData = new DataTable();
-
         public ManageStudentForm()
         {
             InitializeComponent();
         }
+
+        private DataTable dtStudentData = new DataTable();
+
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -28,8 +29,7 @@ namespace WindowsFormsApplication
 
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StudentInfoForm sif = new StudentInfoForm();
-            sif.ShowDialog();
+            ShowStudentInfoForm(0, false);
         }
 
         private void ManageStudentForm_Load(object sender, EventArgs e)
@@ -82,6 +82,22 @@ namespace WindowsFormsApplication
             emailTextBox.Clear();
             addressTextBox.Clear();
             nameTextBox.Clear();
+        }
+
+        private void studentListDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            int rowToUpdate = studentListDataGridView.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            int studentId = Convert.ToInt32( studentListDataGridView.Rows[rowToUpdate].Cells["StudentId"].Value);
+            ShowStudentInfoForm(studentId, true);
+
+        }
+
+        private void ShowStudentInfoForm(int studentId,bool isUpdate)
+        {
+            StudentInfoForm sif = new StudentInfoForm();
+            sif.StudentId = studentId;
+            sif.IsUpadte = isUpdate;
+            sif.ShowDialog();
         }
     }
 }

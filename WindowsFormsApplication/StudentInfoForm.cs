@@ -18,6 +18,33 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
         }
+        private bool isUpadte = false;
+        private int studentId = 0;
+        public int StudentId
+        {
+            get
+            {
+                return studentId;
+            }
+
+            set
+            {
+                studentId = value;
+            }
+        }
+
+        public bool IsUpadte
+        {
+            get
+            {
+                return isUpadte;
+            }
+
+            set
+            {
+                isUpadte = value;
+            }
+        }
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
@@ -103,7 +130,14 @@ namespace WindowsFormsApplication
         private static void GetCustomTimeFormat(object sender,string format)
         {
             DateTimePicker dtp = (DateTimePicker)sender;
-            dtp.CustomFormat = format;
+            if (dtp.Value == dtp.MinDate)
+            {
+                dtp.CustomFormat = " ";
+            }
+            else
+            {
+                dtp.CustomFormat = format;
+            }
         }
 
         private void StartTimeDateTimePicker_MouseDown(object sender, MouseEventArgs e)
@@ -120,6 +154,55 @@ namespace WindowsFormsApplication
         }
 
         private void StudentInfoForm_Load(object sender, EventArgs e)
+        {
+            LoadDataIntoComboBoxes();
+
+            if (this.IsUpadte)
+            {
+                DataTable dtStudentInfo = GetStudentInfoById(this.StudentId);
+                DataRow row = dtStudentInfo.Rows[0];
+                NameTextBox.Text = row["Name"].ToString();
+                emailTextBox.Text = row["Email"].ToString();
+                IsCSharpCheckBox.Checked = (row["IsInterestedInCSharp"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInCSharp"]);
+                IsVbCheckBox.Checked = (row["IsInterestedInVb"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInVb"]);
+                IsSqlCheckBox.Checked = (row["IsInterestedInSql"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInSql"]);
+                MaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 1 ? true : false;
+                FemaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 2 ? true : false;
+                DobDateTimePicker.Value = (row["DateOfBirth"]) is DBNull ? DobDateTimePicker.MinDate  :  Convert.ToDateTime(row["DateOfBirth"]).Date;
+                StartTimeDateTimePicker.Value = (row["StartTime"]) is DBNull ? StartTimeDateTimePicker.MinDate : Convert.ToDateTime(row["StartTime"]);
+                EndTimeDateTimePicker.Value = (row["EndTime"]) is DBNull ? EndTimeDateTimePicker.MinDate : Convert.ToDateTime(row["EndTime"]);
+                FundTypeComboBox.SelectedValue = row["FundTypeId"];
+                FeePaymentComboBox.SelectedValue = row["FeePaymentTypeId"];
+                FundTypeComboBox.SelectedValue = row["FundTypeId"];
+                addressTextBox.Text = row["Address"].ToString();
+                localityComboBox.SelectedValue = row["LocalityId"];
+                cityComboBox.SelectedValue = row["CityId"];
+                postalCodeTextBox.Text = row["PostalCode"].ToString();
+                commentsTextBox.Text = row["Comments"].ToString();
+            }
+        }
+
+        private DataTable GetStudentInfoById(int studentId)
+        {
+            {
+                DataTable dtStudentById = new DataTable();
+                string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("usp_StudentGetStudentInfoById", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("StudentId", studentId);
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        dtStudentById.Load(reader);
+                    }
+                }
+                return dtStudentById;
+            }
+        }
+
+        private void LoadDataIntoComboBoxes()
         {
             FundTypeComboBox.DataSource = GetListData((int)ListDataTypes.FundType);
             FundTypeComboBox.DisplayMember = "Description";

@@ -56,6 +56,7 @@
             this.studentListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentListDataGridView.Size = new System.Drawing.Size(659, 203);
             this.studentListDataGridView.TabIndex = 1;
+            this.studentListDataGridView.DoubleClick += new System.EventHandler(this.studentListDataGridView_DoubleClick);
             // 
             // menuStrip1
             // 
