@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width-device-width,initial-scale=1.0" />
-    @Styles.Render("~/Content/css")
-    <link href="~/Content/Site.css" rel="stylesheet" />
+        @Styles.Render("~/Content/css")
+        @*<link href="~/Design/css/bootstrap.css" rel="stylesheet" />*@
 </head>
 <body>
 <div class="container">
@@ -18,7 +18,7 @@
 </div>
 @RenderBody()
 </div>
-    @Scripts.Render("~/Design/js/jquery.1.23.1.js")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

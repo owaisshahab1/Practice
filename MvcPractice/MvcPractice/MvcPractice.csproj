@@ -217,9 +217,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Database\MvcPractice.sql" />
     <Content Include="Design\css\bootstrap.css" />
-    <Content Include="Design\css\Site.css" />
     <Content Include="Design\js\bootstrap.js" />
-    <Content Include="Design\js\jquery.1.23.1.js" />
+    <Content Include="Design\js\jQuery 1.12.3.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\EntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -246,6 +245,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jQuery 1.12.3.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
