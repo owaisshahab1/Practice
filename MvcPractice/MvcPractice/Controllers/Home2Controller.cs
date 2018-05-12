@@ -18,5 +18,15 @@ namespace MvcPractice.Controllers
         {
             return "Welcome to Asp.Net MVC";
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }
