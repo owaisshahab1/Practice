@@ -201,6 +201,7 @@
             this.DobDateTimePicker.CustomFormat = " ";
             this.DobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DobDateTimePicker.Location = new System.Drawing.Point(128, 164);
+            this.DobDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DobDateTimePicker.Name = "DobDateTimePicker";
             this.DobDateTimePicker.Size = new System.Drawing.Size(180, 20);
             this.DobDateTimePicker.TabIndex = 6;

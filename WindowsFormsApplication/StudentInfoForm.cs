@@ -48,12 +48,60 @@ namespace WindowsFormsApplication
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            
-                string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            if (this.isUpadte)
+            {
+                UpdateStudentDetails();
+                MessageBox.Show("your information is update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                InsertStudentData(out this.studentId);
+                this.isUpadte = true;
+                MessageBox.Show("your information is save successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void UpdateStudentDetails()
+        {
+string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+using (SqlConnection conn = new SqlConnection(connString))
+{
+using (SqlCommand cmd = new SqlCommand("usp_StudentUpdateDetails", conn))
+{
+cmd.CommandType = CommandType.StoredProcedure;
+cmd.Parameters.AddWithValue("@StudentId", this.StudentId);
+cmd.Parameters.AddWithValue("@Name", NameTextBox.Text);
+cmd.Parameters.AddWithValue("Email", emailTextBox.Text);
+cmd.Parameters.AddWithValue("IsInterestedInCSharp", IsCSharpCheckBox.Checked);
+cmd.Parameters.AddWithValue("IsInterestedInVb", IsVbCheckBox.Checked);
+cmd.Parameters.AddWithValue("IsInterestedInSql", IsSqlCheckBox.Checked);
+cmd.Parameters.AddWithValue("GenderId", GetGender());
+cmd.Parameters.AddWithValue("DateOfBirth", (DobDateTimePicker.Text.Trim() == string.Empty) ? (DateTime?)null : DobDateTimePicker.Value.Date);
+cmd.Parameters.AddWithValue("StartTime", StartTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : StartTimeDateTimePicker.Value.TimeOfDay);
+cmd.Parameters.AddWithValue("EndTime", EndTimeDateTimePicker.Text.Trim() == string.Empty ? null as TimeSpan? : EndTimeDateTimePicker.Value.TimeOfDay);
+cmd.Parameters.AddWithValue("@FundTypeId", (FundTypeComboBox.SelectedIndex == -1) ? 0 : FundTypeComboBox.SelectedValue);
+cmd.Parameters.AddWithValue("@FeePaymentTypeId", FundTypeComboBox.SelectedIndex == -1 ? 0 : FeePaymentComboBox.SelectedValue);
+cmd.Parameters.AddWithValue("@Comments", commentsTextBox.Text);
+cmd.Parameters.AddWithValue("@Address", addressTextBox.Text);
+cmd.Parameters.AddWithValue("@LocalityId", localityComboBox.SelectedIndex == -1 ? 0 : localityComboBox.SelectedValue);
+cmd.Parameters.AddWithValue("@CityId", cityComboBox.SelectedIndex == -1 ? 0 : cityComboBox.SelectedValue);
+cmd.Parameters.AddWithValue("@PostalCode", postalCodeTextBox.Text);
+conn.Open();
+// execute reader for select
+// executescalar for select
+// executeNoQuery for insert,update,delete
+cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        private void InsertStudentData(out int studentId)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                using(SqlCommand cmd = new SqlCommand("usp_StudentInsertDetails", conn))
+                using (SqlCommand cmd = new SqlCommand("usp_StudentInsertDetails", conn))
                 {
+                    cmd.Parameters.Add("@StudentId", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = NameTextBox.Text;
                     cmd.Parameters.AddWithValue("Email", emailTextBox.Text);
@@ -76,11 +124,9 @@ namespace WindowsFormsApplication
                     // executescalar for select 
                     // executeNoQuery for insert,update,delete
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("your information is save successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    studentId = (int)cmd.Parameters["@StudentId"].Value; 
                 }
             }
-
         }
 
         public enum gender
@@ -124,20 +170,19 @@ namespace WindowsFormsApplication
 
         private void CourseDuration_ValueChange(object sender, EventArgs e)
         {
-            GetCustomTimeFormat(sender, "HH:mm");
+            DateTimePicker dtp = (DateTimePicker)sender;
+            if (dtp.Value == dtp.MinDate)
+            {
+                GetCustomTimeFormat(sender, "HH:mm");
+            }
+            else
+            { GetCustomTimeFormat(sender, "HH:mm"); }
         }
 
         private static void GetCustomTimeFormat(object sender,string format)
         {
             DateTimePicker dtp = (DateTimePicker)sender;
-            if (dtp.Value == dtp.MinDate)
-            {
-                dtp.CustomFormat = " ";
-            }
-            else
-            {
                 dtp.CustomFormat = format;
-            }
         }
 
         private void StartTimeDateTimePicker_MouseDown(object sender, MouseEventArgs e)
@@ -159,26 +204,26 @@ namespace WindowsFormsApplication
 
             if (this.IsUpadte)
             {
-                DataTable dtStudentInfo = GetStudentInfoById(this.StudentId);
-                DataRow row = dtStudentInfo.Rows[0];
-                NameTextBox.Text = row["Name"].ToString();
-                emailTextBox.Text = row["Email"].ToString();
-                IsCSharpCheckBox.Checked = (row["IsInterestedInCSharp"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInCSharp"]);
-                IsVbCheckBox.Checked = (row["IsInterestedInVb"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInVb"]);
-                IsSqlCheckBox.Checked = (row["IsInterestedInSql"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInSql"]);
-                MaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 1 ? true : false;
-                FemaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 2 ? true : false;
-                DobDateTimePicker.Value = (row["DateOfBirth"]) is DBNull ? DobDateTimePicker.MinDate  :  Convert.ToDateTime(row["DateOfBirth"]).Date;
-                StartTimeDateTimePicker.Value = (row["StartTime"]) is DBNull ? StartTimeDateTimePicker.MinDate : Convert.ToDateTime(row["StartTime"]);
-                EndTimeDateTimePicker.Value = (row["EndTime"]) is DBNull ? EndTimeDateTimePicker.MinDate : Convert.ToDateTime(row["EndTime"]);
-                FundTypeComboBox.SelectedValue = row["FundTypeId"];
-                FeePaymentComboBox.SelectedValue = row["FeePaymentTypeId"];
-                FundTypeComboBox.SelectedValue = row["FundTypeId"];
-                addressTextBox.Text = row["Address"].ToString();
-                localityComboBox.SelectedValue = row["LocalityId"];
-                cityComboBox.SelectedValue = row["CityId"];
-                postalCodeTextBox.Text = row["PostalCode"].ToString();
-                commentsTextBox.Text = row["Comments"].ToString();
+DataTable dtStudentInfo = GetStudentInfoById(this.StudentId);
+DataRow row = dtStudentInfo.Rows[0];
+NameTextBox.Text = row["Name"].ToString();
+emailTextBox.Text = row["Email"].ToString();
+IsCSharpCheckBox.Checked = (row["IsInterestedInCSharp"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInCSharp"]);
+IsVbCheckBox.Checked = (row["IsInterestedInVb"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInVb"]);
+IsSqlCheckBox.Checked = (row["IsInterestedInSql"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInSql"]);
+MaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 1 ? true : false;
+FemaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 2 ? true : false;
+DobDateTimePicker.Value = (row["DateOfBirth"]) is DBNull ? DobDateTimePicker.MinDate : Convert.ToDateTime(row["DateOfBirth"]).Date;
+StartTimeDateTimePicker.Value = (row["StartTime"]) is DBNull ? StartTimeDateTimePicker.MinDate : Convert.ToDateTime(row["StartTime"]);
+EndTimeDateTimePicker.Value = (row["EndTime"]) is DBNull ? EndTimeDateTimePicker.MinDate : Convert.ToDateTime(row["EndTime"]);
+FundTypeComboBox.SelectedValue = row["FundTypeId"];
+FeePaymentComboBox.SelectedValue = row["FeePaymentTypeId"];
+FundTypeComboBox.SelectedValue = row["FundTypeId"];
+addressTextBox.Text = row["Address"].ToString();
+ cityComboBox.SelectedValue = row["CityId"];
+localityComboBox.SelectedValue = row["LocalityId"];
+postalCodeTextBox.Text = row["PostalCode"].ToString();
+commentsTextBox.Text = row["Comments"].ToString();
             }
         }
 

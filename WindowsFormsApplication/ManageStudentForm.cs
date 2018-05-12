@@ -34,6 +34,11 @@ namespace WindowsFormsApplication
 
         private void ManageStudentForm_Load(object sender, EventArgs e)
         {
+            FormDataLoad();
+        }
+
+        private void FormDataLoad()
+        {
             dtStudentData = GetStudentList();
             studentListDataGridView.DataSource = dtStudentData;
         }
@@ -98,6 +103,7 @@ namespace WindowsFormsApplication
             sif.StudentId = studentId;
             sif.IsUpadte = isUpdate;
             sif.ShowDialog();
+            FormDataLoad();
         }
     }
 }
