@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+.col1{
+    background-color: #b3b3b3 
+}
+
+.col2{
+    background-color:dimgray
+}

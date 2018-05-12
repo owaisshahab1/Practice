@@ -217,6 +217,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Database\MvcPractice.sql" />
     <Content Include="Design\css\bootstrap.css" />
+    <Content Include="Design\css\Site.css" />
     <Content Include="Design\js\bootstrap.js" />
     <Content Include="Design\js\jquery.1.23.1.js" />
     <Content Include="Global.asax" />
