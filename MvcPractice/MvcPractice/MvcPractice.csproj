@@ -242,6 +242,10 @@
     <Content Include="Content\myTemplate\fonts\raleway-semibold.eot" />
     <Content Include="Content\myTemplate\fonts\raleway-semibold.ttf" />
     <Content Include="Content\myTemplate\fonts\raleway-semibold.woff" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Hr\Views\web.config" />
+    <Content Include="Areas\Hr\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -272,6 +276,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Models\HomeController.cs" />
+    <Compile Include="Areas\Hr\HrAreaRegistration.cs" />
+    <Compile Include="Areas\Hr\Controllers\DefaultController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -349,6 +357,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Hr\Models\" />
+    <Folder Include="Areas\Hr\Views\Shared\" />
     <Folder Include="Design\fonts\" />
   </ItemGroup>
   <ItemGroup>
