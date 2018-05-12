@@ -8,31 +8,25 @@ namespace MvcPractice.Controllers
 {
     public class HomeController : Controller
     {
-
-        public ActionResult Index ()
+        // GET: Home2
+        public ActionResult Index()
         {
-            return View ();
+            return View();
         }
 
-        public ActionResult About ()
+        public string WelcomeMessage()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View ();
+            return "Welcome to Asp.Net MVC";
         }
 
-        public ActionResult Contact ()
+        public ActionResult About()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View ();
+            return View();
         }
 
-        //public ActionResult Index2 ()
-        //{
-        //    ViewBag.Message = "--------------------";
-
-        //    return View ();
-        //}
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }

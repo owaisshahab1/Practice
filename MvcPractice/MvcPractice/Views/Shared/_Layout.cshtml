@@ -1,22 +1,27 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
+<meta charset="utf-8"/>
+<meta name="viewport" content="width-device-width,initial-scale=1" />
+<link href="~/Design/css/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="nav">
-<ul>
-<li>@Html.ActionLink("Home", "Index", "Home2")</li>
-<li>@Html.ActionLink("Contact Us", "Contact", "Home2")</li>
-<li>@Html.ActionLink("About Us", "About", "Home2")</li>
+<div class="container">
+<div id="nav navbar-inverse">
+<ul class="nav navbar-nav">
+<li>@Html.ActionLink("Home", "Index", "Home")</li>
+<li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+<li>@Html.ActionLink("About Us", "About", "Home")</li>
 </ul>
 </div>
-<div id="content">
-    @RenderBody();
+    @RenderBody()
 </div>
+    
 
-<div id="footer">
+@*<div id="footer">
 <p>All rights reserved with the author. </p>
-</div>
+</div>*@
+<script src="~/Design/js/jquery.1.23.1.js" type="text/javascript"></script>
+<script src="~/Design/js/bootstrap.js" type="text/javascript"></script>
 </body>
 </html>
