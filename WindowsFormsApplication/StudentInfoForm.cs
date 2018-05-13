@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -22,6 +23,7 @@ namespace WindowsFormsApplication
         }
         private bool isUpadte = false;
         private int studentId = 0;
+        public byte[] OriginalRowVersion { get; set; }
         public int StudentId
         {
             get
@@ -52,8 +54,18 @@ namespace WindowsFormsApplication
         {
             if (this.isUpadte)
             {
-                UpdateStudentDetails();
-                MessageBox.Show("your information is update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (IfDataNotUpdated(OriginalRowVersion,GetCurrentRowVersion()))
+                {
+                    UpdateStudentDetails();
+                    MessageBox.Show("your information is update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("The Record is updated by another user. Record will be roloaded now. please update the record again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    LoadAndMapDataToControlIfUpdate();
+                }
+
             }
             else
             {
@@ -61,6 +73,28 @@ namespace WindowsFormsApplication
                 this.isUpadte = true;
                 MessageBox.Show("your information is save successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private byte[] GetCurrentRowVersion()
+        {
+            byte[] currentRowVersion = new byte[8];
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_GetCurrentRowVersion", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentId", this.StudentId);
+                    conn.Open();
+                    currentRowVersion = (byte[]) cmd.ExecuteScalar();
+                }
+            }
+            return currentRowVersion;
+        }
+
+        private bool IfDataNotUpdated(byte[] orgialRowVersion,byte[] currentRowVersion)
+        {
+            return StructuralComparisons.StructuralEqualityComparer.Equals(OriginalRowVersion, currentRowVersion);
         }
 
         private void UpdateStudentDetails()
@@ -88,6 +122,7 @@ cmd.Parameters.AddWithValue("@Address", addressTextBox.Text);
 cmd.Parameters.AddWithValue("@LocalityId", localityComboBox.SelectedIndex == -1 ? 0 : localityComboBox.SelectedValue);
 cmd.Parameters.AddWithValue("@CityId", cityComboBox.SelectedIndex == -1 ? 0 : cityComboBox.SelectedValue);
 cmd.Parameters.AddWithValue("@PostalCode", postalCodeTextBox.Text);
+cmd.Parameters.AddWithValue("@Photo", SavePhoto());
 conn.Open();
 // execute reader for select
 // executescalar for select
@@ -212,6 +247,11 @@ cmd.ExecuteNonQuery();
         {
             LoadDataIntoComboBoxes();
 
+            LoadAndMapDataToControlIfUpdate();
+        }
+
+        private void LoadAndMapDataToControlIfUpdate()
+        {
             if (this.IsUpadte)
             {
                 DataTable dtStudentInfo = GetStudentInfoById(this.StudentId);
@@ -235,6 +275,7 @@ cmd.ExecuteNonQuery();
                 postalCodeTextBox.Text = row["PostalCode"].ToString();
                 commentsTextBox.Text = row["Comments"].ToString();
                 StudentImagePictureBox.Image = row["Photo"] is DBNull ? Resources.No_Image_Available : GetPhoto((byte[])row["Photo"]);
+                this.OriginalRowVersion = (byte[])row["OriginalRowVersion"];
             }
         }
 
