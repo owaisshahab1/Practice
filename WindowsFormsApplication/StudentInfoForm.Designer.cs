@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentInfoForm));
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.Namelabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
@@ -64,15 +65,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.StudentImagePictureBox = new System.Windows.Forms.PictureBox();
             this.extendedDetailsTabControl1.SuspendLayout();
             this.extendedDetailsTabPage.SuspendLayout();
             this.commentsTabPage.SuspendLayout();
             this.AddressTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentImagePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(91, 9);
+            this.NameTextBox.Location = new System.Drawing.Point(255, 17);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(209, 20);
             this.NameTextBox.TabIndex = 0;
@@ -81,7 +84,7 @@
             // 
             this.Namelabel.AutoSize = true;
             this.Namelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Namelabel.Location = new System.Drawing.Point(35, 9);
+            this.Namelabel.Location = new System.Drawing.Point(199, 18);
             this.Namelabel.Name = "Namelabel";
             this.Namelabel.Size = new System.Drawing.Size(45, 17);
             this.Namelabel.TabIndex = 2;
@@ -89,7 +92,7 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(91, 48);
+            this.emailTextBox.Location = new System.Drawing.Point(255, 48);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(209, 20);
             this.emailTextBox.TabIndex = 1;
@@ -106,7 +109,7 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(374, 24);
+            this.SaveBtn.Location = new System.Drawing.Point(515, 24);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(72, 23);
             this.SaveBtn.TabIndex = 3;
@@ -116,7 +119,7 @@
             // 
             // CloseBtn
             // 
-            this.CloseBtn.Location = new System.Drawing.Point(503, 24);
+            this.CloseBtn.Location = new System.Drawing.Point(606, 24);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(72, 23);
             this.CloseBtn.TabIndex = 3;
@@ -128,7 +131,7 @@
             // 
             this.interestlabel.AutoSize = true;
             this.interestlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestlabel.Location = new System.Drawing.Point(35, 87);
+            this.interestlabel.Location = new System.Drawing.Point(199, 87);
             this.interestlabel.Name = "interestlabel";
             this.interestlabel.Size = new System.Drawing.Size(55, 17);
             this.interestlabel.TabIndex = 2;
@@ -137,7 +140,7 @@
             // IsCSharpCheckBox
             // 
             this.IsCSharpCheckBox.AutoSize = true;
-            this.IsCSharpCheckBox.Location = new System.Drawing.Point(108, 87);
+            this.IsCSharpCheckBox.Location = new System.Drawing.Point(272, 87);
             this.IsCSharpCheckBox.Name = "IsCSharpCheckBox";
             this.IsCSharpCheckBox.Size = new System.Drawing.Size(40, 17);
             this.IsCSharpCheckBox.TabIndex = 4;
@@ -147,7 +150,7 @@
             // IsVbCheckBox
             // 
             this.IsVbCheckBox.AutoSize = true;
-            this.IsVbCheckBox.Location = new System.Drawing.Point(145, 87);
+            this.IsVbCheckBox.Location = new System.Drawing.Point(309, 87);
             this.IsVbCheckBox.Name = "IsVbCheckBox";
             this.IsVbCheckBox.Size = new System.Drawing.Size(40, 17);
             this.IsVbCheckBox.TabIndex = 4;
@@ -157,7 +160,7 @@
             // IsSqlCheckBox
             // 
             this.IsSqlCheckBox.AutoSize = true;
-            this.IsSqlCheckBox.Location = new System.Drawing.Point(185, 87);
+            this.IsSqlCheckBox.Location = new System.Drawing.Point(349, 87);
             this.IsSqlCheckBox.Name = "IsSqlCheckBox";
             this.IsSqlCheckBox.Size = new System.Drawing.Size(47, 17);
             this.IsSqlCheckBox.TabIndex = 4;
@@ -167,7 +170,7 @@
             // MaleRadioButton
             // 
             this.MaleRadioButton.AutoSize = true;
-            this.MaleRadioButton.Location = new System.Drawing.Point(108, 122);
+            this.MaleRadioButton.Location = new System.Drawing.Point(272, 122);
             this.MaleRadioButton.Name = "MaleRadioButton";
             this.MaleRadioButton.Size = new System.Drawing.Size(48, 17);
             this.MaleRadioButton.TabIndex = 5;
@@ -178,7 +181,7 @@
             // FemaleRadioButton
             // 
             this.FemaleRadioButton.AutoSize = true;
-            this.FemaleRadioButton.Location = new System.Drawing.Point(162, 122);
+            this.FemaleRadioButton.Location = new System.Drawing.Point(326, 122);
             this.FemaleRadioButton.Name = "FemaleRadioButton";
             this.FemaleRadioButton.Size = new System.Drawing.Size(59, 17);
             this.FemaleRadioButton.TabIndex = 5;
@@ -190,7 +193,7 @@
             // 
             this.Genderlabel.AutoSize = true;
             this.Genderlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Genderlabel.Location = new System.Drawing.Point(35, 122);
+            this.Genderlabel.Location = new System.Drawing.Point(199, 122);
             this.Genderlabel.Name = "Genderlabel";
             this.Genderlabel.Size = new System.Drawing.Size(56, 17);
             this.Genderlabel.TabIndex = 2;
@@ -200,7 +203,7 @@
             // 
             this.DobDateTimePicker.CustomFormat = " ";
             this.DobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DobDateTimePicker.Location = new System.Drawing.Point(128, 164);
+            this.DobDateTimePicker.Location = new System.Drawing.Point(292, 164);
             this.DobDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DobDateTimePicker.Name = "DobDateTimePicker";
             this.DobDateTimePicker.Size = new System.Drawing.Size(180, 20);
@@ -212,7 +215,7 @@
             // 
             this.Doblabel.AutoSize = true;
             this.Doblabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Doblabel.Location = new System.Drawing.Point(35, 164);
+            this.Doblabel.Location = new System.Drawing.Point(199, 164);
             this.Doblabel.Name = "Doblabel";
             this.Doblabel.Size = new System.Drawing.Size(87, 17);
             this.Doblabel.TabIndex = 2;
@@ -436,17 +439,29 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(35, 48);
+            this.label6.Location = new System.Drawing.Point(199, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 2;
             this.label6.Text = "Email";
             // 
+            // StudentImagePictureBox
+            // 
+            this.StudentImagePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("StudentImagePictureBox.Image")));
+            this.StudentImagePictureBox.Location = new System.Drawing.Point(12, 12);
+            this.StudentImagePictureBox.Name = "StudentImagePictureBox";
+            this.StudentImagePictureBox.Size = new System.Drawing.Size(172, 169);
+            this.StudentImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.StudentImagePictureBox.TabIndex = 11;
+            this.StudentImagePictureBox.TabStop = false;
+            this.StudentImagePictureBox.Click += new System.EventHandler(this.StudentImagePictureBox_Click);
+            // 
             // StudentInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 396);
+            this.ClientSize = new System.Drawing.Size(704, 404);
+            this.Controls.Add(this.StudentImagePictureBox);
             this.Controls.Add(this.extendedDetailsTabControl1);
             this.Controls.Add(this.DobDateTimePicker);
             this.Controls.Add(this.FemaleRadioButton);
@@ -477,6 +492,7 @@
             this.commentsTabPage.PerformLayout();
             this.AddressTabPage.ResumeLayout(false);
             this.AddressTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentImagePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,5 +535,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cityComboBox;
         private System.Windows.Forms.ComboBox localityComboBox;
+        private System.Windows.Forms.PictureBox StudentImagePictureBox;
     }
 }

@@ -5,10 +5,12 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication.Properties;
 
 namespace WindowsFormsApplication
 {
@@ -119,6 +121,7 @@ cmd.ExecuteNonQuery();
                     cmd.Parameters.AddWithValue("@LocalityId", localityComboBox.SelectedIndex == -1 ? 0 : localityComboBox.SelectedValue);
                     cmd.Parameters.AddWithValue("@CityId", cityComboBox.SelectedIndex == -1 ? 0 : cityComboBox.SelectedValue);
                     cmd.Parameters.AddWithValue("@PostalCode", postalCodeTextBox.Text);
+                    cmd.Parameters.AddWithValue("@Photo", SavePhoto());
                     conn.Open();
                     // execute reader for select
                     // executescalar for select 
@@ -127,6 +130,13 @@ cmd.ExecuteNonQuery();
                     studentId = (int)cmd.Parameters["@StudentId"].Value; 
                 }
             }
+        }
+
+        private byte[] SavePhoto()
+        {
+            MemoryStream ms = new MemoryStream();
+            StudentImagePictureBox.Image.Save(ms, StudentImagePictureBox.Image.RawFormat);
+            return ms.GetBuffer();
         }
 
         public enum gender
@@ -204,27 +214,34 @@ cmd.ExecuteNonQuery();
 
             if (this.IsUpadte)
             {
-DataTable dtStudentInfo = GetStudentInfoById(this.StudentId);
-DataRow row = dtStudentInfo.Rows[0];
-NameTextBox.Text = row["Name"].ToString();
-emailTextBox.Text = row["Email"].ToString();
-IsCSharpCheckBox.Checked = (row["IsInterestedInCSharp"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInCSharp"]);
-IsVbCheckBox.Checked = (row["IsInterestedInVb"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInVb"]);
-IsSqlCheckBox.Checked = (row["IsInterestedInSql"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInSql"]);
-MaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 1 ? true : false;
-FemaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 2 ? true : false;
-DobDateTimePicker.Value = (row["DateOfBirth"]) is DBNull ? DobDateTimePicker.MinDate : Convert.ToDateTime(row["DateOfBirth"]).Date;
-StartTimeDateTimePicker.Value = (row["StartTime"]) is DBNull ? StartTimeDateTimePicker.MinDate : Convert.ToDateTime(row["StartTime"]);
-EndTimeDateTimePicker.Value = (row["EndTime"]) is DBNull ? EndTimeDateTimePicker.MinDate : Convert.ToDateTime(row["EndTime"]);
-FundTypeComboBox.SelectedValue = row["FundTypeId"];
-FeePaymentComboBox.SelectedValue = row["FeePaymentTypeId"];
-FundTypeComboBox.SelectedValue = row["FundTypeId"];
-addressTextBox.Text = row["Address"].ToString();
- cityComboBox.SelectedValue = row["CityId"];
-localityComboBox.SelectedValue = row["LocalityId"];
-postalCodeTextBox.Text = row["PostalCode"].ToString();
-commentsTextBox.Text = row["Comments"].ToString();
+                DataTable dtStudentInfo = GetStudentInfoById(this.StudentId);
+                DataRow row = dtStudentInfo.Rows[0];
+                NameTextBox.Text = row["Name"].ToString();
+                emailTextBox.Text = row["Email"].ToString();
+                IsCSharpCheckBox.Checked = (row["IsInterestedInCSharp"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInCSharp"]);
+                IsVbCheckBox.Checked = (row["IsInterestedInVb"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInVb"]);
+                IsSqlCheckBox.Checked = (row["IsInterestedInSql"] is DBNull) ? false : Convert.ToBoolean(row["IsInterestedInSql"]);
+                MaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 1 ? true : false;
+                FemaleRadioButton.Checked = (row["GenderId"] is DBNull) ? false : Convert.ToInt16(row["GenderId"]) == 2 ? true : false;
+                DobDateTimePicker.Value = (row["DateOfBirth"]) is DBNull ? DobDateTimePicker.MinDate : Convert.ToDateTime(row["DateOfBirth"]).Date;
+                StartTimeDateTimePicker.Value = (row["StartTime"]) is DBNull ? StartTimeDateTimePicker.MinDate : Convert.ToDateTime(row["StartTime"]);
+                EndTimeDateTimePicker.Value = (row["EndTime"]) is DBNull ? EndTimeDateTimePicker.MinDate : Convert.ToDateTime(row["EndTime"]);
+                FundTypeComboBox.SelectedValue = row["FundTypeId"];
+                FeePaymentComboBox.SelectedValue = row["FeePaymentTypeId"];
+                FundTypeComboBox.SelectedValue = row["FundTypeId"];
+                addressTextBox.Text = row["Address"].ToString();
+                cityComboBox.SelectedValue = row["CityId"];
+                localityComboBox.SelectedValue = row["LocalityId"];
+                postalCodeTextBox.Text = row["PostalCode"].ToString();
+                commentsTextBox.Text = row["Comments"].ToString();
+                StudentImagePictureBox.Image = row["Photo"] is DBNull ? Resources.No_Image_Available : GetPhoto((byte[])row["Photo"]);
             }
+        }
+
+        private Image GetPhoto(byte[] photo)
+        {
+            MemoryStream ms = new MemoryStream(photo);
+            return Image.FromStream(ms); 
         }
 
         private DataTable GetStudentInfoById(int studentId)
@@ -328,6 +345,17 @@ commentsTextBox.Text = row["Comments"].ToString();
                 }
             }
             return dtLocalitiesData;
+        }
+
+        private void StudentImagePictureBox_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select the Photo";
+            ofd.Filter = "Image File(*.png;*.jpg;*.bmp;*.gif)|*.png;*.jpg;*.gif";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                StudentImagePictureBox.Image = new Bitmap(ofd.FileName);
+            }    
         }
     }
 }
