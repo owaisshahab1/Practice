@@ -16,7 +16,7 @@ namespace WindowsFormsApplication
         {
             Application.EnableVisualStyles ();
             Application.SetCompatibleTextRenderingDefault (false);
-            Application.Run (new ManageStudentForm());
+            Application.Run(new StudentLoginForm ());
         }
     }
 }

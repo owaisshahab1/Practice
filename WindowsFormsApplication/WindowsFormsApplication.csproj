@@ -76,6 +76,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentLoginForm.Designer.cs">
+      <DependentUpon>StudentLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +126,7 @@
       <DependentUpon>ManageStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentInfoForm.resx">
       <DependentUpon>StudentInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentLoginForm.resx">
+      <DependentUpon>StudentLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SymbolPalleteWindow.resx">
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
