@@ -1,0 +1,115 @@
+﻿@model MvcPractice.Models.Parent
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm ("Index", "Button", FormMethod.Post))
+{
+
+                    <!-- form here -->
+    <button type="submit" class="btn btn-default">Submit123</button>
+
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Parent</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ParentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ParentNameId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParentNameId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParentNameId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript" language="javascript">
+
+
+</script>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+    <script type="text/javascript">
+
+
+
+        function GetDynamicTextbox(value) {
+
+            return '<div><input type="text" name="txttest" style="width:200px;" /><input type="button" onclick="RemoveTextBox(this)" value="Remove" /></div>';
+
+        }
+
+        function AddTextBox() {
+
+            var div = document.createElement('DIV');
+
+            div.innerHTML = GetDynamicTextbox("");
+
+            document.getElementById("divCont").appendChild(div);
+
+        }
+
+        function RemoveTextBox(div) {
+
+            document.getElementById("divCont").removeChild(div.parentNode.parentNode);
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+
+        <form method="post">
+
+            <div id="divCont">
+
+                <div><input type="text" name="txttest" style="width:200px;" /><input type="button" onclick="AddTextBox()" value="Add" /></div>
+
+            </div><br />
+
+            <input type="submit" value="submit" />
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

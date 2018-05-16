@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcPractice.Models.Parent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentNameId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentNameId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ParentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ParentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ParentId })
+        </td>
+    </tr>
+}
+
+</table>

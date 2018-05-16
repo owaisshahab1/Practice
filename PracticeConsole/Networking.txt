@@ -1,1 +1,4 @@
 ping google.com -t
+ipconfig /renew
+ipconfig /flushdns
+ipconfig /release_all
