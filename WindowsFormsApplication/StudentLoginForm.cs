@@ -25,18 +25,28 @@ namespace WindowsFormsApplication
             {
                 try
                 {
-                    bool isUserNameCorrect, isPasswordCorrect;
-                    GetUserLoginCorrect(out isUserNameCorrect, out isPasswordCorrect);
+                    bool isUserNameCorrect, isPasswordCorrect,isActive;
+                    GetUserLoginCorrect(out isUserNameCorrect, out isPasswordCorrect,out isActive);
                     if (isUserNameCorrect && isPasswordCorrect)
                     {
-                        this.Hide();
-                        if (RememberMeCheckBox.Checked)
+                        if (isActive)
                         {
-                            Properties.Settings.Default.UserName = userNameTextBox.Text;
-                            Properties.Settings.Default.Save();
+                            this.Hide();
+                            if (RememberMeCheckBox.Checked)
+                            {
+                                Properties.Settings.Default.UserName = userNameTextBox.Text;
+                                Properties.Settings.Default.Save();
+                            }
+                            ManageStudentForm msf = new ManageStudentForm();
+                            msf.ShowDialog();
                         }
-                        ManageStudentForm msf = new ManageStudentForm();
-                        msf.ShowDialog();
+                        else
+                        {
+                            MessageBox.Show("Your account is not active. please consult administrator for further info.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            userNameTextBox.Clear();
+                            PasswordtextBox.Clear();
+                            userNameTextBox.Focus();
+                        }
 
                     }
                     else
@@ -64,7 +74,7 @@ namespace WindowsFormsApplication
             }
         }
 
-        private void GetUserLoginCorrect(out bool isUserNameCorrect, out bool isPasswordCorrect)
+        private void GetUserLoginCorrect(out bool isUserNameCorrect, out bool isPasswordCorrect,out bool isActive)
         {
             string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connString))
@@ -76,12 +86,14 @@ namespace WindowsFormsApplication
                     conn.Open();
                     cmd.Parameters.Add("@IsUserNameCorrect", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@IsPasswordCorrect", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@IsActive", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.AddWithValue("@UserName", userNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@Password", PasswordtextBox.Text);
                     cmd.ExecuteNonQuery();
 
                     isUserNameCorrect = (bool)cmd.Parameters["@IsUserNameCorrect"].Value;
                     isPasswordCorrect = (bool)cmd.Parameters["@IsPasswordCorrect"].Value;
+                    isActive = (bool)cmd.Parameters["@IsActive"].Value;
                 }
             }
         }
