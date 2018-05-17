@@ -14,6 +14,8 @@ namespace WindowsFormsApplication
 {
     public partial class StudentLoginForm : Form
     {
+        private int NumberOfWrongAttempts = 0;
+
         public StudentLoginForm()
         {
             InitializeComponent();
@@ -51,6 +53,7 @@ namespace WindowsFormsApplication
                     }
                     else
                     {
+                        NumberOfWrongAttempts++;
                         if (!isUserNameCorrect)
                         {
                             MessageBox.Show("UserName is not correct", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,15 +64,35 @@ namespace WindowsFormsApplication
                         else
                         {
                             MessageBox.Show("Password is not correct", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (NumberOfWrongAttempts >= 3)
+                            {
+                                DisableThisAccount();
+                                MessageBox.Show("The account with this username is disabled now. \n Please Contact Administrator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                userNameTextBox.Clear();
+                            }
                             PasswordtextBox.Clear();
                             PasswordtextBox.Focus();
                         }
-
                     }
                 }
                 catch (ApplicationException ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void DisableThisAccount()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_UserDisableThisAccount",conn) )
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@UserName", userNameTextBox.Text);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
