@@ -17,5 +17,22 @@ namespace NewMvcPractice.Controllers
             List<Employees> employees = employeeVM.GetAllEmployee();
             return View(employees);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employees employee)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeViewModel employeeVM = new EmployeeViewModel();
+                employeeVM.AddNewEmployee(employee);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }

@@ -148,7 +148,7 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Backup Database\JIChart.bak" />
-    <None Include="Backup Database\VcSharpDB.4bak" />
+    <None Include="Backup Database\VcSharpDB.6bak" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
