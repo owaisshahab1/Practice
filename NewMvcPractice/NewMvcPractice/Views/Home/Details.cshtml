@@ -1,0 +1,27 @@
+﻿@model NewMvcPractice.Models.Employees
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Employees Detail</h2>
+
+@using (Html.BeginForm())
+{
+    @*<p>
+        @Html.DisplayNameFor(m => m.EmployeeId)
+        @Html.DisplayTextFor(m => m.EmployeeId)
+    </p>
+    <p>
+        @Html.DisplayNameFor(m => m.Name)
+        @Html.DisplayTextFor(m => m.Name)
+    </p>
+    <p>
+        @Html.DisplayNameFor(m => m.Email)
+        @Html.DisplayTextFor(m => m.Email)
+    </p>
+    <p>
+        @Html.DisplayNameFor(m => m.Moblie)
+        @Html.DisplayTextFor(m => m.Moblie)
+    </p>*@
+    @Html.DisplayForModel()
+}

@@ -39,6 +39,29 @@ namespace NewMvcPractice.ViewModel.Home
             return employeesList;
         }
 
+        public Employees GetEmployeeDetailById(int id)
+        {
+            Employees employee = new Employees();
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd  = new SqlCommand ("usp_EmployeesGetAllEmployeeById",conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    employee.EmployeeId = Convert.ToInt16(reader["EmployeeId"]);
+                    employee.Name = Convert.ToString(reader["Name"]);
+                    employee.Email = Convert.ToString(reader["Email"]);
+                    employee.Moblie = (reader["Mobile"]).ToString();
+                }
+
+            }
+            return employee;
+        }
+
         public void AddNewEmployee(Employees employee)
         {
             string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;

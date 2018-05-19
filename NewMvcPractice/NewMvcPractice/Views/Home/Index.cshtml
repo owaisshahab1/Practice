@@ -19,6 +19,7 @@
             <td>@s.Name</td>
             <td>@s.Email</td>
             <td>@s.Moblie</td>
+            <td>@Html.ActionLink("Detail", "Details", "Home", new { id = @s.EmployeeId }, null)</td>
         </tr>
     }
 </table>

@@ -8,12 +8,19 @@ namespace NewMvcPractice.Models
 {
     public class Employees
     {
+        [Display(Name="Id: ")]
         public int EmployeeId { get; set; }
-        [Required(ErrorMessage ="Name is Required")]
+
+        [Required(ErrorMessage = "Name is Required")]
+        [Display(Name = "Name: ")]
         public string  Name { get; set; }
+
         [Required(ErrorMessage = "Email is Required")]
+        [Display(Name = "Email: ")]
         public string Email { get; set; }
+
         [Required(ErrorMessage = "Mobile is Required")]
+        [Display(Name = "Mobile: ")]
         public string Moblie { get; set; }
     }
 }

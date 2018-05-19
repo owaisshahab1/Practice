@@ -34,5 +34,12 @@ namespace NewMvcPractice.Controllers
             }
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            EmployeeViewModel employeeVM = new EmployeeViewModel();
+            Employees employee = employeeVM.GetEmployeeDetailById(id);
+            return View(employee);
+        }
     }
 }
