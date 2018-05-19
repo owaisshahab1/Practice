@@ -7,24 +7,35 @@ namespace NewMvcPractice
 {
     public class SqlData
     {
-        //----------------------------------------
-
-//        create procedure usp_EmployeesUpdateRecord
+        //---------------------------------------
+//        create procedure usp_EmployeesDeleteEmployeeRecord
 //(
-//@EmloyeeId int,
-//@Name nvarchar (50),
-//@Email nvarchar(50),
-//@Mobile nvarchar(50)
-
+//@Id int
 //)
 //as
 //begin
-//UPDATE[dbo].[Employees]
-//        SET[Name] = @Name
-//      ,[Email] = @EmloyeeId
-//      ,[Mobile] = @Mobile
-//WHERE[EmployeeId] = @EmloyeeId
-// end
+//delete from Employees where EmployeeId = @Id
+//end
+
+
+        //----------------------------------------
+
+        //        create procedure usp_EmployeesUpdateRecord
+        //(
+        //@EmloyeeId int,
+        //@Name nvarchar (50),
+        //@Email nvarchar(50),
+        //@Mobile nvarchar(50)
+
+        //)
+        //as
+        //begin
+        //UPDATE[dbo].[Employees]
+        //        SET[Name] = @Name
+        //      ,[Email] = @EmloyeeId
+        //      ,[Mobile] = @Mobile
+        //WHERE[EmployeeId] = @EmloyeeId
+        // end
 
         //--------------------------------------
 

@@ -60,5 +60,13 @@ namespace NewMvcPractice.Controllers
             }
             return View();
         }
+
+        public ActionResult Delete(int id)
+        {
+            EmployeeViewModel employeeVM = new EmployeeViewModel();
+            employeeVM.DeleteEmployee(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }

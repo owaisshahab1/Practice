@@ -62,6 +62,21 @@ namespace NewMvcPractice.ViewModel.Home
             return employee;
         }
 
+        public void DeleteEmployee(int id)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_EmployeesDeleteEmployeeRecord", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void UpdateEmployeeDetails(Employees employee)
         {
             string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
