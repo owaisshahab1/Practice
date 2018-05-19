@@ -41,5 +41,24 @@ namespace NewMvcPractice.Controllers
             Employees employee = employeeVM.GetEmployeeDetailById(id);
             return View(employee);
         }
+
+        public ActionResult Edit(int id)
+        {
+            EmployeeViewModel employeeVM = new EmployeeViewModel();
+            Employees employee = employeeVM.GetEmployeeDetailById(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Employees employee)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeViewModel employeeVM = new EmployeeViewModel();
+                employeeVM.UpdateEmployeeDetails(employee);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }

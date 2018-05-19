@@ -62,6 +62,24 @@ namespace NewMvcPractice.ViewModel.Home
             return employee;
         }
 
+        public void UpdateEmployeeDetails(Employees employee)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_EmployeesUpdateRecord", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@EmployeeId", employee.EmployeeId);
+                    cmd.Parameters.AddWithValue("@Name", employee.Name);
+                    cmd.Parameters.AddWithValue("@Email", employee.Email);
+                    cmd.Parameters.AddWithValue("@Moblie", employee.Moblie);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void AddNewEmployee(Employees employee)
         {
             string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
