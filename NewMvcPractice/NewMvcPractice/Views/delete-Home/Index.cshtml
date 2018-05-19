@@ -1,0 +1,23 @@
+﻿@model List<NewMvcPractice.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Employees</h2>
+<table>
+    <tr>
+        <td>EmployeeId</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Mobile</td>
+    </tr>
+    @foreach(var s in Model)
+    {
+        <tr>
+            <td>@s.EmployeeId</td>
+            <td>@s.Name</td>
+            <td>@s.Email</td>
+            <td>@s.Mobile</td>
+        </tr>
+    }
+</table>
