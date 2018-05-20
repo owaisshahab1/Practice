@@ -11,7 +11,7 @@ namespace NewMvcPractice.ViewModel.Home
         public List<Employee> GetAllEmployee()
         {
             NewMvcPracticeDBContext db = new NewMvcPracticeDBContext();
-            return db.Employees.ToList();
+            return db.Employees.SqlQuery("select * from Employees where IsActive = 1").ToList();
         }
 
         public void AddNewEmployee(Employee employee)
