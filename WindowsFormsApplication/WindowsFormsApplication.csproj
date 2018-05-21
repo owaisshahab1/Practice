@@ -76,6 +76,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="HandiCapPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HandiCapPositionForm.Designer.cs">
+      <DependentUpon>HandiCapPositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HandiCapPositionForm.resx">
+      <DependentUpon>HandiCapPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageStudentForm.resx">
       <DependentUpon>ManageStudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +156,7 @@
     <EmbeddedResource Include="SymbolPalleteWindow.resx">
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Backup Database\JIChart.bak" />
     <None Include="Backup Database\VcSharpDB.6bak" />
     <None Include="packages.config" />
@@ -160,10 +170,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Scripts\jquery-1.12.3.min.map" />
-    <None Include="VcSharpDB.3bak" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\No_Image_Available.jpg" />
