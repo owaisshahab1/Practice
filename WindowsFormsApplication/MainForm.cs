@@ -45,7 +45,7 @@ namespace WindowsFormsApplication
             //dcEmployeeName.AutoIncrement = false;
             //dtEmployee.Columns.Add(dcEmployeeName);
 
-            DataColumn dcEmployeeId = DataColumnCreater("Id", typeof(System.Int32), false, true, true, 1001, 1);
+            DataColumn dcEmployeeId = DataColumnCreater("Id", typeof(System.Int32), false, true, true, 1001, 1); 
             dtEmployee.Columns.Add(dcEmployeeId);
 
             DataColumn dcEmployeeName = DataColumnCreater("Name", typeof(System.String), false, false, false);
