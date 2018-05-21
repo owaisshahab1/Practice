@@ -12,6 +12,9 @@ namespace WindowsFormsApplication
 {
     public partial class MainForm : Form
     {
+        private DataTable dtEmployee;
+        private DataView dvEmployeeView;
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,73 +23,44 @@ namespace WindowsFormsApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
             EmployeeDataGridView.DataSource = GetDataTable();
-            //EmployeeDataGridView.DataSource = dsOffice.Tables["Employees"];
+            dvEmployeeView = dtEmployee.DefaultView;
+            SortByNameRadioButton.Checked = true;
 
-            //EmployeeDataGridView.DataSource = dtEmployee;
         }
 
         private DataTable GetDataTable()
         {
-            DataTable dtEmployee = new DataTable();
-            //DataColumn dcEmployeeId = new DataColumn();
-            //dcEmployeeId.ColumnName = "Id";
-            //dcEmployeeId.DataType = typeof(System.Int32);
-            //dcEmployeeId.AllowDBNull = false;
-            //dcEmployeeId.AutoIncrement = true;
-            //dcEmployeeId.AutoIncrementSeed = 1001;
-            //dcEmployeeId.AutoIncrementStep = 1;
-            //dcEmployeeId.Unique = true;
-            //dtEmployee.Columns.Add(dcEmployeeId);
+            dtEmployee = new DataTable();
+            dtEmployee.Columns.Add("Id", typeof(System.Int32));
+            dtEmployee.Columns.Add("Name", typeof(string));
+            dtEmployee.Columns.Add("City", typeof(string));
+            dtEmployee.Columns.Add("Age", typeof(System.Int32));
 
-            //DataColumn dcEmployeeName = new DataColumn();
-            //dcEmployeeName.ColumnName = "Name";
-            //dcEmployeeName.DataType = typeof(System.String);
-            //dcEmployeeName.AllowDBNull = false;
-            //dcEmployeeName.AutoIncrement = false;
-            //dtEmployee.Columns.Add(dcEmployeeName);
-
-            DataColumn dcEmployeeId = DataColumnCreater("Id", typeof(System.Int32), false, true, true, 1001, 1); 
-            dtEmployee.Columns.Add(dcEmployeeId);
-
-            DataColumn dcEmployeeName = DataColumnCreater("Name", typeof(System.String), false, false, false);
-            dtEmployee.Columns.Add(dcEmployeeName);
-
-            dtEmployee.Rows.Add(null, "James");
-            dtEmployee.Rows.Add(null, "Kims");
-            dtEmployee.Rows.Add(null, "Robert");
+            dtEmployee.Rows.Add(1, "owais shahab", "Karachi", 27);
+            dtEmployee.Rows.Add(2, "Waqas shahab", "Karachi", 27);
+            dtEmployee.Rows.Add(3, "faisal shahab", "Lahore", 27);
+            dtEmployee.Rows.Add(4, "fahad shahab", "Lahore", 27);
+            dtEmployee.Rows.Add(5, "Jibran Qureshi", "Peshawar", 27);
+            dtEmployee.Rows.Add(6, "Ahad Siddique", "Peshawar", 27);
 
             return dtEmployee;
         }
 
-        private DataColumn DataColumnCreater(string columnName,Type dataType,bool allowDbNull,bool unique,bool autoIncrement,int autoIncrementSeed = 0,int autoIncrementStep = 0)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
-            DataColumn dtColumn = new DataColumn();
+            dvEmployeeView.RowFilter = "Name Like '%" + SearchTextBox.Text + "%'"; 
+        }
 
-            dtColumn.ColumnName = columnName;
-            dtColumn.DataType = dataType;
-            dtColumn.AllowDBNull = allowDbNull;
-            dtColumn.Unique = unique;
-            dtColumn.AutoIncrement = autoIncrement;
-            if (autoIncrement == true)
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            if (SortByNameRadioButton.Checked)
             {
-                dtColumn.AutoIncrementSeed = autoIncrementSeed;
-                dtColumn.AutoIncrementStep = autoIncrementStep;
+                dvEmployeeView.Sort = "Name Asc";
             }
-            return dtColumn;
+            else
+            {
+                dvEmployeeView.Sort = "City Asc";
+            }
         }
-
-            //private DataTable GetDataTable()
-            //{
-            //    //DataSet dsOffice = new DataSet("Office");
-            //    DataTable dtEmployee = new DataTable("Employees");
-            //    dtEmployee.Columns.Add("Id", typeof(int));
-            //    dtEmployee.Columns.Add("Name");
-
-            //    dtEmployee.Rows.Add(1, "Javed Iqbal");
-            //    dtEmployee.Rows.Add(2, "Tony Marks");
-
-            //    return dtEmployee;
-            //    //dsOffice.Tables.Add(dtEmployee);
-            //}
-        }
+    }
 }

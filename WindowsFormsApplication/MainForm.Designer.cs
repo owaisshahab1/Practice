@@ -32,10 +32,10 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.EmployeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.SortButton = new System.Windows.Forms.Button();
-            this.SortByNameRadioButton = new System.Windows.Forms.RadioButton();
             this.SortByCityRadioButton = new System.Windows.Forms.RadioButton();
+            this.SortByNameRadioButton = new System.Windows.Forms.RadioButton();
+            this.SortButton = new System.Windows.Forms.Button();
+            this.EmployeeDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,7 @@
             this.SearchButton.TabIndex = 1;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // label1
             // 
@@ -75,27 +76,17 @@
             this.groupBox1.Size = new System.Drawing.Size(289, 100);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
-            // EmployeeDataGridView
+            // SortByCityRadioButton
             // 
-            this.EmployeeDataGridView.AllowUserToAddRows = false;
-            this.EmployeeDataGridView.AllowUserToDeleteRows = false;
-            this.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EmployeeDataGridView.Location = new System.Drawing.Point(15, 133);
-            this.EmployeeDataGridView.Name = "EmployeeDataGridView";
-            this.EmployeeDataGridView.ReadOnly = true;
-            this.EmployeeDataGridView.Size = new System.Drawing.Size(609, 265);
-            this.EmployeeDataGridView.TabIndex = 4;
-            // 
-            // SortButton
-            // 
-            this.SortButton.Location = new System.Drawing.Point(183, 46);
-            this.SortButton.Name = "SortButton";
-            this.SortButton.Size = new System.Drawing.Size(75, 23);
-            this.SortButton.TabIndex = 1;
-            this.SortButton.Text = "Sort";
-            this.SortButton.UseVisualStyleBackColor = true;
+            this.SortByCityRadioButton.AutoSize = true;
+            this.SortByCityRadioButton.Location = new System.Drawing.Point(23, 56);
+            this.SortByCityRadioButton.Name = "SortByCityRadioButton";
+            this.SortByCityRadioButton.Size = new System.Drawing.Size(57, 17);
+            this.SortByCityRadioButton.TabIndex = 2;
+            this.SortByCityRadioButton.TabStop = true;
+            this.SortByCityRadioButton.Text = "By City";
+            this.SortByCityRadioButton.UseVisualStyleBackColor = true;
             // 
             // SortByNameRadioButton
             // 
@@ -108,16 +99,26 @@
             this.SortByNameRadioButton.Text = "By Name";
             this.SortByNameRadioButton.UseVisualStyleBackColor = true;
             // 
-            // SortByCityRadioButton
+            // SortButton
             // 
-            this.SortByCityRadioButton.AutoSize = true;
-            this.SortByCityRadioButton.Location = new System.Drawing.Point(23, 56);
-            this.SortByCityRadioButton.Name = "SortByCityRadioButton";
-            this.SortByCityRadioButton.Size = new System.Drawing.Size(57, 17);
-            this.SortByCityRadioButton.TabIndex = 2;
-            this.SortByCityRadioButton.TabStop = true;
-            this.SortByCityRadioButton.Text = "By City";
-            this.SortByCityRadioButton.UseVisualStyleBackColor = true;
+            this.SortButton.Location = new System.Drawing.Point(183, 46);
+            this.SortButton.Name = "SortButton";
+            this.SortButton.Size = new System.Drawing.Size(75, 23);
+            this.SortButton.TabIndex = 1;
+            this.SortButton.Text = "Sort";
+            this.SortButton.UseVisualStyleBackColor = true;
+            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
+            // 
+            // EmployeeDataGridView
+            // 
+            this.EmployeeDataGridView.AllowUserToAddRows = false;
+            this.EmployeeDataGridView.AllowUserToDeleteRows = false;
+            this.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EmployeeDataGridView.Location = new System.Drawing.Point(15, 133);
+            this.EmployeeDataGridView.Name = "EmployeeDataGridView";
+            this.EmployeeDataGridView.ReadOnly = true;
+            this.EmployeeDataGridView.Size = new System.Drawing.Size(609, 265);
+            this.EmployeeDataGridView.TabIndex = 4;
             // 
             // MainForm
             // 
