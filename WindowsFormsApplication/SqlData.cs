@@ -8,35 +8,47 @@ namespace WindowsFormsApplication
 {
     class SqlData
     {
+        //-----------------------------------------------
+
+//        use DataSetDemo
+//go
+
+//create procedure usp_GetAllEmployees
+//as
+//begin
+//select* from[dbo].[Employees]
+//        end
+
+
         //-------------------15/05/2018------------------------------
- /*       use VcSharpDB
-go
-create procedure usp_UserCheckLogInDetails
-(
-@IsUserNameCorrect bit output,
-@IsPasswordCorrect bit output,
-@UserName nvarchar(50),
-@Password nvarchar(50)
-)
-as
-begin
-set @IsUserNameCorrect = 0;
-set @IsPasswordCorrect = 0;
-        end
-if exists(select* from [dbo].[Users] where
-[UserName] = @UserName and[Password] = @Password)
-begin
-set @IsPasswordCorrect = 1
-set @IsUserNameCorrect = 1
-end 
-else
-begin
-if exists(select* from Users where UserName = @UserName)
-begin
-set @IsUserNameCorrect = 1
-end
-end
-*/
+        /*       use VcSharpDB
+       go
+       create procedure usp_UserCheckLogInDetails
+       (
+       @IsUserNameCorrect bit output,
+       @IsPasswordCorrect bit output,
+       @UserName nvarchar(50),
+       @Password nvarchar(50)
+       )
+       as
+       begin
+       set @IsUserNameCorrect = 0;
+       set @IsPasswordCorrect = 0;
+               end
+       if exists(select* from [dbo].[Users] where
+       [UserName] = @UserName and[Password] = @Password)
+       begin
+       set @IsPasswordCorrect = 1
+       set @IsUserNameCorrect = 1
+       end 
+       else
+       begin
+       if exists(select* from Users where UserName = @UserName)
+       begin
+       set @IsUserNameCorrect = 1
+       end
+       end
+       */
         //------------------Friday, 11 May 2018-----------------------
         /*
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,17 +33,14 @@ namespace WindowsFormsApplication
         private DataTable GetDataTable()
         {
             dtEmployee = new DataTable();
-            dtEmployee.Columns.Add("Id", typeof(System.Int32));
-            dtEmployee.Columns.Add("Name", typeof(string));
-            dtEmployee.Columns.Add("City", typeof(string));
-            dtEmployee.Columns.Add("Age", typeof(System.Int32));
 
-            dtEmployee.Rows.Add(1, "owais shahab", "Karachi", 27);
-            dtEmployee.Rows.Add(2, "Waqas shahab", "Karachi", 27);
-            dtEmployee.Rows.Add(3, "faisal shahab", "Lahore", 27);
-            dtEmployee.Rows.Add(4, "fahad shahab", "Lahore", 27);
-            dtEmployee.Rows.Add(5, "Jibran Qureshi", "Peshawar", 27);
-            dtEmployee.Rows.Add(6, "Ahad Siddique", "Peshawar", 27);
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbtest"].ConnectionString))
+            {
+                using(SqlDataAdapter adapter = new SqlDataAdapter("usp_GetAllEmployees", conn))
+                {
+                    adapter.Fill(dtEmployee);
+                }
+            }
 
             return dtEmployee;
         }
