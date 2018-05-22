@@ -48,18 +48,33 @@ namespace WindowsFormsApplication
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            dvEmployeeView.RowFilter = "Name Like '%" + SearchTextBox.Text + "%'"; 
+            //dvEmployeeView.RowFilter = "Name Like '%" + SearchTextBox.Text + "%'"; 
+            var retRows = from myRows in dtEmployee.AsEnumerable()
+                          where myRows.Field<string>("Name").Contains(SearchTextBox.Text)
+                          select myRows;
+            if (retRows.Any())
+                EmployeeDataGridView.DataSource = retRows.CopyToDataTable<DataRow>();
+            else
+                MessageBox.Show("No matching row found", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void SortButton_Click(object sender, EventArgs e)
         {
             if (SortByNameRadioButton.Checked)
             {
-                dvEmployeeView.Sort = "Name Asc";
+                var retRowName = from myRows in dtEmployee.AsEnumerable()
+                                 orderby myRows["Name"] ascending
+                                 select myRows; 
+                EmployeeDataGridView.DataSource = retRowName.CopyToDataTable<DataRow>();
+               // dvEmployeeView.Sort = "Name Asc";
             }
             else
             {
-                dvEmployeeView.Sort = "City Asc";
+                // dvEmployeeView.Sort = "City Asc";
+                var retRowCity = from myRows in dtEmployee.AsEnumerable()
+                                 orderby myRows["City"] ascending
+                                 select myRows;
+                EmployeeDataGridView.DataSource = retRowCity.CopyToDataTable<DataRow>();
             }
         }
     }
