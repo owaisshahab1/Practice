@@ -16,6 +16,9 @@ namespace WindowsFormsApplication
     {
         private DataTable dtEmployee;
         private DataView dvEmployeeView;
+        private SqlDataAdapter adapter;
+        private SqlCommand cmd;
+        private SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbtest"].ConnectionString);
 
         public MainForm()
         {
@@ -34,14 +37,12 @@ namespace WindowsFormsApplication
         {
             dtEmployee = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbtest"].ConnectionString))
+            using (cmd = new SqlCommand("usp_GetAllEmployees", conn))
             {
-                using(SqlDataAdapter adapter = new SqlDataAdapter("usp_GetAllEmployees", conn))
-                {
-                    adapter.Fill(dtEmployee);
-                }
+                cmd.CommandType = CommandType.StoredProcedure;
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dtEmployee);
             }
-
             return dtEmployee;
         }
 
@@ -74,6 +75,29 @@ namespace WindowsFormsApplication
                                  orderby myRows["City"] ascending
                                  select myRows;
                 EmployeeDataGridView.DataSource = retRowCity.CopyToDataTable<DataRow>();
+            }
+        }
+
+        private void EmployeeDataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                var hti = EmployeeDataGridView.HitTest(e.X, e.Y);
+                EmployeeDataGridView.ClearSelection();
+                EmployeeDataGridView.Rows[hti.RowIndex].Selected = true;
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to delete this record ?", "Deleting Record", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                int rowToDeleteIndex = EmployeeDataGridView.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                EmployeeDataGridView.Rows.RemoveAt(rowToDeleteIndex);
+                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(adapter);
+                adapter.Update(dtEmployee);
+                MessageBox.Show("Data is deleted successfully");
             }
         }
     }

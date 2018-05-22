@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,8 +37,11 @@
             this.SortByNameRadioButton = new System.Windows.Forms.RadioButton();
             this.SortButton = new System.Windows.Forms.Button();
             this.EmployeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.DGVContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).BeginInit();
+            this.DGVContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // SearchTextBox
@@ -114,11 +118,28 @@
             this.EmployeeDataGridView.AllowUserToAddRows = false;
             this.EmployeeDataGridView.AllowUserToDeleteRows = false;
             this.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EmployeeDataGridView.ContextMenuStrip = this.DGVContextMenuStrip;
             this.EmployeeDataGridView.Location = new System.Drawing.Point(15, 133);
             this.EmployeeDataGridView.Name = "EmployeeDataGridView";
             this.EmployeeDataGridView.ReadOnly = true;
+            this.EmployeeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.EmployeeDataGridView.Size = new System.Drawing.Size(609, 265);
             this.EmployeeDataGridView.TabIndex = 4;
+            this.EmployeeDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EmployeeDataGridView_MouseDown);
+            // 
+            // DGVContextMenuStrip
+            // 
+            this.DGVContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.DGVContextMenuStrip.Name = "DGVContextMenuStrip";
+            this.DGVContextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -139,6 +160,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).EndInit();
+            this.DGVContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +176,7 @@
         private System.Windows.Forms.RadioButton SortByCityRadioButton;
         private System.Windows.Forms.RadioButton SortByNameRadioButton;
         private System.Windows.Forms.Button SortButton;
+        private System.Windows.Forms.ContextMenuStrip DGVContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
