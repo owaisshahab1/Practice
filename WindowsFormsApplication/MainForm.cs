@@ -14,6 +14,7 @@ namespace WindowsFormsApplication
 {
     public partial class MainForm : Form
     {
+        private SqlCommandBuilder cmdBuilder;
         private DataTable dtEmployee;
         private DataView dvEmployeeView;
         private SqlDataAdapter adapter;
@@ -41,6 +42,12 @@ namespace WindowsFormsApplication
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 adapter = new SqlDataAdapter(cmd);
+
+                dtEmployee.Columns.Add("Id", typeof(int));
+                dtEmployee.Columns[0].AutoIncrement = true;
+                dtEmployee.Columns[0].AutoIncrementSeed = 1;
+                dtEmployee.Columns[0].AutoIncrementStep = 1;
+
                 adapter.Fill(dtEmployee);
             }
             return dtEmployee;
@@ -95,9 +102,26 @@ namespace WindowsFormsApplication
             {
                 int rowToDeleteIndex = EmployeeDataGridView.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                 EmployeeDataGridView.Rows.RemoveAt(rowToDeleteIndex);
-                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(adapter);
+               cmdBuilder = new SqlCommandBuilder(adapter);
                 adapter.Update(dtEmployee);
                 MessageBox.Show("Data is deleted successfully");
+            }
+        }
+
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //dtEmployee.Rows.Add(null, "khashif", "karachi", 14);
+
+            EmployeeDetailsForm edf = new EmployeeDetailsForm();
+            edf.ShowDialog();
+            if (!edf.IsCanceled)
+            {
+                dtEmployee.Rows.Add(null, edf.EmployeeAge, edf.EmployeeCity, edf.EmployeeAge);
+
+                cmdBuilder = new SqlCommandBuilder(adapter);
+                adapter.Update(dtEmployee);
+
+                MessageBox.Show("New Data is Added successfully");
             }
         }
     }

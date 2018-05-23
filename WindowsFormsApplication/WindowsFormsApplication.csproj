@@ -64,6 +64,12 @@
     <Compile Include="ComplexChartVc4.Designer.cs">
       <DependentUpon>ComplexChartVc4.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeDetailsForm.Designer.cs">
+      <DependentUpon>EmployeeDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComplexChartVc4.resx">
       <DependentUpon>ComplexChartVc4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeDetailsForm.resx">
+      <DependentUpon>EmployeeDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeNavigationForm.resx">
       <DependentUpon>EmployeeNavigationForm.cs</DependentUpon>
