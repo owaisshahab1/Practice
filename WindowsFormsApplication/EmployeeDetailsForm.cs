@@ -21,6 +21,7 @@ namespace WindowsFormsApplication
         private string employeeCity;
         private int employeeAge;
         private bool isCanceled;
+        private bool isUpdate;
 
         public string EmployeeName
         {
@@ -71,6 +72,19 @@ namespace WindowsFormsApplication
             set
             {
                 isCanceled = value;
+            }
+        }
+
+        public bool IsUpdate
+        {
+            get
+            {
+                return isUpdate;
+            }
+
+            set
+            {
+                isUpdate = value;
             }
         }
 
@@ -139,6 +153,21 @@ namespace WindowsFormsApplication
         {
             IsCanceled = true;
             this.Close();
+        }
+
+        private void EmployeeDetailsForm_Load(object sender, EventArgs e)
+        {
+            if (IsUpdate)
+            {
+                this.NameTextBox.Text = EmployeeName;
+                this.CityTextBox.Text = EmployeeCity;
+                this.AgeTextBox.Text = EmployeeAge.ToString();
+                SaveButton.Text = "Update";
+            }
+            else
+            {
+                SaveButton.Text = "Save";
+            }
         }
     }
 }

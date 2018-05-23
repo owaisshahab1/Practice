@@ -120,8 +120,32 @@ namespace WindowsFormsApplication
 
                 cmdBuilder = new SqlCommandBuilder(adapter);
                 adapter.Update(dtEmployee);
-
+                EmployeeDataGridView.Update();
                 MessageBox.Show("New Data is Added successfully");
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeDetailsForm edf = new EmployeeDetailsForm();
+            int rowToUpdate = EmployeeDataGridView.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            DataRow row = dtEmployee.Rows[rowToUpdate];
+            edf.EmployeeName = row["Name"].ToString();
+            edf.EmployeeCity = row["City"].ToString();
+            edf.EmployeeAge = int.Parse(row["Age"].ToString());
+            edf.IsUpdate = true;
+            edf.ShowDialog();
+
+            if (!edf.IsCanceled)
+            {
+                row["Name"] = edf.EmployeeName;
+                row["City"] = edf.EmployeeCity;
+                row["Age"] = edf.EmployeeAge;
+                edf.IsUpdate = false;
+                cmdBuilder = new SqlCommandBuilder(adapter);
+                adapter.Update(dtEmployee);
+                EmployeeDataGridView.Update();
+                MessageBox.Show("Record is Updated Successfully");
             }
         }
     }
