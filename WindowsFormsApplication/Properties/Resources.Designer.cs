@@ -63,6 +63,26 @@ namespace WindowsFormsApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap dvBookshop {
+            get {
+                object obj = ResourceManager.GetObject("dvBookshop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap dvprinting {
+            get {
+                object obj = ResourceManager.GetObject("dvprinting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap No_Image_Available {
             get {
                 object obj = ResourceManager.GetObject("No_Image_Available", resourceCulture);
