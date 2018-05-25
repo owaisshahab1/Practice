@@ -8,16 +8,46 @@ namespace WindowsFormsApplication
 {
     class SqlData
     {
+        //--------------------------------------------
+
+//        USE[EmployeeDB]
+//GO
+
+//SET ANSI_NULLS ON
+//GO
+
+//SET QUOTED_IDENTIFIER ON
+//GO
+
+//CREATE TABLE[dbo].[Employees](
+//	[EmployeeId]
+//        [nvarchar](8) NOT NULL,
+
+//[FirstName] [nvarchar](50) NOT NULL,
+
+//[LastName] [nvarchar](50) NOT NULL,
+
+//[Email] [nvarchar](50) NOT NULL,
+
+//[Telephone] [nvarchar](50) NOT NULL,
+//CONSTRAINT[PK_Employees] PRIMARY KEY CLUSTERED
+//(
+//[EmployeeId] ASC
+//)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
+//) ON[PRIMARY]
+
+//GO
+
         //-----------------------------------------------
 
-//        use DataSetDemo
-//go
+        //        use DataSetDemo
+        //go
 
-//create procedure usp_GetAllEmployees
-//as
-//begin
-//select* from[dbo].[Employees]
-//        end
+        //create procedure usp_GetAllEmployees
+        //as
+        //begin
+        //select* from[dbo].[Employees]
+        //        end
 
 
         //-------------------15/05/2018------------------------------
