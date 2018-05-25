@@ -35,18 +35,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.DashLabel = new System.Windows.Forms.Label();
             this.TotalTextBox = new System.Windows.Forms.TextBox();
             this.ItemNameComboBox = new System.Windows.Forms.ComboBox();
             this.QuantityComboBox = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.PrintPriviewButton = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
+            this.ExitApplicationButton = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.DVPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.DVPrintDocument = new System.Drawing.Printing.PrintDocument();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddNewOrderButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 203);
+            this.label4.Location = new System.Drawing.Point(24, 203);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 17);
             this.label4.TabIndex = 1;
@@ -107,15 +108,16 @@
             this.PriceTextBox.TabIndex = 4;
             this.PriceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
             // 
-            // label5
+            // DashLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 237);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 17);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Total To Pay :";
+            this.DashLabel.AutoSize = true;
+            this.DashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashLabel.Location = new System.Drawing.Point(12, 330);
+            this.DashLabel.Name = "DashLabel";
+            this.DashLabel.Size = new System.Drawing.Size(683, 17);
+            this.DashLabel.TabIndex = 1;
+            this.DashLabel.Text = "---------------------------------------------------------------------------------" +
+    "------------------------------------------------------";
             // 
             // TotalTextBox
             // 
@@ -166,34 +168,35 @@
             this.QuantityComboBox.TabIndex = 3;
             this.QuantityComboBox.SelectedIndexChanged += new System.EventHandler(this.QuantityComboBox_SelectedIndexChanged);
             // 
-            // button2
+            // PrintPriviewButton
             // 
-            this.button2.Location = new System.Drawing.Point(372, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 34);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Print Priview";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.PrintPriviewButton.Location = new System.Drawing.Point(372, 122);
+            this.PrintPriviewButton.Name = "PrintPriviewButton";
+            this.PrintPriviewButton.Size = new System.Drawing.Size(145, 34);
+            this.PrintPriviewButton.TabIndex = 6;
+            this.PrintPriviewButton.Text = "Print Priview";
+            this.PrintPriviewButton.UseVisualStyleBackColor = true;
+            this.PrintPriviewButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // PrintButton
             // 
-            this.button3.Location = new System.Drawing.Point(372, 166);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 34);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Print";
-            this.button3.UseVisualStyleBackColor = true;
+            this.PrintButton.Location = new System.Drawing.Point(372, 166);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(145, 34);
+            this.PrintButton.TabIndex = 7;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
-            // button4
+            // ExitApplicationButton
             // 
-            this.button4.Location = new System.Drawing.Point(372, 246);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 34);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Exit Application";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ExitApplicationButton.Location = new System.Drawing.Point(372, 246);
+            this.ExitApplicationButton.Name = "ExitApplicationButton";
+            this.ExitApplicationButton.Size = new System.Drawing.Size(145, 34);
+            this.ExitApplicationButton.TabIndex = 8;
+            this.ExitApplicationButton.Text = "Exit Application";
+            this.ExitApplicationButton.UseVisualStyleBackColor = true;
+            this.ExitApplicationButton.Click += new System.EventHandler(this.button4_Click);
             // 
             // linkLabel1
             // 
@@ -220,15 +223,15 @@
             // 
             this.DVPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.DVPrintDocument_PrintPage);
             // 
-            // button1
+            // AddNewOrderButton
             // 
-            this.button1.Location = new System.Drawing.Point(372, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 34);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add New Order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddNewOrderButton.Location = new System.Drawing.Point(372, 80);
+            this.AddNewOrderButton.Name = "AddNewOrderButton";
+            this.AddNewOrderButton.Size = new System.Drawing.Size(145, 34);
+            this.AddNewOrderButton.TabIndex = 5;
+            this.AddNewOrderButton.Text = "Add New Order";
+            this.AddNewOrderButton.UseVisualStyleBackColor = true;
+            this.AddNewOrderButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -240,22 +243,33 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(20, 237);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Total To Pay";
+            // 
             // MainForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 331);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ExitApplicationButton);
+            this.Controls.Add(this.PrintButton);
+            this.Controls.Add(this.PrintPriviewButton);
+            this.Controls.Add(this.AddNewOrderButton);
             this.Controls.Add(this.QuantityComboBox);
             this.Controls.Add(this.ItemNameComboBox);
             this.Controls.Add(this.TotalTextBox);
             this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.ClientNameTextBox);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.DashLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -281,16 +295,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox PriceTextBox;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label DashLabel;
         private System.Windows.Forms.TextBox TotalTextBox;
         private System.Windows.Forms.ComboBox ItemNameComboBox;
         private System.Windows.Forms.ComboBox QuantityComboBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button AddNewOrderButton;
+        private System.Windows.Forms.Button PrintPriviewButton;
+        private System.Windows.Forms.Button PrintButton;
+        private System.Windows.Forms.Button ExitApplicationButton;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PrintPreviewDialog DVPrintPreviewDialog;
         private System.Drawing.Printing.PrintDocument DVPrintDocument;
+        private System.Windows.Forms.Label label5;
     }
 }

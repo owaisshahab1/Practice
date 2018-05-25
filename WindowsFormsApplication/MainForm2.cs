@@ -75,6 +75,28 @@ namespace WindowsFormsApplication
             e.Graphics.DrawImage(newImage, 25, 25,newImage.Width,newImage.Height);
 
             e.Graphics.DrawString("Client Name : " + ClientNameTextBox.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 180));
+
+            e.Graphics.DrawString("Date : " + DateTime.Now, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 200));
+
+            e.Graphics.DrawString(DashLabel.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 250));
+            e.Graphics.DrawString("Item Description", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 280));
+            e.Graphics.DrawString("Quantity", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(500, 280));
+            e.Graphics.DrawString("Price", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(700, 280));
+            e.Graphics.DrawString(DashLabel.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 300));
+
+            e.Graphics.DrawString(ItemNameComboBox.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 320));
+            e.Graphics.DrawString(QuantityComboBox.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(530, 320));
+            e.Graphics.DrawString("Rs. " + PriceTextBox.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(700, 320));
+            e.Graphics.DrawString(DashLabel.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 450));
+
+            e.Graphics.DrawString("Total Payment", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 475));
+            e.Graphics.DrawString("Rs. " + TotalTextBox.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(700, 475));
+            e.Graphics.DrawString(DashLabel.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 500));
+        }
+
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            DVPrintDocument.Print();
         }
     }
 }
