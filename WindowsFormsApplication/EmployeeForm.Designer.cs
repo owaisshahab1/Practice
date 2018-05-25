@@ -145,6 +145,7 @@
             this.AddNewEmployeeButton.TabIndex = 6;
             this.AddNewEmployeeButton.Text = "Add New Employee";
             this.AddNewEmployeeButton.UseVisualStyleBackColor = true;
+            this.AddNewEmployeeButton.Click += new System.EventHandler(this.AddNewEmployeeButton_Click);
             // 
             // UpdateRecordButton
             // 
