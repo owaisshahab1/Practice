@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EmployeeBussiness;
+using EmployeeModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -21,30 +23,17 @@ namespace WindowsFormsApplication
 
         private void AddNewEmployeeButton_Click(object sender, EventArgs e)
         {
-            try
+            Employee emp = new Employee()
             {
-            string connString = ConfigurationManager.ConnectionStrings["testdb"].ConnectionString;
-
-            SqlConnection conn = new SqlConnection(connString);
-
-            SqlCommand cmd = new SqlCommand("AddNewEmployee", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@EmployeeId", SqlDbType.NVarChar, 8).Value = EmployeeIdTextBox.Text;
-            cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = FirstNameTextBox.Text;
-            cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = LastNameTextBox.Text;
-            cmd.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = EmailTextBox.Text;
-            cmd.Parameters.Add("@Telephone", SqlDbType.NVarChar, 50).Value = TelephoneTextBox.Text;
-
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-                MessageBox.Show("New Employee Added succussfully");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error :", ex.Message);
-            }
+                EmployeeId = EmployeeIdTextBox.Text,
+                FirstName = FirstNameTextBox.Text,
+                LastName = LastNameTextBox.Text,
+                Email = EmailTextBox.Text,
+                Telephone = TelephoneTextBox.Text
+            };
+            EmployeeService.AddEmployee(emp);
+            MessageBox.Show("New Employee Added succussfully");
         }
+
     }
 }

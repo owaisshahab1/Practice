@@ -202,6 +202,7 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Backup Database\EmployeeDB.bak" />
     <None Include="Backup Database\JIChart.bak" />
     <None Include="Backup Database\VcSharpDB.6bak" />
     <None Include="packages.config" />
@@ -223,6 +224,16 @@
     <Content Include="Scripts\jquery-1.12.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.3.js" />
     <Content Include="Scripts\jquery-1.12.3.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PracticeConsole\EmployeeBussiness\EmployeeBussiness.csproj">
+      <Project>{f603aa32-260e-43ad-8c1b-1b72b6952f3c}</Project>
+      <Name>EmployeeBussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticeConsole\EmployeeModel\EmployeeModel.csproj">
+      <Project>{5809984f-0216-4a45-b3fd-4af1953b30ad}</Project>
+      <Name>EmployeeModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
