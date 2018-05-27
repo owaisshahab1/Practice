@@ -20,5 +20,10 @@ namespace EmployeeBussiness
             Employee emp = EmployeeDB.GetEmployeeByEmployeeId(employeeId);
             return emp;
         }
+
+        public static void UpdateEmployee(Employee employee)
+        {
+            EmployeeDB.UpdateEmployee(employee);
+        }
     }
 }

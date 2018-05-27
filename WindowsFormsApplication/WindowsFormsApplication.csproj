@@ -202,6 +202,7 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Backup Database\EmployeeDB.2bak" />
     <None Include="Backup Database\EmployeeDB.bak" />
     <None Include="Backup Database\JIChart.bak" />
     <None Include="Backup Database\VcSharpDB.6bak" />

@@ -150,12 +150,14 @@
             // 
             // UpdateRecordButton
             // 
+            this.UpdateRecordButton.Enabled = false;
             this.UpdateRecordButton.Location = new System.Drawing.Point(211, 211);
             this.UpdateRecordButton.Name = "UpdateRecordButton";
             this.UpdateRecordButton.Size = new System.Drawing.Size(129, 23);
             this.UpdateRecordButton.TabIndex = 7;
             this.UpdateRecordButton.Text = "Update Record";
             this.UpdateRecordButton.UseVisualStyleBackColor = true;
+            this.UpdateRecordButton.Click += new System.EventHandler(this.UpdateRecordButton_Click);
             // 
             // EmployeeForm
             // 
