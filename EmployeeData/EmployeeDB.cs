@@ -41,6 +41,7 @@ namespace EmployeeData
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["testdb"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("usp_GetEmployeeByEmployeeId", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("EmployeeId", SqlDbType.NVarChar).Value = employeeId;
                 conn.Open();
                 
