@@ -34,5 +34,26 @@ namespace EmployeeData
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public static Employee GetEmployeeByEmployeeId(string employeeId)
+        {
+            Employee emp = new Employee();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["testdb"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("usp_GetEmployeeByEmployeeId", conn);
+                cmd.Parameters.Add("EmployeeId", SqlDbType.NVarChar).Value = employeeId;
+                conn.Open();
+                
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    emp.FirstName = (string)reader["FirstName"];
+                    emp.LastName = (string)reader["LastName"];
+                    emp.Email = (string)reader["Email"];
+                    emp.Telephone = (string)reader["Telephone"];
+                }
+            }
+            return emp;
+        }
     }
 }

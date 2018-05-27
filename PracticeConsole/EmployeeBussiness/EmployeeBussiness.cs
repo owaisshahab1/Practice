@@ -14,5 +14,11 @@ namespace EmployeeBussiness
         {
             EmployeeDB.AddEmployee(employee);
         }
+
+        public static Employee GetEmployeeByEmployeeId(string employeeId)
+        {
+            Employee emp = EmployeeDB.GetEmployeeByEmployeeId(employeeId);
+            return emp;
+        }
     }
 }

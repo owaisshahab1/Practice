@@ -35,5 +35,15 @@ namespace WindowsFormsApplication
             MessageBox.Show("New Employee Added succussfully");
         }
 
+        private void FindEmployeeButton_Click(object sender, EventArgs e)
+        {
+            string employeeId = EmployeeIdTextBox.Text;
+            Employee emp = EmployeeService.GetEmployeeByEmployeeId(employeeId);
+            FirstNameTextBox.Text = emp.FirstName.ToString();
+            LastNameTextBox.Text = emp.LastName.ToString();
+            EmailTextBox.Text = emp.Email.ToString();
+            TelephoneTextBox.Text = emp.Telephone.ToString();
+
+        }
     }
 }

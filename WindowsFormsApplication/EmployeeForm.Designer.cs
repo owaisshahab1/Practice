@@ -68,6 +68,7 @@
             this.FindEmployeeButton.TabIndex = 8;
             this.FindEmployeeButton.Text = "Find Employee";
             this.FindEmployeeButton.UseVisualStyleBackColor = true;
+            this.FindEmployeeButton.Click += new System.EventHandler(this.FindEmployeeButton_Click);
             // 
             // label2
             // 
