@@ -52,5 +52,40 @@ namespace WindowsFormsApplication
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void SignInButton_Click(object sender, EventArgs e)
+        {
+            if (Authenticated(UserNameTextBox.Text, PasswordTextBox.Text, RoleComboBox.Text))
+            {
+                MessageBox.Show("You are logged in successfully", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Login is unsuccessfully", "Login Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool Authenticated(string _userName, string _password, string _role)
+        {
+            bool IsUserCredentialsCorrect = false;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["loginprobdb"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand("usp_CheckIsUserCredentialsCorrect", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@UserName", SqlDbType.NVarChar, 50).Value = _userName;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = _password;
+                cmd.Parameters.Add("@Role", SqlDbType.NVarChar, 50).Value = _role;
+                conn.Open();
+                IsUserCredentialsCorrect = (bool)cmd.ExecuteScalar();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return IsUserCredentialsCorrect;
+        }
     }
 }

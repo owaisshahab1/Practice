@@ -131,6 +131,7 @@
             this.SignInButton.TabIndex = 4;
             this.SignInButton.Text = "SignIn";
             this.SignInButton.UseVisualStyleBackColor = true;
+            this.SignInButton.Click += new System.EventHandler(this.SignInButton_Click);
             // 
             // ExitButton
             // 
