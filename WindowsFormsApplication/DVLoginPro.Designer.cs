@@ -152,7 +152,12 @@
             this.Controls.Add(this.SignInButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DVLoginPro";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVLoginPro";
             this.Load += new System.EventHandler(this.DVLoginPro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

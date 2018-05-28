@@ -55,37 +55,76 @@ namespace WindowsFormsApplication
 
         private void SignInButton_Click(object sender, EventArgs e)
         {
-            if (Authenticated(UserNameTextBox.Text, PasswordTextBox.Text, RoleComboBox.Text))
+            bool isCredentialsCorrect = false;
+            bool isUserNameCorrect = false;
+            bool isPasswordCorrect = false;
+            bool isRoleCorrect = false;
+            Authenticated(UserNameTextBox.Text,
+                              PasswordTextBox.Text,
+                              RoleComboBox.Text,
+                              ref isCredentialsCorrect,
+                              ref isUserNameCorrect,
+                              ref isPasswordCorrect,
+                              ref isRoleCorrect);
+            if(isCredentialsCorrect)
             {
                 MessageBox.Show("You are logged in successfully", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Login is unsuccessfully", "Login Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!isUserNameCorrect)
+                {
+                    MessageBox.Show("No Such User Exists", "No User Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (!isPasswordCorrect && isRoleCorrect)
+                    {
+                        MessageBox.Show("Password is wrong", "Wrong Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    if (!isPasswordCorrect && !isRoleCorrect)
+                    {
+                        MessageBox.Show("Both Password and Role are wrong", "Wrong Password and Role", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    if (!isRoleCorrect && isPasswordCorrect)
+                    {
+                        MessageBox.Show("Role is not associated with this user", "Wrong Role", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
-        private bool Authenticated(string _userName, string _password, string _role)
+        private void Authenticated(string _userName,
+                                    string _password,
+                                    string _role,
+                                    ref bool _IsCredentialsCorrect,
+                                    ref bool _IsUserNameCorrect,
+                                    ref bool _IsPasswordCorrect,
+                                    ref bool _IsRoleCorrect)
         {
-            bool IsUserCredentialsCorrect = false;
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["loginprobdb"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand("usp_CheckIsUserCredentialsCorrect", conn);
+                SqlCommand cmd = new SqlCommand("usp_CheckIsUserCredentialsCorrect2", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@UserName", SqlDbType.NVarChar, 50).Value = _userName;
                 cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = _password;
                 cmd.Parameters.Add("@Role", SqlDbType.NVarChar, 50).Value = _role;
                 conn.Open();
-                IsUserCredentialsCorrect = (bool)cmd.ExecuteScalar();
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                _IsCredentialsCorrect = (bool)reader["@IsCreadentialsCorrect"];
+                _IsUserNameCorrect = (bool)reader["@IsUserNameCorrect"];
+                _IsPasswordCorrect = (bool)reader["@IsPasswordCorrect"];
+                _IsRoleCorrect = (bool)reader["@IsRoleCorrect"];
+
                 conn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            return IsUserCredentialsCorrect;
         }
     }
 }
