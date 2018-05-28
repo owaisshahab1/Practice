@@ -211,6 +211,7 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Backup Database\DvLoginPro.bak" />
     <None Include="Backup Database\EmployeeDB.2bak" />
     <None Include="Backup Database\EmployeeDB.bak" />
     <None Include="Backup Database\JIChart.bak" />
@@ -231,6 +232,7 @@
     <None Include="Resources\No_Image_Available.jpg" />
     <None Include="Resources\dvBookshop.png" />
     <None Include="Resources\dvprinting.png" />
+    <Content Include="Resources\DvLoginPro.png" />
     <Content Include="Scripts\jquery-1.12.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.3.js" />
     <Content Include="Scripts\jquery-1.12.3.min.js" />
