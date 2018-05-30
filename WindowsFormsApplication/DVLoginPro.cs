@@ -106,18 +106,25 @@ namespace WindowsFormsApplication
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["loginprobdb"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand("usp_CheckIsUserCredentialsCorrect2", conn);
+                SqlCommand cmd = new SqlCommand("usp_CheckIsUserCredentialsCorrect3", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@UserName", SqlDbType.NVarChar, 50).Value = _userName;
                 cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = _password;
                 cmd.Parameters.Add("@Role", SqlDbType.NVarChar, 50).Value = _role;
+
+                cmd.Parameters.Add("@IsCredentialsCorrect", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@IsUserNameCorrect", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@IsPasswordCorrect", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@IsRoleCorrect", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
                 conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                _IsCredentialsCorrect = (bool)reader["@IsCreadentialsCorrect"];
-                _IsUserNameCorrect = (bool)reader["@IsUserNameCorrect"];
-                _IsPasswordCorrect = (bool)reader["@IsPasswordCorrect"];
-                _IsRoleCorrect = (bool)reader["@IsRoleCorrect"];
+
+                cmd.ExecuteNonQuery();
+
+                _IsCredentialsCorrect = (bool)cmd.Parameters["@IsCredentialsCorrect"].Value;
+                _IsUserNameCorrect = (bool)cmd.Parameters["@IsUserNameCorrect"].Value;
+                _IsPasswordCorrect = (bool)cmd.Parameters["@IsPasswordCorrect"].Value;
+                _IsRoleCorrect = (bool)cmd.Parameters["@IsRoleCorrect"].Value;
 
                 conn.Close();
             }

@@ -211,7 +211,7 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Backup Database\DvLoginPro.2bak" />
+    <None Include="Backup Database\DvLoginPro3.bak" />
     <None Include="Backup Database\EmployeeDB.2bak" />
     <None Include="Backup Database\EmployeeDB.bak" />
     <None Include="Backup Database\JIChart.bak" />
