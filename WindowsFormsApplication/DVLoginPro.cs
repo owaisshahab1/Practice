@@ -68,7 +68,9 @@ namespace WindowsFormsApplication
                               ref isRoleCorrect);
             if(isCredentialsCorrect)
             {
-                MessageBox.Show("You are logged in successfully", "Login Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                AdminForm adminForm = new AdminForm();
+                adminForm.Show();
             }
             else
             {
