@@ -24,6 +24,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBussiness", "Employ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeModel", "EmployeeModel\EmployeeModel.csproj", "{5809984F-0216-4A45-B3FD-4AF1953B30AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbDemo.Model", "..\DbDemo.Model\DbDemo.Model.csproj", "{4C9C22C6-967C-4B7F-9139-DF2ECA27C9D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbDemo.Utilities", "DbDemo.Utilities\DbDemo.Utilities.csproj", "{9C9F8257-AA7F-4D8C-8960-EDE61AA52BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbDemo.Repository", "DbDemo.Repository\DbDemo.Repository.csproj", "{B526F7FA-FB08-4881-A803-1DB3BA2DEAFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbDemo.Service", "DbDemo.Service\DbDemo.Service.csproj", "{10D06186-6734-4384-937C-E3F79E517FBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

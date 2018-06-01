@@ -247,6 +247,18 @@
     <Content Include="Scripts\jquery-1.12.3.min.js" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DbDemo.Model\DbDemo.Model.csproj">
+      <Project>{4c9c22c6-967c-4b7f-9139-df2eca27c9d0}</Project>
+      <Name>DbDemo.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticeConsole\DbDemo.Service\DbDemo.Service.csproj">
+      <Project>{10d06186-6734-4384-937c-e3f79e517fbd}</Project>
+      <Name>DbDemo.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticeConsole\DbDemo.Utilities\DbDemo.Utilities.csproj">
+      <Project>{9c9f8257-aa7f-4d8c-8960-ede61aa52bea}</Project>
+      <Name>DbDemo.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PracticeConsole\EmployeeBussiness\EmployeeBussiness.csproj">
       <Project>{f603aa32-260e-43ad-8c1b-1b72b6952f3c}</Project>
       <Name>EmployeeBussiness</Name>
@@ -255,6 +267,9 @@
       <Project>{5809984f-0216-4a45-b3fd-4af1953b30ad}</Project>
       <Name>EmployeeModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
