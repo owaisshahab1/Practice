@@ -52,6 +52,30 @@
                 </td>
             </tr>
             <tr>
+                <td class="auto-style3">Age:</td>
+                <td>
+                    <asp:TextBox ID="AgeTextBox" runat="server" Width="195px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="AgeRequiredFieldValidator" runat="server" ControlToValidate="AgeTextBox" Display="Dynamic" ErrorMessage="Age is Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    <asp:RangeValidator ID="AgeRangeValidator" runat="server" ControlToValidate="AgeTextBox" Display="Dynamic" ErrorMessage="Age Should between 18 and 99" ForeColor="Red" MaximumValue="99" MinimumValue="18" SetFocusOnError="True" Type="Integer">*</asp:RangeValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">Date Of Birth:</td>
+                <td>
+                    <asp:TextBox ID="DOBTextBox" runat="server" Width="191px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="DOBRequiredFieldValidator" runat="server" ControlToValidate="DOBTextBox" Display="Dynamic" ErrorMessage="Date of Birth is Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    <asp:RangeValidator ID="DOBRangeValidator" runat="server" ControlToValidate="DOBTextBox" Display="Dynamic" ErrorMessage="You should be over 18 years old" ForeColor="Red" MaximumValue="03/06/2001" MinimumValue="03/06/1919" SetFocusOnError="True" Type="Date">*</asp:RangeValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">Donate Amount:</td>
+                <td>
+                    <asp:TextBox ID="DonationAmountTextBox" runat="server" Width="186px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="DonationAmountRequiredFieldValidator" runat="server" ControlToValidate="DonationAmountTextBox" Display="Dynamic" ErrorMessage="Donation Amount is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RangeValidator ID="DonationAmountRangeValidator" runat="server" ControlToValidate="DonationAmountTextBox" Display="Dynamic" ErrorMessage="Donation Amount should between 5 and 100" ForeColor="Red" MaximumValue="100" MinimumValue="5" Type="Double">*</asp:RangeValidator>
+                </td>
+            </tr>
+            <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td>
                     <asp:Button ID="SubmitButton" runat="server" Text="Submit" Width="120px" />
