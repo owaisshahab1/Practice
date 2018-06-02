@@ -108,8 +108,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ContactUs.aspx" />
+    <Content Include="css\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\Header.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

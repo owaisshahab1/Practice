@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <link href="css/site.css" rel="stylesheet" type="text/css"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -12,8 +13,7 @@
     <form id="form1" runat="server">
     <div id="page">
         <div id="header">
-            <h1>DV Employees Management</h1>
-            <h3>Manage your employees with ease!!!</h3>
+            <img src="images/Header.png" />
         </div>
         <div id="content">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
