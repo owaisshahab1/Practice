@@ -287,3 +287,5 @@ __pycache__/
 
 
 
+WebApplication1/Web.Release.config
+WebApplication1/Web.Debug.config
