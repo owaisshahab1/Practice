@@ -52,12 +52,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChartDemoVc3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,12 +63,6 @@
     </Compile>
     <Compile Include="ComplexChartVc4.Designer.cs">
       <DependentUpon>ComplexChartVc4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DVLoginPro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DVLoginPro.Designer.cs">
-      <DependentUpon>DVLoginPro.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeDetailsForm.cs">
       <SubType>Form</SubType>
@@ -158,17 +146,11 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemEnum.cs" />
-    <EmbeddedResource Include="AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ChartDemoVc3.resx">
       <DependentUpon>ChartDemoVc3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComplexChartVc4.resx">
       <DependentUpon>ComplexChartVc4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DVLoginPro.resx">
-      <DependentUpon>DVLoginPro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeDetailsForm.resx">
       <DependentUpon>EmployeeDetailsForm.cs</DependentUpon>
@@ -220,7 +202,6 @@
       <DependentUpon>SymbolPalleteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Backup Database\DvLoginPro3.bak" />
     <None Include="Backup Database\EmployeeDB.2bak" />
     <None Include="Backup Database\EmployeeDB.bak" />
     <None Include="Backup Database\JIChart.bak" />
@@ -247,18 +228,6 @@
     <Content Include="Scripts\jquery-1.12.3.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DbDemo.Model\DbDemo.Model.csproj">
-      <Project>{4c9c22c6-967c-4b7f-9139-df2eca27c9d0}</Project>
-      <Name>DbDemo.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PracticeConsole\DbDemo.Service\DbDemo.Service.csproj">
-      <Project>{10d06186-6734-4384-937c-e3f79e517fbd}</Project>
-      <Name>DbDemo.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PracticeConsole\DbDemo.Utilities\DbDemo.Utilities.csproj">
-      <Project>{9c9f8257-aa7f-4d8c-8960-ede61aa52bea}</Project>
-      <Name>DbDemo.Utilities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PracticeConsole\EmployeeBussiness\EmployeeBussiness.csproj">
       <Project>{f603aa32-260e-43ad-8c1b-1b72b6952f3c}</Project>
       <Name>EmployeeBussiness</Name>
