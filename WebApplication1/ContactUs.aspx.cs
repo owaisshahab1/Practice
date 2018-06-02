@@ -13,5 +13,10 @@ namespace WebApplication1
         {
 
         }
+
+        protected void NameTextBox0_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
