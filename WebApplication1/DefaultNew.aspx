@@ -10,10 +10,9 @@
             color: #0000FF;
         }
         .auto-style2 {
-            width: 100%;
+            width: 600px;
         }
         .auto-style3 {
-            width: 123px;
         }
     </style>
 </head>
@@ -24,30 +23,31 @@
     </div>
         <table class="auto-style2">
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style3" colspan="2">
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" BackColor="#FFFF99" BorderColor="#CCCCCC" ForeColor="Red" />
+                </td>
             </tr>
             <tr>
                 <td class="auto-style3">Name:</td>
                 <td>
                     <asp:TextBox ID="NameTextBox" runat="server" Width="200px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="NameRequiredFieldValidator" runat="server" ControlToValidate="NameTextBox" Display="Dynamic" ErrorMessage="Name is Required" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="NameRequiredFieldValidator" runat="server" ControlToValidate="NameTextBox" Display="Dynamic" ErrorMessage="Name is Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style3">Email:</td>
                 <td>
                     <asp:TextBox ID="EmailTextBox" runat="server" Width="200px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTextBox" Display="Dynamic" ErrorMessage="Email is Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="EmailRegularExpressionValidator" runat="server" ControlToValidate="EmailTextBox" Display="Dynamic" ErrorMessage="Email is not in Correct Format (abc@xyz.com)" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTextBox" Display="Dynamic" ErrorMessage="Email is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="EmailRegularExpressionValidator" runat="server" ControlToValidate="EmailTextBox" Display="Dynamic" ErrorMessage="Email is not in Correct Format (abc@xyz.com)" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style3">Re-Enter Email:</td>
                 <td>
                     <asp:TextBox ID="ReEnterEmailTextBox" runat="server" Width="200px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="ReEnterEmailRequiredFieldValidator" runat="server" ControlToValidate="ReEnterEmailTextBox" Display="Dynamic" ErrorMessage="Re-Enter Email Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ReEnterEmailRegularExpressionValidator" runat="server" ControlToValidate="ReEnterEmailTextBox" Display="Dynamic" ErrorMessage="Re-Emter Email is not in Correct Format" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReEnterEmailRequiredFieldValidator" runat="server" ControlToValidate="ReEnterEmailTextBox" Display="Dynamic" ErrorMessage="Re-Enter Email Required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="ReEnterEmailRegularExpressionValidator" runat="server" ControlToValidate="ReEnterEmailTextBox" Display="Dynamic" ErrorMessage="Re-Emter Email is not in Correct Format" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
