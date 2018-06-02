@@ -110,6 +110,7 @@
     <Content Include="ContactUs.aspx" />
     <Content Include="css\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DefaultNew.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Header.png" />
     <Content Include="Web.config" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultNew.aspx.cs">
+      <DependentUpon>DefaultNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultNew.aspx.designer.cs">
+      <DependentUpon>DefaultNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
