@@ -48,6 +48,7 @@
                     <asp:TextBox ID="ReEnterEmailTextBox" runat="server" Width="200px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="ReEnterEmailRequiredFieldValidator" runat="server" ControlToValidate="ReEnterEmailTextBox" Display="Dynamic" ErrorMessage="Re-Enter Email Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="ReEnterEmailRegularExpressionValidator" runat="server" ControlToValidate="ReEnterEmailTextBox" Display="Dynamic" ErrorMessage="Re-Emter Email is not in Correct Format" ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                    <asp:CompareValidator ID="ReEnterEmailCompareValidator" runat="server" ControlToCompare="EmailTextBox" ControlToValidate="ReEnterEmailTextBox" ErrorMessage="Re-Enter Email Must be same" ForeColor="Red">*</asp:CompareValidator>
                 </td>
             </tr>
             <tr>
