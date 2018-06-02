@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="page">
+        <div id="header">
+            <h1>DV Employees Management</h1>
+            <h3>Manage your employees with ease!!!</h3>
+        </div>
+        <div id="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+            </div>
+        <div id="footer">
+            <p>All Rights are Reserved With DV EmployeManagement System | &copy; 2018</p>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
