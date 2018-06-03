@@ -111,8 +111,10 @@
     <Content Include="css\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="DefaultNew.aspx" />
+    <Content Include="DefaultNew2.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Header.png" />
+    <Content Include="Receive.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -137,10 +139,24 @@
     <Compile Include="DefaultNew.aspx.designer.cs">
       <DependentUpon>DefaultNew.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DefaultNew2.aspx.cs">
+      <DependentUpon>DefaultNew2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultNew2.aspx.designer.cs">
+      <DependentUpon>DefaultNew2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receive.aspx.cs">
+      <DependentUpon>Receive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receive.aspx.designer.cs">
+      <DependentUpon>Receive.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
