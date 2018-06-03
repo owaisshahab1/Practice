@@ -15,6 +15,30 @@
         .auto-style3 {
         }
     </style>
+    <script type="text/javascript">
+        function GenderValidation(sender, e) {
+            var male = document.getElementById('MaleRadioButton').checked;
+            var female = document.getElementById('FemaleRadioButton').checked;
+
+            if (male == true || female == true) {
+                e.IsValid = true;
+            }
+            else {
+                e.IsValid = false;
+            }
+        }
+
+        function AcceptTermsAndConditionsValidation(sender, e) {
+            var agreement = document.getElementById('AgreementCheckBox').checked;
+
+            if (agreement == true) {
+                e.IsValid = true;
+            }
+            else {
+                e.IsValid = false;
+            }
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -73,6 +97,21 @@
                     <asp:TextBox ID="DonationAmountTextBox" runat="server" Width="186px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="DonationAmountRequiredFieldValidator" runat="server" ControlToValidate="DonationAmountTextBox" Display="Dynamic" ErrorMessage="Donation Amount is Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <asp:RangeValidator ID="DonationAmountRangeValidator" runat="server" ControlToValidate="DonationAmountTextBox" Display="Dynamic" ErrorMessage="Donation Amount should between 5 and 100" ForeColor="Red" MaximumValue="100" MinimumValue="5" Type="Double">*</asp:RangeValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">Gender:</td>
+                <td>
+                    <asp:RadioButton ID="MaleRadioButton" runat="server" Text="Male" GroupName="GenderGroup" />
+                    <asp:RadioButton ID="FemaleRadioButton" runat="server" Text="Female" GroupName="GenderGroup" />
+                    <asp:CustomValidator ID="GenderCustomValidator" runat="server" ClientValidationFunction="GenderValidation" Display="Dynamic" ErrorMessage="Please select your gender." ForeColor="Red">*</asp:CustomValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td>
+                    <asp:CheckBox ID="AgreementCheckBox" runat="server" Text="Please accept our terms and conditions" />
+                    <asp:CustomValidator ID="AgreementCustomValidator" runat="server" ClientValidationFunction="AcceptTermsAndConditionsValidation" Display="Dynamic" ErrorMessage="Please accept our terms and conditions" ForeColor="Red">*</asp:CustomValidator>
                 </td>
             </tr>
             <tr>

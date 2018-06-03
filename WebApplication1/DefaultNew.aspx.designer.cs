@@ -193,6 +193,51 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.RangeValidator DonationAmountRangeValidator;
         
         /// <summary>
+        /// MaleRadioButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton MaleRadioButton;
+        
+        /// <summary>
+        /// FemaleRadioButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton FemaleRadioButton;
+        
+        /// <summary>
+        /// GenderCustomValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator GenderCustomValidator;
+        
+        /// <summary>
+        /// AgreementCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox AgreementCheckBox;
+        
+        /// <summary>
+        /// AgreementCustomValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator AgreementCustomValidator;
+        
+        /// <summary>
         /// SubmitButton control.
         /// </summary>
         /// <remarks>
