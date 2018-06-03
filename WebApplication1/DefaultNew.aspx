@@ -104,7 +104,7 @@
                 <td>
                     <asp:RadioButton ID="MaleRadioButton" runat="server" Text="Male" GroupName="GenderGroup" />
                     <asp:RadioButton ID="FemaleRadioButton" runat="server" Text="Female" GroupName="GenderGroup" />
-                    <asp:CustomValidator ID="GenderCustomValidator" runat="server" ClientValidationFunction="GenderValidation" Display="Dynamic" ErrorMessage="Please select your gender." ForeColor="Red">*</asp:CustomValidator>
+                    <asp:CustomValidator ID="GenderCustomValidator" runat="server" Display="Dynamic" ErrorMessage="Please select your gender." ForeColor="Red" OnServerValidate="GenderCustomValidator_ServerValidate">*</asp:CustomValidator>
                 </td>
             </tr>
             <tr>

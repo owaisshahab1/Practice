@@ -13,5 +13,18 @@ namespace WebApplication1
         {
 
         }
+
+        protected void GenderCustomValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            //if (MaleRadioButton.Checked || FemaleRadioButton.Checked)
+            //{
+            //    args.IsValid = true;
+            //}
+            //else
+            //{
+            //    args.IsValid = false;
+            //}
+            args.IsValid = MaleRadioButton.Checked || FemaleRadioButton.Checked ? true : false;
+        }
     }
 }
