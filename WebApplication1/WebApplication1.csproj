@@ -99,6 +99,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Site.Master" />
+    <Content Include="Site2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -112,9 +113,11 @@
     <Content Include="Default.aspx" />
     <Content Include="DefaultNew.aspx" />
     <Content Include="DefaultNew2.aspx" />
+    <Content Include="DefaultNew3.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Header.png" />
     <Content Include="Receive.aspx" />
+    <Content Include="Receive2.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,13 @@
     <Compile Include="DefaultNew2.aspx.designer.cs">
       <DependentUpon>DefaultNew2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DefaultNew3.aspx.cs">
+      <DependentUpon>DefaultNew3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultNew3.aspx.designer.cs">
+      <DependentUpon>DefaultNew3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,12 +167,26 @@
     <Compile Include="Receive.aspx.designer.cs">
       <DependentUpon>Receive.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Receive2.aspx.cs">
+      <DependentUpon>Receive2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receive2.aspx.designer.cs">
+      <DependentUpon>Receive2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
