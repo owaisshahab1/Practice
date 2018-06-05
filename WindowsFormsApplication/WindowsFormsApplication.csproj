@@ -148,6 +148,7 @@
       <DependentUpon>StudentLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Backup Database\DataSetDemo.bak" />
     <None Include="Backup Database\JIChart.bak" />
     <None Include="Backup Database\VcSharpDB.6bak" />
     <None Include="packages.config" />
