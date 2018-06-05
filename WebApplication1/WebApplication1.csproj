@@ -116,12 +116,14 @@
     <Content Include="DefaultNew3.aspx" />
     <Content Include="DefaultNew4.aspx" />
     <Content Include="DefaultNew5.aspx" />
+    <Content Include="DefaultNew6.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Header.png" />
     <Content Include="Receive.aspx" />
     <Content Include="Receive2.aspx" />
     <Content Include="Receive3.aspx" />
     <Content Include="Receive4.aspx" />
+    <Content Include="Thanks.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +176,13 @@
     <Compile Include="DefaultNew5.aspx.designer.cs">
       <DependentUpon>DefaultNew5.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DefaultNew6.aspx.cs">
+      <DependentUpon>DefaultNew6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultNew6.aspx.designer.cs">
+      <DependentUpon>DefaultNew6.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +230,13 @@
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
     <Compile Include="Students.cs" />
+    <Compile Include="Thanks.aspx.cs">
+      <DependentUpon>Thanks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Thanks.aspx.designer.cs">
+      <DependentUpon>Thanks.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
