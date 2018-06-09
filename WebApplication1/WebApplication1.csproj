@@ -117,6 +117,7 @@
     <Content Include="DefaultNew4.aspx" />
     <Content Include="DefaultNew5.aspx" />
     <Content Include="DefaultNew6.aspx" />
+    <Content Include="DefaultNew7.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\Header.png" />
     <Content Include="Receive.aspx" />
@@ -183,6 +184,13 @@
     <Compile Include="DefaultNew6.aspx.designer.cs">
       <DependentUpon>DefaultNew6.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DefaultNew7.aspx.cs">
+      <DependentUpon>DefaultNew7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultNew7.aspx.designer.cs">
+      <DependentUpon>DefaultNew7.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -237,6 +245,7 @@
     <Compile Include="Thanks.aspx.designer.cs">
       <DependentUpon>Thanks.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserGender.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
