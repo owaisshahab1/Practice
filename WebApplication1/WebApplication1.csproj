@@ -125,6 +125,7 @@
     <Content Include="Receive3.aspx" />
     <Content Include="Receive4.aspx" />
     <Content Include="Thanks.aspx" />
+    <Content Include="UserDetails.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="Thanks.aspx.designer.cs">
       <DependentUpon>Thanks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserGender.cs" />
   </ItemGroup>

@@ -30,6 +30,8 @@ namespace WebApplication1
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
+
+                    Response.Redirect("~/UserDetails.aspx");
                 }
             }
         }
