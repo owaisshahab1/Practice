@@ -19,7 +19,7 @@ namespace NewMvcPractice
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer<NewMvcPracticeDBContext>(new DropCreateDatabaseIfModelChanges<NewMvcPracticeDBContext>());
+            //Database.SetInitializer<NewMvcPracticeDBContext>(new DropCreateDatabaseIfModelChanges<NewMvcPracticeDBContext>());
         }
     }
 }

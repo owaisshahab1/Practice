@@ -14,20 +14,8 @@ namespace NewMvcPractice.Controllers
         public ActionResult Index()
         {
             EmployeeViewModel employeeVM = new EmployeeViewModel();
-            List<Employee> employees = employeeVM.GetAllEmployee();
+            List<Employees> employees = employeeVM.GetAllEmployee();
             return View(employees);
-        }
-
-        [HttpPost]
-        public ActionResult Create(Employee employee)
-        {
-            if (ModelState.IsValid)
-            {
-                EmployeeViewModel employeeVm = new EmployeeViewModel();
-                employeeVm.AddNewEmployee(employee);
-                return RedirectToAction("Index");
-            }
-            return View();
         }
 
         public ActionResult Create()
@@ -35,29 +23,39 @@ namespace NewMvcPractice.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create(Employees employee)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeViewModel employeeVM = new EmployeeViewModel();
+                employeeVM.AddNewEmployee(employee);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
 
         public ActionResult Details(int id)
         {
-            EmployeeViewModel employeeVm = new EmployeeViewModel();
-            Employee employee = employeeVm.GetEmployeeDetailsById(id);
+            EmployeeViewModel employeeVM = new EmployeeViewModel();
+            Employees employee = employeeVM.GetEmployeeDetailById(id);
             return View(employee);
         }
 
-
         public ActionResult Edit(int id)
         {
-            EmployeeViewModel employeeVm = new EmployeeViewModel();
-            Employee employee = employeeVm.GetEmployeeDetailsById(id);
+            EmployeeViewModel employeeVM = new EmployeeViewModel();
+            Employees employee = employeeVM.GetEmployeeDetailById(id);
             return View(employee);
         }
 
         [HttpPost]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit(Employees employee)
         {
             if (ModelState.IsValid)
             {
-                EmployeeViewModel employeeVm = new EmployeeViewModel();
-                employeeVm.UpdateEmployeeDetails(employee);
+                EmployeeViewModel employeeVM = new EmployeeViewModel();
+                employeeVM.UpdateEmployeeDetails(employee);
                 return RedirectToAction("Index");
             }
             return View();
@@ -65,10 +63,10 @@ namespace NewMvcPractice.Controllers
 
         public ActionResult Delete(int id)
         {
-            EmployeeViewModel employeeVm = new EmployeeViewModel();
-            employeeVm.DeleteEmployee(id);
-            return RedirectToAction("Index");
+            EmployeeViewModel employeeVM = new EmployeeViewModel();
+            employeeVM.DeleteEmployee(id);
 
+            return RedirectToAction("Index");
         }
     }
 }

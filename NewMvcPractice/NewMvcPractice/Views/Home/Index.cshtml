@@ -1,51 +1,27 @@
-﻿@model IEnumerable<NewMvcPractice.Models.Employee>
-
+﻿@model List<NewMvcPractice.Models.Employees>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Add New Employee", "Create","Home")
-</p>
-<table class="table">
+<h2>List of Employees</h2>
+<p>@Html.ActionLink("Add New Employee", "Create", "Home")</p>
+<table>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th></th>
+        <th>EmployeeId</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
-        </td>
-    </tr>
-}
-
+    @foreach(var s in Model)
+    {
+        <tr>
+            <td>@s.EmployeeId</td>
+            <td>@s.Name</td>
+            <td>@s.Email</td>
+            <td>@s.Mobile</td>
+            <td>@Html.ActionLink("Detail", "Details", "Home", new { id = @s.EmployeeId }, null)</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Home", new { id = @s.EmployeeId }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Home", new { id = @s.EmployeeId }, null)</td>
+        </tr>
+    }
 </table>

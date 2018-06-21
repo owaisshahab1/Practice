@@ -1,50 +1,27 @@
-﻿@model NewMvcPractice.Models.Employee
-
+﻿@model NewMvcPractice.Models.Employees
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Employees Detail</h2>
 
-<div>
-    <h4>Employee</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mobile)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.DisplayNameFor(m => m.EmployeeId)
+        @Html.DisplayTextFor(m => m.EmployeeId)
+    </p>
+    <p>
+        @Html.DisplayNameFor(m => m.Name)
+        @Html.DisplayTextFor(m => m.Name)
+    </p>
+    <p>
+        @Html.DisplayNameFor(m => m.Email)
+        @Html.DisplayTextFor(m => m.Email)
+    </p>
+    <p>
+        @Html.DisplayNameFor(m => m.Mobile)
+        @Html.DisplayTextFor(m => m.Mobile)
+    </p>
+    @*@Html.DisplayForModel()*@
+}
