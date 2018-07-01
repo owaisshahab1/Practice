@@ -11,9 +11,13 @@ using System.Configuration;
 
 public partial class AspDotNetPart22 : System.Web.UI.Page
 {
+    ProductDataAccessLayer pdal = new ProductDataAccessLayer();
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
         if (!IsPostBack)
         {
             ddlCategories.DataSource = GetData("spGetCategories", null);
@@ -82,8 +86,32 @@ public partial class AspDotNetPart22 : System.Web.UI.Page
 
         if (ddlProducts.SelectedIndex > 0 && ddlProducts.SelectedValue != null)
         {
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            Initializer v = new Initializer();
+
+
+            string query = "select * from products where ProductID= \'"+ ddlProducts.SelectedValue +"'";
+
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection(v.strConnection());
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandType = CommandType.Text;
+                SqlDataAdapter oda = new SqlDataAdapter(cmd);
+                oda.Fill(ds);
+                DataTable dt = ds.Tables[0];
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                con.Close();
+            }
+            catch (Exception Err)
+            { }
+            finally
+            { }
+
+ 
+
         }
     }
 }

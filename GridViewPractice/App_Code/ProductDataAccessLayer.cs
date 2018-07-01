@@ -10,8 +10,8 @@ using System.Data;
 /// Summary description for ProductDataAccessLayer
 /// </summary>
 
-namespace Demo
-{
+//namespace Demo
+//{
         public class Product
     {
         public int Id { get; set; }
@@ -50,4 +50,4 @@ namespace Demo
 
             }
         }
-}
+//}
