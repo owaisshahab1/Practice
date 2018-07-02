@@ -15,6 +15,7 @@ public partial class Repeater : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.BindRepeater();
+            BindRepeater2();
 
             // query for total by Category 
             //===========================================
@@ -37,8 +38,33 @@ public partial class Repeater : System.Web.UI.Page
                 {
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
+
                     rptCustomers.DataSource = dt;
                     rptCustomers.DataBind();
+                }
+            }
+        }
+    }
+
+    //===================== Use this binder to Add Grand Total in the Footer
+    private void BindRepeater2()
+    {
+        string constr = ConfigurationManager.ConnectionStrings["NORTHWNDConnectionString"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("select count(ProductName),sum(UnitPrice),sum(UnitsInStock),sum(UnitsOnOrder),sum(ReorderLevel) from Products", con))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    ViewState["GrandTotal"] = dt;
+
+                    var lblDateTime = rptCustomers.FindControl("lblTotalProducts") as Label;
+                    if (lblDateTime != null)
+                    {
+                        lblDateTime.Text = "665656";
+                    }
                 }
             }
         }

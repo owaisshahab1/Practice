@@ -109,10 +109,10 @@
     <FooterTemplate>
            <tr>
                 <th scope="col" style="width: 80px">
-                    Total
+                    Total Products:<asp:Label ID="lblTotalProducts" runat="server"></asp:Label>
                 </th>
                 <th scope="col" style="width: 120px">
-                   Total UnitPrice
+                   Total UnitPrice 
                 </th>
                 <th scope="col" style="width: 100px">
                   Total  UnitsInStock
