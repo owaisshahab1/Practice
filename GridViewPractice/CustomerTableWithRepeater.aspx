@@ -16,7 +16,19 @@
         <asp:DropDownList ID="ddlCity" AutoPostBack="true"  DataTextField="CityName" 
             DataValueField="CityId" Width="200px" runat="server">
         </asp:DropDownList>
+        <asp:Repeater  ID="Repeater1" runat="server" 
+            onitemcreated="Repeater1_ItemCreated">
+            <ItemTemplate>
+            <table>
+            <tr><td>
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+            </td></tr>
+            </table>
+            </ItemTemplate>
+        </asp:Repeater>
+
     </div>
+
     </form>
 </body>
 </html>

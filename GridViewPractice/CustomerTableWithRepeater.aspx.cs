@@ -106,14 +106,28 @@ public partial class CustomerTableWithRepeater : System.Web.UI.Page
             }
             Session["CityTable"] = dt2;
 
+            
+
             ddlCity.DataSource = dt2;
             ddlCity.DataBind();
+            //(Repeater1.Items[0].FindControl("Literal1") as Literal).Text += "<tr><th colspan='3' align='center' style='background: #99993D;border-color: White; border-width: 1px; border-style: Solid;'> " +"fuck" + "</th></th>";
+            int count = Repeater1.Items.Count;
+            int count1 = Repeater1.Controls.Count;
+            foreach (var item in Repeater1.Items)
+            {
+                
+            }
 
+             //(Repeater1.Controls. .FindControl("Literal1") as Literal).Text += "<tr><th colspan='3' align='center' style='background: #99993D;border-color: White; border-width: 1px; border-style: Solid;'> " + "fuck" + "</th></th>"; ;
             //SqlParameter parameter = new SqlParameter("@CategoryId", ddlCategories.SelectedValue);
             //DataSet ds = GetData("spGetProductsByCategoryId", parameter);
 
             //ddlProducts.DataSource = ds;
             //ddlProducts.DataBind();
         }
+    }
+    protected void Repeater1_ItemCreated(object sender, RepeaterItemEventArgs e)
+    {
+
     }
 }
