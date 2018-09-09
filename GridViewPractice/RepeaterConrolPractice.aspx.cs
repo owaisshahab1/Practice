@@ -63,4 +63,22 @@ public partial class RepeaterConrolPractice : System.Web.UI.Page
         finally
         { }
     }
+
+}
+
+public class testing
+{
+    
+    public static DataTable GetTableFromDatabase(string query, string cn)
+    {
+        DataTable dt = new DataTable();
+        SqlConnection con = new SqlConnection(cn);
+        con.Open();
+        SqlCommand cmd = new SqlCommand(query, con);
+        cmd.CommandType = CommandType.Text;
+        SqlDataAdapter oda = new SqlDataAdapter(cmd);
+        oda.Fill(dt);
+        con.Close();
+        return dt;
+    }
 }
