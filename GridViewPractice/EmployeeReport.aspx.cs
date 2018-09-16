@@ -27,6 +27,72 @@ public partial class EmployeeReport : System.Web.UI.Page
     }
 
     #region Events
+
+    protected void gv_DataBound(object sender, EventArgs e)
+    {
+        #region Opening This Code Remove Buttom Lines in Excel ( e.g grand total )
+        //GridViewRow row = new GridViewRow(0, -1, DataControlRowType.Header, DataControlRowState.Normal);
+        //TableCell headerRow = new TableHeaderCell();
+        //headerRow.Attributes.Add("Style", "font-style:8pt;font-style:sans-serif;");
+        //int colCountRow = gv.Rows[0].Cells.Count;
+        //headerRow.ColumnSpan = colCountRow;
+        //headerRow.BackColor = Color.FromName("#1197F4");
+        //headerRow.ForeColor = Color.White;
+        //headerRow.Text = "ABC Private Limited";
+        //row.Cells.Add(headerRow);
+        //Table tableRow = gv.Controls[0] as Table;
+
+        //if (tableRow != null)
+        //{
+        //    tableRow.Rows.AddAt(0, row);
+        //} 
+        #endregion Opening This Code Remove Buttom Lines in Excel ( e.g grand total )
+
+        if (gv != null)
+        {
+            lbl_html.Text = string.Empty;
+            if (cb_grandTotal.Checked)
+            {
+                lbl_html.Text += "<table><tr><td style=\"background-color:#0094ff; color:black;\">Grand Total Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_grandTotal.Checked + "</td></tr>";
+            }
+            if (cb_dob.Checked)
+            {
+                lbl_html.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Date Of Birth Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_dob.Checked + "</td></tr>";
+            }
+            if (cb_li.Checked)
+            {
+                lbl_html.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Login ID Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_li.Checked + "</td></tr></table>";
+
+            }
+
+
+        }
+    }
+
+    protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+            for (int i = 0; i < e.Row.Cells.Count; i++)
+            {
+                e.Row.Cells[i].BackColor = Color.FromName("#1197F4");
+                e.Row.Cells[i].ForeColor = Color.Black;
+            }
+        }
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            if (e.Row.Cells[1].Text.Contains("Grand Total"))
+            {
+                for (int i = 0; i < e.Row.Cells.Count; i++)
+                {
+                    e.Row.Cells[i].BackColor = Color.FromName("#1197F4");
+                    e.Row.Cells[i].ForeColor = Color.Black;
+                }
+            }
+        }
+    }
+
     protected void btn_ExcelExport_Click(object sender, EventArgs e)
     {
         Response.Clear();
@@ -309,66 +375,4 @@ public partial class EmployeeReport : System.Web.UI.Page
 
 
 
-    protected void gv_DataBound(object sender, EventArgs e)
-    {
-        //GridViewRow row = new GridViewRow(0, -1, DataControlRowType.Header, DataControlRowState.Normal);
-        //TableCell headerRow = new TableHeaderCell();
-        //headerRow.Attributes.Add("Style", "font-style:8pt;font-style:sans-serif;");
-        //int colCountRow = gv.Rows[0].Cells.Count;
-        //headerRow.ColumnSpan = colCountRow;
-        //headerRow.BackColor = Color.FromName("#1197F4");
-        //headerRow.ForeColor = Color.White;
-        //headerRow.Text = "ABC Private Limited";
-        //row.Cells.Add(headerRow);
-        //Table tableRow = gv.Controls[0] as Table;
-
-        //if (tableRow != null)
-        //{
-        //    tableRow.Rows.AddAt(0, row);
-        //}
-
-        if (gv != null)
-        {
-            lbl_html.Text = string.Empty;
-            if (cb_grandTotal.Checked)
-            {
-                lbl_html.Text += "<table><tr><td style=\"background-color:#0094ff; color:black;\">Grand Total Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_grandTotal.Checked + "</td></tr>";
-            }
-            if (cb_dob.Checked)
-            {
-                lbl_html.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Date Of Birth Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_dob.Checked + "</td></tr>";
-            }
-            if (cb_li.Checked)
-            {
-                lbl_html.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Login ID Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_li.Checked + "</td></tr></table>";
-
-            }
-
-
-        }
-    }
-
-    protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-        if (e.Row.RowType == DataControlRowType.Header)
-        {
-            for (int i = 0; i < e.Row.Cells.Count; i++)
-            {
-                e.Row.Cells[i].BackColor = Color.FromName("#1197F4");
-                e.Row.Cells[i].ForeColor = Color.Black;
-            }
-        }
-
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            if (e.Row.Cells[1].Text.Contains("Grand Total"))
-            {
-                for (int i = 0; i < e.Row.Cells.Count; i++)
-                {
-                    e.Row.Cells[i].BackColor = Color.FromName("#1197F4");
-                    e.Row.Cells[i].ForeColor = Color.Black;
-                }
-            }
-        }
-    }
 }
