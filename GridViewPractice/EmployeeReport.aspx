@@ -258,10 +258,25 @@
                     </td>
                 </tr>
             </table>
-            <table>
+                     <%--<asp:Literal ID="lbl_html" runat="server"></asp:Literal>--%>
+            <table id="tb123" runat="server">
+              
                 <tr>
                     <td>
-                        <asp:GridView ID="gv" runat="server" AutoGenerateColumns="true"></asp:GridView>
+                  <%--  <asp:Label ID="lbl_html" runat="server"></asp:Label>--%>
+                        <asp:Literal ID="lbl_html" runat="server"></asp:Literal>
+                        </td>
+           
+                </tr>
+       
+                <tr>
+                    <td>
+                        <asp:GridView 
+                            ID="gv"
+                            runat="server"
+                            AutoGenerateColumns="true"
+                            OnRowDataBound="gv_RowDataBound"
+                            OnDataBound="gv_DataBound"></asp:GridView>
                     </td>
                 </tr>
             </table>
