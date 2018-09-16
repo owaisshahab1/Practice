@@ -249,6 +249,13 @@
                             runat="server">
                             <asp:ListItem Text="ALL" Value="0"></asp:ListItem>
                         </asp:DropDownList></td>
+                    <td>
+                        <asp:Button 
+                            ID="btn_ExcelExport"
+                            runat="server"
+                            Text="Excel Export"
+                            OnClick="btn_ExcelExport_Click" />
+                    </td>
                 </tr>
             </table>
             <table>

@@ -26,6 +26,32 @@ public partial class EmployeeReport : System.Web.UI.Page
     }
 
     #region Events
+    protected void btn_ExcelExport_Click(object sender, EventArgs e)
+    {
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition", "attachment;filename=Employee_Report" + DateTime.Now.ToString() + ".xls");
+        Response.Charset = "";
+        Response.ContentType = "application/vnd.ms-excel";
+
+        using (StringWriter sw = new StringWriter())
+        {
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            if (gv.Rows.Count > 0)
+            {
+                gv.AllowPaging = false;
+                gv.RenderControl(htw);
+            }
+
+            string style = @"<style>.textmode{}</style>";
+            Response.Write(style);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+        }
+
+    }
+
     protected void btn_submit_Click(object sender, EventArgs e)
     {
         string query = GetQuery();
@@ -87,9 +113,15 @@ public partial class EmployeeReport : System.Web.UI.Page
     {
 
     }
-    #endregion
+    #endregion Events
 
     #region Methods
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+        /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
+           server control at run time. */
+    }
+
     private string GetQuery()
     {
         string sql = "SELECT e.EmployeeID, \n"
@@ -266,5 +298,7 @@ public partial class EmployeeReport : System.Web.UI.Page
         // dr["Sick Leave(hr)"] = dt.Compute("Vacation(hr)", "");
         dt.Rows.Add(dr);
     }
-    #endregion
+    #endregion Methods
+
+
 }
