@@ -153,6 +153,12 @@
                             Text="Department Name"
                             TextAlign="Left"
                             runat="server"></asp:CheckBox>&nbsp;&nbsp;&nbsp;
+                            <asp:CheckBox
+                            ID="cb_grandTotal"
+                            Checked="true"
+                            Text="Add Grand Total"
+                            TextAlign="Left"
+                            runat="server"></asp:CheckBox>&nbsp;&nbsp;&nbsp;
                            </td>
                 </tr>
                 <tr>                   

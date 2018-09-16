@@ -20,39 +20,18 @@ public partial class EmployeeReport : System.Web.UI.Page
         if (!IsPostBack)
         {
             Bind_Department_DDL();
+            Bind_Shift_DDL();
+
         }
     }
 
-    public void Bind_Department_DDL()
+    #region Events
+    protected void btn_submit_Click(object sender, EventArgs e)
     {
-        
-        
-        //string str = str.
-        string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
-        string query = "SELECT d.Name,d.DepartmentID FROM [HumanResources].[Department] d";
-        DataTable dt = new DataTable();
-        SqlConnection con = new SqlConnection(cn);
-        con.Open();
-        SqlCommand cmd = new SqlCommand(query, con);
-        cmd.CommandType = CommandType.Text;
-        SqlDataAdapter oda = new SqlDataAdapter(cmd);
-        oda.Fill(dt);
-        con.Close();
-        if (dt.Rows.Count > 0)
-        {
-            ddl_Department.DataTextField = "Name";
-            ddl_Department.DataValueField = "DepartmentID";
-            ddl_Department.DataSource = dt.DefaultView;
-            ddl_Department.DataBind();
-        }
-        ddl_Department.Items.Insert(0, new ListItem("ALL", ""));
-    }
+        string query = GetQuery();
 
-    public void Bind_Shift_DDL()
-    {
-        string query = "SELECT ShiftID, \n"
-           + "       Name \n"
-           + "  FROM [AdventureWorks].[HumanResources].[Shift]";
+        #region sql connection for datatable
+
         string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
         DataTable dt = new DataTable();
         SqlConnection con = new SqlConnection(cn);
@@ -62,14 +41,16 @@ public partial class EmployeeReport : System.Web.UI.Page
         SqlDataAdapter oda = new SqlDataAdapter(cmd);
         oda.Fill(dt);
         con.Close();
-        if (dt.Rows.Count > 0)
+
+        #endregion sql connection for datatable
+        if (cb_grandTotal.Checked)
         {
-            ddl_Shift.DataTextField = "Name";
-            ddl_Shift.DataValueField = "ShiftID";
-            ddl_Shift.DataSource = dt.DefaultView;
-            ddl_Shift.DataBind();
+            GrandTotal(dt);
         }
-        ddl_Shift.Items.Insert(0, new ListItem("ALL", ""));
+        
+        gv.DataSource = dt;
+        gv.DataBind();
+
     }
 
     protected void ddl_Department_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,7 +62,7 @@ public partial class EmployeeReport : System.Web.UI.Page
            + "INNER JOIN [HumanResources].[Department] d ON d.DepartmentID = edh.DepartmentID) \n"
            + "INNER JOIN [Person].[Contact] c ON c.ContactID = e.EmployeeID \n"
            + "WHERE \n"
-           + "d.DepartmentID = '"+ddl_Department.SelectedValue+"' ";
+           + "d.DepartmentID = '" + ddl_Department.SelectedValue + "' ";
         string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
         DataTable dt = new DataTable();
         SqlConnection con = new SqlConnection(cn);
@@ -106,30 +87,9 @@ public partial class EmployeeReport : System.Web.UI.Page
     {
 
     }
+    #endregion
 
-    protected void btn_submit_Click(object sender, EventArgs e)
-    {
-        string query = GetQuery();
-
-        #region sql connection for datatable
-
-        string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
-        DataTable dt = new DataTable();
-        SqlConnection con = new SqlConnection(cn);
-        con.Open();
-        SqlCommand cmd = new SqlCommand(query, con);
-        cmd.CommandType = CommandType.Text;
-        SqlDataAdapter oda = new SqlDataAdapter(cmd);
-        oda.Fill(dt);
-        con.Close();
-
-        #endregion
-
-        gv.DataSource = dt;
-        gv.DataBind();
-        
-    }
-
+    #region Methods
     private string GetQuery()
     {
         string sql = "SELECT e.EmployeeID, \n"
@@ -185,7 +145,7 @@ public partial class EmployeeReport : System.Web.UI.Page
         //    sql += "		c.EmailAddress [Email Address] \n";
         //}
 
-        sql +="    \n"
+        sql += "    \n"
             + "    c.EmailAddress[Email Address] \n"
             + "	   FROM ((([HumanResources].[Employee] e  \n"
             + "	   INNER JOIN HumanResources.EmployeeDepartmentHistory edh ON edh.EmployeeID = e.EmployeeID) \n"
@@ -198,12 +158,12 @@ public partial class EmployeeReport : System.Web.UI.Page
 
         if (!string.IsNullOrEmpty(tb_nic.Text.Trim()))
         {
-            sql += "AND e.NationalIDNumber = '"+ tb_nic.Text.Trim() + "' \n";
+            sql += "AND e.NationalIDNumber = '" + tb_nic.Text.Trim() + "' \n";
         }
 
         if (!string.IsNullOrEmpty(tb_HD_To.Text.Trim()) && !string.IsNullOrEmpty(tb_HD_From.Text.Trim()))
         {
-            sql += "AND e.HireDate BETWEEN '"+ tb_HD_To.Text.Trim() + " 00:00:00.000' AND '"+ tb_HD_From.Text.Trim() + " 00:00:00.000' \n";
+            sql += "AND e.HireDate BETWEEN '" + tb_HD_To.Text.Trim() + " 00:00:00.000' AND '" + tb_HD_From.Text.Trim() + " 00:00:00.000' \n";
         }
 
         if (!string.IsNullOrEmpty(tb_DOB_To.Text.Trim()) && !string.IsNullOrEmpty(tb_DOB_From.Text.Trim()))
@@ -231,19 +191,80 @@ public partial class EmployeeReport : System.Web.UI.Page
         if (rb_Single.Checked)
         {
             sql += "AND e.MaritalStatus = 's' -- s = single and m = married  \n";
-        } 
+        }
         #endregion
 
         if (ddl_Shift.SelectedIndex != 0)
         {
-            sql += "AND edh.ShiftID = '"+ ddl_Shift.SelectedValue.Trim() + "' -- shift id 1,2,3 respectively day,evening,night \n";
+            sql += "AND edh.ShiftID = '" + ddl_Shift.SelectedValue.Trim() + "' -- shift id 1,2,3 respectively day,evening,night \n";
         }
 
         if (ddl_Department.SelectedIndex != 0)
         {
-            sql += "AND d.DepartmentID = '"+ ddl_Department.SelectedValue.Trim() + "'";
-        }     
-             
+            sql += "AND d.DepartmentID = '" + ddl_Department.SelectedValue.Trim() + "'";
+        }
+
         return sql;
     }
+
+    public void Bind_Department_DDL()
+    {
+
+
+        //string str = str.
+        string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
+        string query = "SELECT d.Name,d.DepartmentID FROM [HumanResources].[Department] d";
+        DataTable dt = new DataTable();
+        SqlConnection con = new SqlConnection(cn);
+        con.Open();
+        SqlCommand cmd = new SqlCommand(query, con);
+        cmd.CommandType = CommandType.Text;
+        SqlDataAdapter oda = new SqlDataAdapter(cmd);
+        oda.Fill(dt);
+        con.Close();
+        if (dt.Rows.Count > 0)
+        {
+            ddl_Department.DataTextField = "Name";
+            ddl_Department.DataValueField = "DepartmentID";
+            ddl_Department.DataSource = dt.DefaultView;
+            ddl_Department.DataBind();
+        }
+        ddl_Department.Items.Insert(0, new ListItem("ALL", ""));
+    }
+
+    public void Bind_Shift_DDL()
+    {
+        string query = "SELECT ShiftID, \n"
+           + "       Name \n"
+           + "  FROM [AdventureWorks].[HumanResources].[Shift]";
+        string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
+        DataTable dt = new DataTable();
+        SqlConnection con = new SqlConnection(cn);
+        con.Open();
+        SqlCommand cmd = new SqlCommand(query, con);
+        cmd.CommandType = CommandType.Text;
+        SqlDataAdapter oda = new SqlDataAdapter(cmd);
+        oda.Fill(dt);
+        con.Close();
+        if (dt.Rows.Count > 0)
+        {
+            ddl_Shift.DataTextField = "Name";
+            ddl_Shift.DataValueField = "ShiftID";
+            ddl_Shift.DataSource = dt.DefaultView;
+            ddl_Shift.DataBind();
+        }
+        ddl_Shift.Items.Insert(0, new ListItem("ALL", ""));
+    }
+
+    public void GrandTotal(DataTable dt)
+    {
+        DataRow dr = dt.NewRow();
+        //dr["EmployeeID"] = dt.Compute("Count([EmployeeID])", "").ToString(); // count employees
+        dr["First Name"] = "Grand Total";
+        dr["Vacation(hr)"] = dt.Compute("Sum([Vacation(hr)])", "").ToString();
+        dr["Sick Leave(hr)"] = dt.Compute("Sum([Sick Leave(hr)])", "").ToString();
+        // dr["Sick Leave(hr)"] = dt.Compute("Vacation(hr)", "");
+        dt.Rows.Add(dr);
+    }
+    #endregion
 }
