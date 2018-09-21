@@ -20,11 +20,18 @@
 
             }
     </script>--%>
+
+    <style>
+        *{
+            font-family:Consolas;
+            font-size:12px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <table>
+            <table width="100%" border="1" style="border-collapse:collapse">
                 <tr>
                     <td>Department</td>
                     <td>
@@ -257,27 +264,65 @@
                             OnClick="btn_ExcelExport_Click" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        Report Make Using
+                    </td>
+                    <td colspan="3">
+                    <asp:RadioButton 
+                        ID="rb_gv"
+                        GroupName="ReportSelection"
+                        runat="server"
+                        Text="GridView" />
+                        <asp:RadioButton 
+                        ID="rb_Repeater"
+                        GroupName="ReportSelection"
+                        runat="server"
+                        Text="Repeater" />
+                        <asp:RadioButton 
+                        ID="rb_ResponsWrite"
+                        GroupName="ReportSelection"
+                        runat="server"
+                        Text="Response.Write" />
+                        <asp:RadioButton 
+                        GroupName="ReportSelection"
+                        Checked="true"
+                        ID="rb_literal"
+                        runat="server"
+                        Text="Literal" />
+                    </td>
+                </tr>
             </table>
                      <%--<asp:Literal ID="lbl_html" runat="server"></asp:Literal>--%>
             <table id="tb123" runat="server">
-              
-                <tr>
+                                            <tr>
                     <td>
-                  <%--  <asp:Label ID="lbl_html" runat="server"></asp:Label>--%>
-                        <asp:Literal ID="lbl_html" runat="server"></asp:Literal>
-                        </td>
+                    <asp:Label ID="lbl_TableHtml" runat="server"></asp:Label></td>
+                     <%--   <asp:Literal ID="lbl_html" runat="server"></asp:Literal>
+                        </td>--%>
            
                 </tr>
+
        
                 <tr>
                     <td>
                         <asp:GridView 
-                            ID="gv"
+                            ID="gv" 
+                            RowStyle-Wrap="false"
                             runat="server"
                             AutoGenerateColumns="true"
                             OnRowDataBound="gv_RowDataBound"
                             OnDataBound="gv_DataBound"></asp:GridView>
                     </td>
+                </tr>
+            </table>
+            <table width="100%">
+                                <tr>
+                    <td>
+                    <asp:Label ID="lb_Message" runat="server"></asp:Label></td>
+                     <%--   <asp:Literal ID="lbl_html" runat="server"></asp:Literal>
+                        </td>--%>
+           
                 </tr>
             </table>
         </div>

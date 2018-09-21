@@ -16,6 +16,9 @@ using System.Drawing;
 
 public partial class EmployeeReport : System.Web.UI.Page
 {
+    DataTable dt = new DataTable();
+    string StrLiteral = string.Empty;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -48,24 +51,65 @@ public partial class EmployeeReport : System.Web.UI.Page
         //} 
         #endregion Opening This Code Remove Buttom Lines in Excel ( e.g grand total )
 
+    }
+
+    private void HtmlSelectionFilterDraw()
+    {
         if (gv != null)
         {
-            lbl_html.Text = string.Empty;
+            lbl_TableHtml.Text = string.Empty;
             if (cb_grandTotal.Checked)
             {
-                lbl_html.Text += "<table><tr><td style=\"background-color:#0094ff; color:black;\">Grand Total Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_grandTotal.Checked + "</td></tr>";
+                lbl_TableHtml.Text += "<table border='1' width='25%'><tr><td style=\"background-color:#0094ff; color:black;\">Grand Total Checked</td><td colspan='10' style=\"background-color:#0094ff; color:black;\">" + cb_grandTotal.Checked + "</td></tr>";
             }
             if (cb_dob.Checked)
             {
-                lbl_html.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Date Of Birth Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_dob.Checked + "</td></tr>";
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Date Of Birth Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_dob.Checked + "</td></tr>";
             }
             if (cb_li.Checked)
             {
-                lbl_html.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Login ID Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_li.Checked + "</td></tr></table>";
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Login ID Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_li.Checked + "</td></tr>";
 
             }
+            if (cb_hd.Checked)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Hire Date Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_hd.Checked + "</td></tr>";
+            }
+            if (cb_jd.Checked)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Job Description Checked</td><td style=\"background-color:#0094ff; color:black;\">" + cb_jd.Checked + "</td></tr>";
+            }
+            if (cb_nic.Checked)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">NIC Checked</td>" +
+                                 "<td style=\"background-color:#0094ff; color:black;\">" + cb_nic.Checked + "</td></tr>";
+            }
 
-
+            if (ddl_Department.SelectedIndex != 0)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Department: </td>" +
+                                 "<td style=\"background-color:#0094ff; color:black;\">" + ddl_Department.SelectedItem.Text + "</td></tr>";
+            }
+            if (ddl_Shift.SelectedIndex != 0)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Shift: </td>" +
+                                 "<td style=\"background-color:#0094ff; color:black;\">" + ddl_Shift.SelectedItem.Text + "</td></tr>";
+            }
+            if (ddl_Manager.SelectedIndex != 0)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Manager: </td>" +
+                                 "<td style=\"background-color:#0094ff; color:black;\">" + ddl_Manager.SelectedItem.Text + "</td></tr>";
+            }
+            if (cb_shift.Checked)
+            {
+                lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Shift Checked</td>" +
+                                 "<td style=\"background-color:#0094ff; color:black;\">" + cb_shift.Checked + "</td></tr></table>";
+            }
+            //if (ddl_Department.SelectedIndex != 0)
+            //{
+            //    lbl_TableHtml.Text += "<tr><td style=\"background-color:#0094ff; color:black;\">Department: </td>" +
+            //                     "<td style=\"background-color:#0094ff; color:black;\">" + ddl_Department.SelectedItem.Text + "</td></tr></table>";
+            //}
         }
     }
 
@@ -121,22 +165,61 @@ public partial class EmployeeReport : System.Web.UI.Page
 
     protected void btn_submit_Click(object sender, EventArgs e)
     {
+        // wrong way
+        // refresh page to remove old data from display
+        //Page.Response.Redirect(Page.Request.Url.ToString(), true);
+
         string query = GetQuery();
 
-        #region sql connection for datatable
 
-        string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
-        DataTable dt = new DataTable();
-        SqlConnection con = new SqlConnection(cn);
-        con.Open();
-        SqlCommand cmd = new SqlCommand(query, con);
-        cmd.CommandType = CommandType.Text;
-        SqlDataAdapter oda = new SqlDataAdapter(cmd);
-        oda.Fill(dt);
-        con.Close();
+        #region sql connection for datatable
+        try
+        {
+            string cn = System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks"].ConnectionString;
+            SqlConnection con = new SqlConnection(cn);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.CommandType = CommandType.Text;
+            SqlDataAdapter oda = new SqlDataAdapter(cmd);
+            oda.Fill(dt);
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            lb_Message.Text = string.Empty;
+            lb_Message.Text += "<br /><table width='100%'><tr>\n" +
+           "    <td style=\"font-size:35px; font-family:'Times New Roman'; font-weight:bold; text-align:center\">Sorry there is Some Problem</td></tr>\n" +
+           "<tr><td style=\"font-size:35px; font-family:'Times New Roman'; font-weight:bold; text-align:left\">Error: "+ex.Message+"</td></tr>"+
+           "<tr><td>"+ex.StackTrace+"</td></tr></table>";
+            return;
+        }
+        
+
+        if (dt == null || dt.Rows.Count == 0)
+        {
+            lb_Message.Text = string.Empty;
+            lb_Message.Text += "<br /><table width='100%'><tr>\n" +
+            "    <td style=\"font-size:35px; font-family:'Times New Roman'; font-weight:bold; text-align:center\">Sorry</td></tr>\n" +
+            "<tr><td style=\"font-size:35px; font-family:'Times New Roman'; font-weight:bold; text-align:center\">No Data Found</td></tr></table>";
+            return;
+
+        }
 
         #endregion sql connection for datatable
-        if (cb_grandTotal.Checked)
+
+
+        HtmlSelectionFilterDraw();
+
+        if (rb_literal.Checked)
+        {
+            TableHtmlLiteralDraw();
+
+            // Removing OLD data from Display
+            gv.DataSource = null;
+            gv.DataBind();
+        }
+
+        if (cb_grandTotal.Checked && rb_gv.Checked)
         {
             GrandTotal(dt);
         }
@@ -146,9 +229,12 @@ public partial class EmployeeReport : System.Web.UI.Page
         //dt.Rows.InsertAt(dr, 0);
 
 
-        gv.DataSource = dt;
-        gv.DataBind();
+        if (rb_gv.Checked)
+        {
+            gv.DataSource = dt;
+            gv.DataBind();
 
+        }
     }
 
     protected void ddl_Department_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,6 +274,32 @@ public partial class EmployeeReport : System.Web.UI.Page
     #endregion Events
 
     #region Methods
+    public void TableHtmlLiteralDraw()
+    {
+        StrLiteral = string.Empty;
+        StrLiteral += "<table width='100%' border='1' style='border-collapse:collapse'>\n";
+        StrLiteral += "    <tr>\n";
+        for (int i = 0; i < dt.Columns.Count; i++)
+        {
+            StrLiteral += " <th style=\"color:black; background-color:chartreuse\">" + dt.Columns[i].ColumnName + "</th>\n";
+        }
+        StrLiteral += " </tr>\n";
+
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            StrLiteral += "    <tr>\n";
+            for (int j = 0; j < dt.Rows[i].ItemArray.Length; j++)
+            {
+                StrLiteral += "        <td style=\"text-align:right;\">" + dt.Rows[i].ItemArray[j] + "</td>\n";
+            }
+            StrLiteral += "    </tr>\n";
+        }
+
+        StrLiteral += "</table>";
+
+        lbl_TableHtml.Text += StrLiteral;
+    }
+
     public override void VerifyRenderingInServerForm(Control control)
     {
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
@@ -206,7 +318,7 @@ public partial class EmployeeReport : System.Web.UI.Page
 
         if (cb_hd.Checked)
         {
-            sql += "	   e.HireDate [Hire Date], -- optional \n";
+            sql += "	   FORMAT(e.HireDate,'dd/MM/yyyy') [Hire Date], -- optional \n";
         }
 
         if (cb_slh.Checked)
@@ -221,7 +333,7 @@ public partial class EmployeeReport : System.Web.UI.Page
 
         if (cb_dob.Checked)
         {
-            sql += "	   e.BirthDate DOB, -- optional \n";
+            sql += "	   FORMAT(e.BirthDate,'dd/MM/yyyy') DOB, -- optional \n";
         }
 
         if (cb_vh.Checked)
@@ -270,9 +382,10 @@ public partial class EmployeeReport : System.Web.UI.Page
             sql += "AND e.HireDate BETWEEN '" + tb_HD_To.Text.Trim() + " 00:00:00.000' AND '" + tb_HD_From.Text.Trim() + " 00:00:00.000' \n";
         }
 
+        //CONVERT(VARCHAR,@your_date_Value,103)
         if (!string.IsNullOrEmpty(tb_DOB_To.Text.Trim()) && !string.IsNullOrEmpty(tb_DOB_From.Text.Trim()))
         {
-            sql += "AND e.BirthDate BETWEEN '" + tb_DOB_To.Text.Trim() + " 00:00:00.000' AND '" + tb_DOB_From.Text.Trim() + " 00:00:00.000' \n";
+            sql += "AND e.BirthDate BETWEEN CONVERT(DATE,'" + tb_DOB_To.Text.Trim() + "',103) AND CONVERT(DATE,'" + tb_DOB_From.Text.Trim() + "',103) \n";
         }
 
         #region Gender
