@@ -26,6 +26,14 @@
             font-family:Consolas;
             font-size:12px;
         }
+
+        .gridview th {
+    padding: 2px 10px 2px 10px;
+}
+
+        .gridview td {
+    padding: 2px 10px 2px 10px;
+}
     </style>
 </head>
 <body>
@@ -276,6 +284,7 @@
                         Text="GridView" />
                         <asp:RadioButton 
                         ID="rb_Repeater"
+                        Checked="true"
                         GroupName="ReportSelection"
                         runat="server"
                         Text="Repeater" />
@@ -286,10 +295,21 @@
                         Text="Response.Write" />
                         <asp:RadioButton 
                         GroupName="ReportSelection"
-                        Checked="true"
                         ID="rb_literal"
                         runat="server"
                         Text="Literal" />
+                    </td>
+                    <td>
+                            <asp:CheckBox
+                            ID="cb_ShiftwiseTotal"
+                            Text="ShiftWise Total Added"
+                            TextAlign="Left"
+                            runat="server"></asp:CheckBox>&nbsp;&nbsp;&nbsp;
+                            <asp:CheckBox
+                            ID="cb_DeptWiseTotal"
+                            Text="DeptWise Total Added"
+                            TextAlign="Left"
+                            runat="server"></asp:CheckBox>&nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
             </table>
@@ -306,23 +326,52 @@
        
                 <tr>
                     <td>
-                        <asp:GridView 
+                        <asp:GridView
                             ID="gv" 
+                            CssClass="gridview"
                             RowStyle-Wrap="false"
                             runat="server"
                             AutoGenerateColumns="true"
                             OnRowDataBound="gv_RowDataBound"
                             OnDataBound="gv_DataBound"></asp:GridView>
+                        <asp:Repeater 
+                            ID="rp"
+                            runat="server">
+                            <HeaderTemplate>
+                                <table style="border: 1px solid #0000FF; width: 500px" cellpadding="0">
+
+                <%--                    <tr style="background-color: #FF6600; color: #000000; font-size: large; font-weight: bold;">
+
+                                        <th>
+
+                                            <b>Comments</b>
+
+                                        </th>
+
+                                    </tr>--%>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
                     </td>
+   
+        
                 </tr>
             </table>
             <table width="100%">
                                 <tr>
                     <td>
+                        
                     <asp:Label ID="lb_Message" runat="server"></asp:Label></td>
                      <%--   <asp:Literal ID="lbl_html" runat="server"></asp:Literal>
                         </td>--%>
-           
+           <td>
+             
+           </td>
                 </tr>
             </table>
         </div>

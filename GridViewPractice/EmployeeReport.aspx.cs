@@ -16,6 +16,10 @@ using System.Drawing;
 
 public partial class EmployeeReport : System.Web.UI.Page
 {
+    bool ColumnSickLeavePresent = false;
+    bool ColumnVacationPresent = false;
+    int IndexColumnSickLeavePresent = 0;
+    int IndexColumnVacationPresent = 0;
     DataTable dt = new DataTable();
     string StrLiteral = string.Empty;
 
@@ -119,6 +123,24 @@ public partial class EmployeeReport : System.Web.UI.Page
         {
             for (int i = 0; i < e.Row.Cells.Count; i++)
             {
+                if (e.Row.Cells[i].Text.Contains("Sick"))
+                {
+                    IndexColumnSickLeavePresent = i;
+                    ColumnSickLeavePresent = true;
+                }
+
+                if (e.Row.Cells[i].Text.Contains("Vacation"))
+                {
+                    IndexColumnVacationPresent = i;
+                    ColumnVacationPresent = true;
+                }
+            }
+        }
+
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+            for (int i = 0; i < e.Row.Cells.Count; i++)
+            {
                 e.Row.Cells[i].BackColor = Color.FromName("#1197F4");
                 e.Row.Cells[i].ForeColor = Color.Black;
             }
@@ -126,11 +148,27 @@ public partial class EmployeeReport : System.Web.UI.Page
 
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
+            if (ColumnSickLeavePresent == true)
+            {
+                e.Row.Cells[IndexColumnSickLeavePresent].HorizontalAlign = HorizontalAlign.Right;
+            }
+            if (ColumnVacationPresent == true)
+            {
+                e.Row.Cells[IndexColumnVacationPresent].HorizontalAlign = HorizontalAlign.Right;
+            }
             if (e.Row.Cells[1].Text.Contains("Grand Total"))
             {
                 for (int i = 0; i < e.Row.Cells.Count; i++)
                 {
                     e.Row.Cells[i].BackColor = Color.FromName("#1197F4");
+                    e.Row.Cells[i].ForeColor = Color.Black;
+                }
+            }
+            if (e.Row.Cells[1].Text.Contains("Sub Total"))
+            {
+                for (int i = 0; i < e.Row.Cells.Count; i++)
+                {
+                    e.Row.Cells[i].BackColor = Color.Orange;
                     e.Row.Cells[i].ForeColor = Color.Black;
                 }
             }
@@ -207,8 +245,59 @@ public partial class EmployeeReport : System.Web.UI.Page
 
         #endregion sql connection for datatable
 
+        if (cb_shift.Checked && cb_ShiftwiseTotal.Checked)
+        {
+            DataRow[] foundRowsDay = dt.Select("[Shift Name] = 'Day'");
+            DataTable dtDay = new DataTable();
+            dtDay = foundRowsDay.CopyToDataTable();
+
+            DataRow dr = dtDay.NewRow();
+            dr["First Name"] = "Sub Total";
+            dr["Vacation(hr)"] = dtDay.Compute("Sum([Vacation(hr)])", "").ToString();
+            dr["Sick Leave(hr)"] = dtDay.Compute("Sum([Sick Leave(hr)])", "").ToString();
+            dtDay.Rows.Add(dr);
+
+            DataRow[] foundRowsNight = dt.Select("[Shift Name] = 'Night'");
+            DataTable dtNight = new DataTable();
+            dtNight = foundRowsNight.CopyToDataTable();
+
+            DataRow dr2 = dtNight.NewRow();
+            dr2["First Name"] = "Sub Total";
+            dr2["Vacation(hr)"] = dtNight.Compute("Sum([Vacation(hr)])", "").ToString();
+            dr2["Sick Leave(hr)"] = dtNight.Compute("Sum([Sick Leave(hr)])", "").ToString();
+            dtNight.Rows.Add(dr2);
+
+            DataRow[] foundRowsEvening = dt.Select("[Shift Name] = 'Evening'");
+            DataTable dtEvening = new DataTable();
+            dtEvening = foundRowsEvening.CopyToDataTable();
+
+            DataRow dr3 = dtEvening.NewRow();
+            dr3["First Name"] = "Sub Total";
+            dr3["Vacation(hr)"] = dtEvening.Compute("Sum([Vacation(hr)])", "").ToString();
+            dr3["Sick Leave(hr)"] = dtEvening.Compute("Sum([Sick Leave(hr)])", "").ToString();
+            dtEvening.Rows.Add(dr3);
+
+            dt = new DataTable();
+
+            dt = dtDay.Copy();
+            dt.Merge(dtEvening);
+            dt.Merge(dtNight);
+
+            // todo
+            // Grand total work must do here because if not calculated here then grand total calculation mixed with sub toal 
+            //  and result of grand total is too much high because of addition of sub total values.
+        }
 
         HtmlSelectionFilterDraw();
+
+        if (rb_ResponsWrite.Checked)
+        {
+            TableHtmlLiteralDraw();
+
+            // Removing OLD data from Display
+            gv.DataSource = null;
+            gv.DataBind();
+        }
 
         if (rb_literal.Checked)
         {
@@ -228,6 +317,12 @@ public partial class EmployeeReport : System.Web.UI.Page
         //DataRow dr = dt.NewRow();
         //dt.Rows.InsertAt(dr, 0);
 
+
+        if (rb_Repeater.Checked)
+        {
+            rp.DataSource = dt;
+            rp.DataBind();
+        }
 
         if (rb_gv.Checked)
         {
@@ -297,7 +392,14 @@ public partial class EmployeeReport : System.Web.UI.Page
 
         StrLiteral += "</table>";
 
-        lbl_TableHtml.Text += StrLiteral;
+        if (rb_literal.Checked)
+        {
+            lbl_TableHtml.Text += StrLiteral; 
+        }
+        else if (rb_ResponsWrite.Checked)
+        {
+            Response.Write(StrLiteral);
+        }
     }
 
     public override void VerifyRenderingInServerForm(Control control)
