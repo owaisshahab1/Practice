@@ -13,6 +13,11 @@ using System.Drawing;
 // author owais shahab
 // created on 09-09-2018
 // main objective : "Understand about bussiness report development"
+// Todo list
+// 1.sub total by shift
+// 2.sub total by dept name
+// 3.
+
 
 public partial class EmployeeReport : System.Web.UI.Page
 {

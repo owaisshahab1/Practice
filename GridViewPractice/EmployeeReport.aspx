@@ -1,27 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EmployeeReport.aspx.cs" Inherits="EmployeeReport" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageWithMenus.master" AutoEventWireup="true" CodeFile="EmployeeReport.aspx.cs" Inherits="EmployeeReport" %>
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>  
-<!DOCTYPE html>
+ <%@ Register TagPrefix="Ajax1" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
         <script src="../../Scripts/jquery-1.3.2.min.js" language="javascript" type="text/javascript"/>
 <script src="../../Scripts/jquery-ui-1.7.1.custom.min.js" type="text/javascript"/>
     <script src="Scripts/jquery-1.3.2.min.js"></script>
-    <%@ Register TagPrefix="Ajax1" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit" %>
-<%--    <script type="text/javascript" language="javascript">
-        
-            if (document.getElementById("<%=txt_Date.ClientID%>").value == "") {
-
-                alert("Please select Date");
-
-                return false;
-
-            }
-    </script>--%>
-
-    <style>
+   
+        <style>
         *{
             font-family:Consolas;
             font-size:12px;
@@ -35,10 +21,9 @@
     padding: 2px 10px 2px 10px;
 }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+            <div>
             <table width="100%" border="1" style="border-collapse:collapse">
                 <tr>
                     <td>Department</td>
@@ -375,6 +360,7 @@
                 </tr>
             </table>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+
+
+
